@@ -1,40 +1,39 @@
 # User Guide
 
-## Opening the Workbench
+## Opening a Console
 
-The module provides five access paths:
+Both consoles are available from Module Settings, Token Controls, their macros, and the module API.
+The Fear Console also appears in supported WFRP4e actor-sheet headers. Every Foundry UI launcher has
+an enabled-by-default client setting; changing one requires a reload.
 
-- Module Settings for general GM use.
-- Token Controls for quick scene access.
-- Actor-sheet header controls for a source-specific suggestion.
-- The `Open Enhanced Fear & Terror` macro in `Enhanced Fear & Terror Macros`.
-- The module API for script macros and other modules.
+## Fear Console
 
-The three Foundry UI launchers each have an enabled-by-default checkbox in the module's client
-settings. Changing one requires a reload. The shipped macro remains available even when all three UI
-launchers are disabled.
-
-## Prompting Fear or Terror
-
-1. Open the workbench.
+1. Open the console.
 2. Choose `Fear` or `Terror`.
 3. Set the rating and source name.
-4. Review the current targeted recipients.
-5. Use the primary `Post Card` action, or choose `Post Link` or `Apply`.
+4. Review the targeted recipients.
+5. Choose `Post Card`, `Post Link`, or `Apply`.
 
-`Post Card` creates a WFRP4e psychology chat card for the target's owner to answer. `Post Link`
-creates a compact chat message with a WFRP4e inline Fear or Terror link. `Apply` immediately
-delegates the selected effect to WFRP4e for the targeted recipients, which is most useful when a GM
-is applying the effect to NPCs.
+Only targeted token actors receive direct application. Controlled tokens and the current user's
+assigned character are not added implicitly. WFRP4e tracks Fear sources by name, so use a shared
+source such as `Ghouls` when a group should count as one source.
 
-## Recipient Selection
+## XP Curve Console
 
-Only targeted token actors are recipients for direct application. Controlled tokens and the current
-user's assigned character are never added implicitly.
+1. Target the character tokens that should seed the award, or leave all tokens untargeted to use the
+   configured Party, Company, or World default.
+2. Review or adjust the recipients. Unassigned, player-owned actors display a `Companion rate`
+   label.
+3. Set the maximum award and the XP gap where the curve reaches that cap.
+4. Expand `Advanced curve and scale` when you need to change the curve shape, high-XP weakening, or
+   companion rate.
+5. Review the live graph and each actor's gap, award, and new total.
+6. Edit the experience-log reason, then use `Award XP`.
 
-## Source Names
+The actor with the highest selected total XP is the comparison point and receives no catch-up XP.
+The scale pivot is the highest-XP level where the curve still runs at full strength. Above it, the
+scale exponent weakens awards; set that exponent to zero to disable weakening.
 
-WFRP4e tracks Fear sources by name. Use a shared source such as `Ghouls` when a group should count
-as the same source. Use a unique source name when only one creature, ability, or hazard should
-matter. Opening from an actor sheet prefills the source, type, and rating from that actor. Other
-launch paths use the first controlled token actor as the editable default when one exists.
+The reason supports `%session%` and `%date%`. When GM Toolkit compatibility is enabled and that
+module is active, Drowsy’s Toolkit reads its session reference, default XP reason, and default
+Party/Company group. Drowsy’s Toolkit does not overwrite GM Toolkit data.

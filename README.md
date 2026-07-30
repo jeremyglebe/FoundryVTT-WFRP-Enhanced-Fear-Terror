@@ -1,7 +1,6 @@
-# WFRP4e Enhanced Fear & Terror
+# WFRP4e | Drowsy’s Toolkit
 
-Foundry VTT module for making WFRP4e Fear and Terror easier for GMs to prompt, apply, and manage at
-the table.
+Small, focused Foundry VTT consoles for administering WFRP4e games.
 
 ## Installation
 
@@ -11,33 +10,33 @@ Use this manifest URL in Foundry's module installer:
 https://github.com/jeremyglebe/FoundryVTT-WFRP-Enhanced-Fear-Terror/releases/latest/download/module.json
 ```
 
-## Features
+The installation ID remains unchanged so existing Enhanced Fear & Terror installations update in
+place under the new toolkit name.
 
-- Opens a GM Fear & Terror workbench from independently configurable Module Settings, Token
-  Controls, and actor-sheet launchers.
-- Prefills source, type, and rating from an open actor sheet or the first controlled token.
-- Posts WFRP4e-style Fear/Terror prompt cards.
-- Posts compact inline Fear/Terror links.
-- Applies Fear/Terror only to targeted actors through WFRP4e automation.
-- Includes an importable workbench launcher in the `Enhanced Fear & Terror Macros` compendium.
-- Exposes a macro-friendly API.
+## Included Consoles
 
-## Macro Access
+- `Fear Console` prompts or applies WFRP4e Fear and Terror from Module Settings, Token Controls,
+  supported actor sheets, a macro, or the module API.
+- `XP Curve Console` previews and awards capped catch-up XP to targeted actors or a configurable
+  Party, Company, or World fallback group.
+- Each console has independently configurable Foundry launchers and a macro in
+  `Drowsy’s Toolkit Macros`.
 
-Open `Compendium Packs`, find `Enhanced Fear & Terror Macros`, and use or import
-`Open Enhanced Fear & Terror`.
+The XP console can reuse an active WFRP4e GM Toolkit's session reference, default XP reason, and
+Party/Company selection. It does not modify GM Toolkit settings and can operate alongside that
+module.
 
-For a custom script macro, the equivalent API call is:
+## Macro and API Access
+
+Import `Open Fear Console` or `Open XP Curve Console` from the macro compendium. Equivalent custom
+script macros can use:
 
 ```js
-await game.modules.get("wfrp4e-enhanced-fear-terror")?.api.openWorkbench();
+const api = game.modules.get("wfrp4e-enhanced-fear-terror")?.api;
+
+await api.openFearConsole();
+await api.openXpCurveConsole();
 ```
-
-## Source Names
-
-Fear source matching is name-based in WFRP4e. Use a shared source such as `Ghouls` when a whole pack
-should count as the same source. Use a distinct source name when only one creature, hazard, or
-ability should count.
 
 ## Compatibility
 
