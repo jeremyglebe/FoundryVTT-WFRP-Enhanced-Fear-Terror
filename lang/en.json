@@ -9,6 +9,20 @@
     },
     "SceneControls": {
       "OpenWorkbench": "Open the Enhanced Fear & Terror workbench."
+    },
+    "Settings": {
+      "ActorSheetLauncher": {
+        "Hint": "Show a Fear & Terror launcher in supported WFRP4e actor-sheet headers. Requires a reload.",
+        "Name": "Enable actor-sheet launcher"
+      },
+      "ModuleSettingsLauncher": {
+        "Hint": "Show the Open Workbench button in this module's settings. Requires a reload.",
+        "Name": "Enable Module Settings launcher"
+      },
+      "TokenControlsLauncher": {
+        "Hint": "Show a Fear & Terror launcher in the Token Controls toolbar. Requires a reload.",
+        "Name": "Enable Token Controls launcher"
+      }
     }
   }
 }
