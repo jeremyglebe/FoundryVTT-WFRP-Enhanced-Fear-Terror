@@ -1,6 +1,14 @@
 {
-  "WFRP4E_EFT.Menu.Workbench.Name": "Enhanced Fear & Terror",
-  "WFRP4E_EFT.Menu.Workbench.Label": "Open Workbench",
-  "WFRP4E_EFT.Menu.Workbench.Hint": "Prompt or apply WFRP4e Fear and Terror manually.",
-  "wfrp4e-enhanced-fear-terror.scene-controls.open-workbench": "Open the Enhanced Fear & Terror workbench."
+  "WFRP4E_ENHANCED_FEAR_TERROR": {
+    "Menu": {
+      "Workbench": {
+        "Hint": "Prompt or apply WFRP4e Fear and Terror manually.",
+        "Label": "Open Workbench",
+        "Name": "Enhanced Fear & Terror"
+      }
+    },
+    "SceneControls": {
+      "OpenWorkbench": "Open the Enhanced Fear & Terror workbench."
+    }
+  }
 }

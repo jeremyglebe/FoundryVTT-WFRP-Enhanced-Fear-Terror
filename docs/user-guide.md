@@ -1,33 +1,33 @@
 # User Guide
 
-## Opening The Workbench
+## Opening the Workbench
 
-The module provides three access paths:
+The module provides four access paths:
 
-- Token Controls button for general GM use.
-- Actor sheet header button for source-specific Fear/Terror prompts.
-- Script macro API for GMs who prefer macro bar buttons.
+- Module Settings for general GM use.
+- Token Controls for quick scene access.
+- Actor-sheet header controls for a source-specific suggestion.
+- The module API for script macros and other modules.
 
-## Prompting Fear Or Terror
+## Prompting Fear or Terror
 
 1. Open the workbench.
 2. Choose `Fear` or `Terror`.
-3. Set the rating.
-4. Set the source name.
+3. Set the rating and source name.
+4. Review the current targeted or controlled recipients.
 5. Use `Post Card`, `Post Link`, or `Apply`.
 
-`Post Card` creates a WFRP4e-style psychology chat card with an Apply button.
+`Post Card` creates a WFRP4e psychology chat card. `Post Link` creates a compact chat message with a
+WFRP4e inline Fear or Terror link. `Apply` immediately delegates the selected effect to WFRP4e for
+the current recipients.
 
-`Post Link` creates a compact chat card with WFRP4e inline Fear/Terror links.
+## Recipient Selection
 
-`Apply` immediately applies the selected effect to targeted or controlled actors.
+Targeted token actors are included first, followed by controlled token actors without duplicates.
+When neither collection has an actor, the current user's assigned character is used as a fallback.
 
-## Fear Source Names
+## Source Names
 
-WFRP4e stores Fear sources by name. This means a shared source name can represent a group. For example, using `Ghouls` means any target named `Ghouls` can count as the source for Fear automation.
-
-Use a unique source name when only one creature, ability, or hazard should matter.
-
-## Terror
-
-Terror is a one-time Cool test that can apply Broken. It also creates an ongoing Fear extended test at the same rating. The ongoing state on the actor sheet is Fear, not Terror.
+WFRP4e tracks Fear sources by name. Use a shared source such as `Ghouls` when a group should count
+as the same source. Use a unique source name when only one creature, ability, or hazard should
+matter.
