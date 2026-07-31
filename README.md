@@ -7,7 +7,7 @@ Small, focused Foundry VTT consoles for administering WFRP4e games.
 Use this manifest URL in Foundry's module installer:
 
 ```text
-https://github.com/jeremyglebe/FoundryVTT-WFRP-Enhanced-Fear-Terror/releases/latest/download/module.json
+https://github.com/jeremyglebe/Foundry.Warhammer-Fantasy.Drowsy-Toolkit/releases/latest/download/module.json
 ```
 
 The installation ID remains unchanged so existing Enhanced Fear & Terror installations update in
