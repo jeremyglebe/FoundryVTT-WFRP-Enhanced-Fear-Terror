@@ -5035,7 +5035,7 @@ var eu = {
 	class: "tw:min-w-0",
 	role: "tabpanel",
 	"aria-labelledby": "xp-console-curves-tab"
-}, Qu = { class: "tw:flex tw:min-w-0 tw:flex-col tw:gap-3" }, $u = { class: "tw:z-10 tw:flex tw:min-w-0 tw:shrink-0 tw:flex-col tw:items-stretch tw:gap-3 tw:border-t tw:border-base-300 tw:bg-base-100 tw:p-4 tw:min-[32rem]:flex-row tw:min-[32rem]:items-center tw:min-[32rem]:justify-between" }, ed = ["disabled"], td = {
+}, Qu = { class: "tw:flex tw:min-w-0 tw:flex-col tw:gap-3" }, $u = { class: "tw:flex tw:min-w-0 tw:shrink-0 tw:flex-col tw:items-stretch tw:gap-3 tw:border-t tw:border-base-300 tw:bg-base-100 tw:p-4 tw:min-[32rem]:flex-row tw:min-[32rem]:items-center tw:min-[32rem]:justify-between" }, ed = ["disabled"], td = {
 	key: 0,
 	class: "dui-loading dui-loading-spinner dui-loading-sm",
 	"aria-hidden": "true"
