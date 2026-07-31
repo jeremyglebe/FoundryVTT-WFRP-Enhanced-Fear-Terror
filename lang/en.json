@@ -17,6 +17,16 @@
       "OpenXpCurveConsole": "Open Drowsy’s Toolkit XP Curve Console."
     },
     "Settings": {
+      "Sections": {
+        "Fear": {
+          "Description": "Choose where the Fear Console can be opened.",
+          "Title": "Fear Console"
+        },
+        "XpCurve": {
+          "Description": "Choose XP Curve Console entry points, recipient defaults, and the world-level catch-up and decay curves.",
+          "Title": "XP Curve Console"
+        }
+      },
       "ActorSheetLauncher": {
         "Hint": "Show a Fear Console launcher in supported WFRP4e actor-sheet headers. Requires a reload.",
         "Name": "Fear Console: actor-sheet launcher"
@@ -36,6 +46,47 @@
       "XpCurveTokenControlsLauncher": {
         "Hint": "Show an XP Curve Console launcher in the Token Controls toolbar. Requires a reload.",
         "Name": "XP Curve Console: Token Controls launcher"
+      },
+      "XpCurve": {
+        "CompanionMultiplier": {
+          "Hint": "The additional multiplier for unassigned, player-owned character actors. 0.5 gives companions half the calculated XP.",
+          "Name": "Companion award multiplier"
+        },
+        "CurveExponent": {
+          "Hint": "Shapes the initial catch-up curve. Values below 1 help small gaps sooner; values above 1 reserve more XP for large gaps.",
+          "Name": "Catch-up curve exponent"
+        },
+        "DefaultReason": {
+          "Hint": "The default WFRP4e experience-log reason. Supports the compatible %session% and %date% tokens.",
+          "Name": "Default award reason"
+        },
+        "DefaultSelection": {
+          "Company": "Company (party plus player-owned companions)",
+          "Hint": "Recipients selected when the console opens without targeted tokens. Explicit targets always replace this default.",
+          "Name": "Default recipients",
+          "Party": "Party (assigned player characters)",
+          "World": "World (every character actor)"
+        },
+        "GapForMaximumAward": {
+          "Hint": "At this gap below the XP leader, the initial catch-up value equals the hard limit before recipient decay.",
+          "Name": "Catch-up reference gap"
+        },
+        "MaximumAward": {
+          "Hint": "The final hard limit in XP. It is applied after recipient decay and the companion multiplier.",
+          "Name": "Maximum final award"
+        },
+        "ScaleExponent": {
+          "Hint": "Controls how quickly catch-up strength falls above the recipient decay start. Zero disables decay.",
+          "Name": "Recipient decay exponent"
+        },
+        "ScalePivot": {
+          "Hint": "Recipients at or below this total XP keep full catch-up strength. This is evaluated from each recipient, not the XP leader.",
+          "Name": "Recipient decay start"
+        },
+        "UseGmToolkitDefaults": {
+          "Hint": "When WFRP4e GM Toolkit is active, prefer its session, reason, and recipient-group defaults. Disable this to use Drowsy's Toolkit defaults.",
+          "Name": "Prefer compatible GM Toolkit defaults"
+        }
       }
     }
   }
