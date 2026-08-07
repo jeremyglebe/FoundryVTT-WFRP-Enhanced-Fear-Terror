@@ -1,15 +1,15 @@
 {
   "WFRP4E_DROWSYS_TOOLKIT": {
     "Menu": {
-      "FearConsole": {
-        "Hint": "Prompt or apply WFRP4e Fear and Terror manually.",
-        "Label": "Open Fear Console",
-        "Name": "Fear Console"
+      "FearConsoleConfigurator": {
+        "Hint": "Choose where the Fear Console can be opened.",
+        "Label": "Configure Fear Console",
+        "Name": "Fear Console Configurator"
       },
-      "XpCurveConsole": {
-        "Hint": "Review and award scaled catch-up XP to a group of character actors.",
-        "Label": "Open XP Curve Console",
-        "Name": "XP Curve Console"
+      "XpCurveConfigurator": {
+        "Hint": "Set XP recipient defaults and configure the catch-up and decay curves.",
+        "Label": "Configure XP Curve Console",
+        "Name": "XP Curve Configurator"
       }
     },
     "SceneControls": {
@@ -17,31 +17,13 @@
       "OpenXpCurveConsole": "Open Drowsy’s Toolkit XP Curve Console."
     },
     "Settings": {
-      "Sections": {
-        "Fear": {
-          "Description": "Choose where the Fear Console can be opened.",
-          "Title": "Fear Console"
-        },
-        "XpCurve": {
-          "Description": "Choose XP Curve Console entry points, recipient defaults, and the world-level catch-up and decay curves.",
-          "Title": "XP Curve Console"
-        }
-      },
       "ActorSheetLauncher": {
         "Hint": "Show a Fear Console launcher in supported WFRP4e actor-sheet headers. Requires a reload.",
         "Name": "Fear Console: actor-sheet launcher"
       },
-      "ModuleSettingsLauncher": {
-        "Hint": "Show the Fear Console button in this module's settings. Requires a reload.",
-        "Name": "Fear Console: Module Settings launcher"
-      },
       "TokenControlsLauncher": {
         "Hint": "Show a Fear Console launcher in the Token Controls toolbar. Requires a reload.",
         "Name": "Fear Console: Token Controls launcher"
-      },
-      "XpCurveModuleSettingsLauncher": {
-        "Hint": "Show the XP Curve Console button in this module's settings. Requires a reload.",
-        "Name": "XP Curve Console: Module Settings launcher"
       },
       "XpCurveTokenControlsLauncher": {
         "Hint": "Show an XP Curve Console launcher in the Token Controls toolbar. Requires a reload.",

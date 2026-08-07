@@ -15,12 +15,12 @@ place under the new toolkit name.
 
 ## Included Consoles
 
-- `Fear Console` prompts or applies WFRP4e Fear and Terror from Module Settings, Token Controls,
-  supported actor sheets, a macro, or the module API.
+- `Fear Console` prompts or applies WFRP4e Fear and Terror from Token Controls, supported actor
+  sheets, a macro, or the module API.
 - `XP Curve Console` previews and awards capped catch-up XP to targeted actors or a configurable
   Party, Company, or World fallback group.
-- Each console has independently configurable Foundry launchers and a macro in
-  `Drowsy’s Toolkit Macros`.
+- Each console has a separate configurator available from Module Settings and its in-console cog,
+  independently configurable Foundry launchers, and a macro in `Drowsy’s Toolkit Macros`.
 
 The XP console can reuse an active WFRP4e GM Toolkit's session reference, default XP reason, and
 Party/Company selection. It does not modify GM Toolkit settings and can operate alongside that

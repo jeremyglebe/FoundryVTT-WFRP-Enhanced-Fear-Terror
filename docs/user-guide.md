@@ -2,9 +2,10 @@
 
 ## Opening a Console
 
-Both consoles are available from Module Settings, Token Controls, their macros, and the module API.
-The Fear Console also appears in supported WFRP4e actor-sheet headers. Every Foundry UI launcher has
-an enabled-by-default client setting; changing one requires a reload.
+Both consoles are available from Token Controls, their macros, and the module API. The Fear Console
+also appears in supported WFRP4e actor-sheet headers. Open a console's configurator from its cog
+button or from Foundry's Module Settings. Every optional Foundry UI launcher is enabled by default;
+changing one requires a reload.
 
 ## Fear Console
 
@@ -20,18 +21,18 @@ source such as `Ghouls` when a group should count as one source.
 
 ## XP Curve Console
 
-1. Target the character tokens that should seed the award, or leave all tokens untargeted to use the
-   configured Party, Company, or World default.
-2. Review or adjust the recipients. Unassigned, player-owned actors display a `Companion rate`
-   label.
-3. Open `Curves & defaults` to configure the initial catch-up curve and recipient decay curve. Edit
-   their number fields or drag their diamond and round graph handles; both controls stay
-   synchronized.
-4. Review the numbered recipient markers on both graphs and each actor's leader gap, initial
-   catch-up, decay multiplier, final award, and new total.
-5. Choose the no-target recipient default and GM Toolkit compatibility behavior, then use
-   `Save defaults` if those choices should persist without awarding XP.
-6. Return to `Recipients & award`, edit the experience-log reason, then use `Award XP`.
+1. Open the XP Curve Configurator from Module Settings or the console cog when you need to change
+   launcher preferences, the no-target recipient default, GM Toolkit compatibility, or either XP
+   curve.
+2. Edit the curve number fields or drag their diamond and round graph handles; both controls stay
+   synchronized. Numbered recipient markers preview the current actors on both graphs.
+3. Use `Save configuration`. This persists the settings without awarding XP.
+4. Target the character tokens that should seed an award, or leave all tokens untargeted to use the
+   configured Party, Company, or World default, then open the XP Curve Console.
+5. Review or adjust the recipients. Unassigned, player-owned actors display a `Companion rate`
+   label. Review each actor's leader gap, initial catch-up, decay multiplier, final award, and new
+   total.
+6. Edit the experience-log reason for this batch, then use `Award XP`.
 
 The actor with the highest selected total XP is the comparison point and receives no catch-up XP.
 For every other recipient, the catch-up curve first converts the gap below that leader into an
@@ -44,6 +45,5 @@ The reason supports `%session%` and `%date%`. When GM Toolkit compatibility is e
 module is active, Drowsy’s Toolkit reads its session reference, default XP reason, and default
 Party/Company group. Drowsy’s Toolkit does not overwrite GM Toolkit data.
 
-The same persistent defaults are available in Foundry's Module Settings. Drowsy’s Toolkit groups
-them beneath `Fear Console` and `XP Curve Console` headings so launcher choices, recipient defaults,
-curve inputs, and the hard limit are easier to locate.
+Foundry's Module Settings shows one button for each dedicated configurator instead of exposing the
+underlying setting list. The same configurators are available from the cogs in their consoles.

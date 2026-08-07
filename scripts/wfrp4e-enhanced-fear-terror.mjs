@@ -47,48 +47,48 @@ function be(e) {
 		}
 	}), t;
 }
-function O(e) {
+function xe(e) {
 	let t = "";
 	if (x(e)) t = e;
 	else if (g(e)) for (let n = 0; n < e.length; n++) {
-		let r = O(e[n]);
+		let r = xe(e[n]);
 		r && (t += r + " ");
 	}
 	else if (C(e)) for (let n in e) e[n] && (t += n + " ");
 	return t.trim();
 }
-var xe = "itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly", Se = /* @__PURE__ */ a(xe);
-xe + "";
-function Ce(e) {
+var Se = "itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly", Ce = /* @__PURE__ */ a(Se);
+Se + "";
+function we(e) {
 	return !!e || e === "";
 }
-function we(e, t) {
+function Te(e, t) {
 	if (e.length !== t.length) return !1;
 	let n = !0;
-	for (let r = 0; n && r < e.length; r++) n = Te(e[r], t[r]);
+	for (let r = 0; n && r < e.length; r++) n = Ee(e[r], t[r]);
 	return n;
 }
-function Te(e, t) {
+function Ee(e, t) {
 	if (e === t) return !0;
 	let n = y(e), r = y(t);
 	if (n || r) return n && r ? e.getTime() === t.getTime() : !1;
 	if (n = S(e), r = S(t), n || r) return e === t;
-	if (n = g(e), r = g(t), n || r) return n && r ? we(e, t) : !1;
+	if (n = g(e), r = g(t), n || r) return n && r ? Te(e, t) : !1;
 	if (n = C(e), r = C(t), n || r) {
 		if (!n || !r || Object.keys(e).length !== Object.keys(t).length) return !1;
 		for (let n in e) {
 			let r = e.hasOwnProperty(n), i = t.hasOwnProperty(n);
-			if (r && !i || !r && i || !Te(e[n], t[n])) return !1;
+			if (r && !i || !r && i || !Ee(e[n], t[n])) return !1;
 		}
 	}
 	return String(e) === String(t);
 }
-function Ee(e, t) {
-	return e.findIndex((e) => Te(e, t));
+function De(e, t) {
+	return e.findIndex((e) => Ee(e, t));
 }
-var De = (e) => !!(e && e.__v_isRef === !0), k = (e) => x(e) ? e : e == null ? "" : g(e) || C(e) && (e.toString === ee || !b(e.toString)) ? De(e) ? k(e.value) : JSON.stringify(e, Oe, 2) : String(e), Oe = (e, t) => De(t) ? Oe(e, t.value) : _(t) ? { [`Map(${t.size})`]: [...t.entries()].reduce((e, [t, n], r) => (e[ke(t, r) + " =>"] = n, e), {}) } : v(t) ? { [`Set(${t.size})`]: [...t.values()].map((e) => ke(e)) } : S(t) ? ke(t) : C(t) && !g(t) && !re(t) ? String(t) : t, ke = (e, t = "") => S(e) ? `Symbol(${e.description ?? t})` : e, A, Ae = class {
+var Oe = (e) => !!(e && e.__v_isRef === !0), O = (e) => x(e) ? e : e == null ? "" : g(e) || C(e) && (e.toString === ee || !b(e.toString)) ? Oe(e) ? O(e.value) : JSON.stringify(e, ke, 2) : String(e), ke = (e, t) => Oe(t) ? ke(e, t.value) : _(t) ? { [`Map(${t.size})`]: [...t.entries()].reduce((e, [t, n], r) => (e[Ae(t, r) + " =>"] = n, e), {}) } : v(t) ? { [`Set(${t.size})`]: [...t.values()].map((e) => Ae(e)) } : S(t) ? Ae(t) : C(t) && !g(t) && !re(t) ? String(t) : t, Ae = (e, t = "") => S(e) ? `Symbol(${e.description ?? t})` : e, k, je = class {
 	constructor(e = !1) {
-		this.detached = e, this._active = !0, this._on = 0, this.effects = [], this.cleanups = [], this._isPaused = !1, this._warnOnRun = !0, this.__v_skip = !0, !e && A && (A.active ? (this.parent = A, this.index = (A.scopes ||= []).push(this) - 1) : (this._active = !1, this._warnOnRun = !1));
+		this.detached = e, this._active = !0, this._on = 0, this.effects = [], this.cleanups = [], this._isPaused = !1, this._warnOnRun = !0, this.__v_skip = !0, !e && k && (k.active ? (this.parent = k, this.index = (k.scopes ||= []).push(this) - 1) : (this._active = !1, this._warnOnRun = !1));
 	}
 	get active() {
 		return this._active;
@@ -111,22 +111,22 @@ var De = (e) => !!(e && e.__v_isRef === !0), k = (e) => x(e) ? e : e == null ? "
 	}
 	run(e) {
 		if (this._active) {
-			let t = A;
+			let t = k;
 			try {
-				return A = this, e();
+				return k = this, e();
 			} finally {
-				A = t;
+				k = t;
 			}
 		}
 	}
 	on() {
-		++this._on === 1 && (this.prevScope = A, A = this);
+		++this._on === 1 && (this.prevScope = k, k = this);
 	}
 	off() {
 		if (this._on > 0 && --this._on === 0) {
-			if (A === this) A = this.prevScope;
+			if (k === this) k = this.prevScope;
 			else {
-				let e = A;
+				let e = k;
 				for (; e;) {
 					if (e.prevScope === this) {
 						e.prevScope = this.prevScope;
@@ -156,78 +156,78 @@ var De = (e) => !!(e && e.__v_isRef === !0), k = (e) => x(e) ? e : e == null ? "
 		}
 	}
 };
-function je(e) {
-	return new Ae(e);
+function Me(e) {
+	return new je(e);
 }
-function Me() {
-	return A;
+function Ne() {
+	return k;
 }
-function Ne(e, t = !1) {
-	A && A.cleanups.push(e);
+function Pe(e, t = !1) {
+	k && k.cleanups.push(e);
 }
-var j, Pe = /* @__PURE__ */ new WeakSet(), Fe = class {
+var A, Fe = /* @__PURE__ */ new WeakSet(), Ie = class {
 	constructor(e) {
-		this.fn = e, this.deps = void 0, this.depsTail = void 0, this.flags = 5, this.next = void 0, this.cleanup = void 0, this.scheduler = void 0, A && (A.active ? A.effects.push(this) : this.flags &= -2);
+		this.fn = e, this.deps = void 0, this.depsTail = void 0, this.flags = 5, this.next = void 0, this.cleanup = void 0, this.scheduler = void 0, k && (k.active ? k.effects.push(this) : this.flags &= -2);
 	}
 	pause() {
 		this.flags |= 64;
 	}
 	resume() {
-		this.flags & 64 && (this.flags &= -65, Pe.has(this) && (Pe.delete(this), this.trigger()));
+		this.flags & 64 && (this.flags &= -65, Fe.has(this) && (Fe.delete(this), this.trigger()));
 	}
 	notify() {
-		this.flags & 2 && !(this.flags & 32) || this.flags & 8 || ze(this);
+		this.flags & 2 && !(this.flags & 32) || this.flags & 8 || Be(this);
 	}
 	run() {
 		if (!(this.flags & 1)) return this.fn();
-		this.flags |= 2, Qe(this), He(this);
-		let e = j, t = Je;
-		j = this, Je = !0;
+		this.flags |= 2, $e(this), Ue(this);
+		let e = A, t = Ye;
+		A = this, Ye = !0;
 		try {
 			return this.fn();
 		} finally {
-			Ue(this), j = e, Je = t, this.flags &= -3;
+			We(this), A = e, Ye = t, this.flags &= -3;
 		}
 	}
 	stop() {
 		if (this.flags & 1) {
-			for (let e = this.deps; e; e = e.nextDep) Ke(e);
-			this.deps = this.depsTail = void 0, Qe(this), this.onStop && this.onStop(), this.flags &= -2;
+			for (let e = this.deps; e; e = e.nextDep) qe(e);
+			this.deps = this.depsTail = void 0, $e(this), this.onStop && this.onStop(), this.flags &= -2;
 		}
 	}
 	trigger() {
-		this.flags & 64 ? Pe.add(this) : this.scheduler ? this.scheduler() : this.runIfDirty();
+		this.flags & 64 ? Fe.add(this) : this.scheduler ? this.scheduler() : this.runIfDirty();
 	}
 	runIfDirty() {
-		We(this) && this.run();
+		Ge(this) && this.run();
 	}
 	get dirty() {
-		return We(this);
+		return Ge(this);
 	}
-}, Ie = 0, Le, Re;
-function ze(e, t = !1) {
+}, Le = 0, Re, ze;
+function Be(e, t = !1) {
 	if (e.flags |= 8, t) {
-		e.next = Re, Re = e;
+		e.next = ze, ze = e;
 		return;
 	}
-	e.next = Le, Le = e;
-}
-function Be() {
-	Ie++;
+	e.next = Re, Re = e;
 }
 function Ve() {
-	if (--Ie > 0) return;
-	if (Re) {
-		let e = Re;
-		for (Re = void 0; e;) {
+	Le++;
+}
+function He() {
+	if (--Le > 0) return;
+	if (ze) {
+		let e = ze;
+		for (ze = void 0; e;) {
 			let t = e.next;
 			e.next = void 0, e.flags &= -9, e = t;
 		}
 	}
 	let e;
-	for (; Le;) {
-		let t = Le;
-		for (Le = void 0; t;) {
+	for (; Re;) {
+		let t = Re;
+		for (Re = void 0; t;) {
 			let n = t.next;
 			if (t.next = void 0, t.flags &= -9, t.flags & 1) try {
 				t.trigger();
@@ -239,298 +239,298 @@ function Ve() {
 	}
 	if (e) throw e;
 }
-function He(e) {
+function Ue(e) {
 	for (let t = e.deps; t; t = t.nextDep) t.version = -1, t.prevActiveLink = t.dep.activeLink, t.dep.activeLink = t;
 }
-function Ue(e) {
+function We(e) {
 	let t, n = e.depsTail, r = n;
 	for (; r;) {
 		let e = r.prevDep;
-		r.version === -1 ? (r === n && (n = e), Ke(r), qe(r)) : t = r, r.dep.activeLink = r.prevActiveLink, r.prevActiveLink = void 0, r = e;
+		r.version === -1 ? (r === n && (n = e), qe(r), Je(r)) : t = r, r.dep.activeLink = r.prevActiveLink, r.prevActiveLink = void 0, r = e;
 	}
 	e.deps = t, e.depsTail = n;
 }
-function We(e) {
-	for (let t = e.deps; t; t = t.nextDep) if (t.dep.version !== t.version || t.dep.computed && (Ge(t.dep.computed) || t.dep.version !== t.version)) return !0;
+function Ge(e) {
+	for (let t = e.deps; t; t = t.nextDep) if (t.dep.version !== t.version || t.dep.computed && (Ke(t.dep.computed) || t.dep.version !== t.version)) return !0;
 	return !!e._dirty;
 }
-function Ge(e) {
-	if (e.flags & 4 && !(e.flags & 16) || (e.flags &= -17, e.globalVersion === $e) || (e.globalVersion = $e, !e.isSSR && e.flags & 128 && (!e.deps && !e._dirty || !We(e)))) return;
+function Ke(e) {
+	if (e.flags & 4 && !(e.flags & 16) || (e.flags &= -17, e.globalVersion === et) || (e.globalVersion = et, !e.isSSR && e.flags & 128 && (!e.deps && !e._dirty || !Ge(e)))) return;
 	e.flags |= 2;
-	let t = e.dep, n = j, r = Je;
-	j = e, Je = !0;
+	let t = e.dep, n = A, r = Ye;
+	A = e, Ye = !0;
 	try {
-		He(e);
+		Ue(e);
 		let n = e.fn(e._value);
 		(t.version === 0 || D(n, e._value)) && (e.flags |= 128, e._value = n, t.version++);
 	} catch (e) {
 		throw t.version++, e;
 	} finally {
-		j = n, Je = r, Ue(e), e.flags &= -3;
+		A = n, Ye = r, We(e), e.flags &= -3;
 	}
 }
-function Ke(e, t = !1) {
+function qe(e, t = !1) {
 	let { dep: n, prevSub: r, nextSub: i } = e;
 	if (r && (r.nextSub = i, e.prevSub = void 0), i && (i.prevSub = r, e.nextSub = void 0), n.subs === e && (n.subs = r, !r && n.computed)) {
 		n.computed.flags &= -5;
-		for (let e = n.computed.deps; e; e = e.nextDep) Ke(e, !0);
+		for (let e = n.computed.deps; e; e = e.nextDep) qe(e, !0);
 	}
 	!t && !--n.sc && n.map && n.map.delete(n.key);
 }
-function qe(e) {
+function Je(e) {
 	let { prevDep: t, nextDep: n } = e;
 	t && (t.nextDep = n, e.prevDep = void 0), n && (n.prevDep = t, e.nextDep = void 0);
 }
-var Je = !0, Ye = [];
-function Xe() {
-	Ye.push(Je), Je = !1;
-}
+var Ye = !0, Xe = [];
 function Ze() {
-	let e = Ye.pop();
-	Je = e === void 0 ? !0 : e;
+	Xe.push(Ye), Ye = !1;
 }
-function Qe(e) {
+function Qe() {
+	let e = Xe.pop();
+	Ye = e === void 0 ? !0 : e;
+}
+function $e(e) {
 	let { cleanup: t } = e;
 	if (e.cleanup = void 0, t) {
-		let e = j;
-		j = void 0;
+		let e = A;
+		A = void 0;
 		try {
 			t();
 		} finally {
-			j = e;
+			A = e;
 		}
 	}
 }
-var $e = 0, et = class {
+var et = 0, tt = class {
 	constructor(e, t) {
 		this.sub = e, this.dep = t, this.version = t.version, this.nextDep = this.prevDep = this.nextSub = this.prevSub = this.prevActiveLink = void 0;
 	}
-}, tt = class {
+}, nt = class {
 	constructor(e) {
 		this.computed = e, this.version = 0, this.activeLink = void 0, this.subs = void 0, this.map = void 0, this.key = void 0, this.sc = 0, this.__v_skip = !0;
 	}
 	track(e) {
-		if (!j || !Je || j === this.computed) return;
+		if (!A || !Ye || A === this.computed) return;
 		let t = this.activeLink;
-		if (t === void 0 || t.sub !== j) t = this.activeLink = new et(j, this), j.deps ? (t.prevDep = j.depsTail, j.depsTail.nextDep = t, j.depsTail = t) : j.deps = j.depsTail = t, nt(t);
+		if (t === void 0 || t.sub !== A) t = this.activeLink = new tt(A, this), A.deps ? (t.prevDep = A.depsTail, A.depsTail.nextDep = t, A.depsTail = t) : A.deps = A.depsTail = t, rt(t);
 		else if (t.version === -1 && (t.version = this.version, t.nextDep)) {
 			let e = t.nextDep;
-			e.prevDep = t.prevDep, t.prevDep && (t.prevDep.nextDep = e), t.prevDep = j.depsTail, t.nextDep = void 0, j.depsTail.nextDep = t, j.depsTail = t, j.deps === t && (j.deps = e);
+			e.prevDep = t.prevDep, t.prevDep && (t.prevDep.nextDep = e), t.prevDep = A.depsTail, t.nextDep = void 0, A.depsTail.nextDep = t, A.depsTail = t, A.deps === t && (A.deps = e);
 		}
 		return t;
 	}
 	trigger(e) {
-		this.version++, $e++, this.notify(e);
+		this.version++, et++, this.notify(e);
 	}
 	notify(e) {
-		Be();
+		Ve();
 		try {
 			for (let e = this.subs; e; e = e.prevSub) e.sub.notify() && e.sub.dep.notify();
 		} finally {
-			Ve();
+			He();
 		}
 	}
 };
-function nt(e) {
+function rt(e) {
 	if (e.dep.sc++, e.sub.flags & 4) {
 		let t = e.dep.computed;
 		if (t && !e.dep.subs) {
 			t.flags |= 20;
-			for (let e = t.deps; e; e = e.nextDep) nt(e);
+			for (let e = t.deps; e; e = e.nextDep) rt(e);
 		}
 		let n = e.dep.subs;
 		n !== e && (e.prevSub = n, n && (n.nextSub = e)), e.dep.subs = e;
 	}
 }
-var rt = /* @__PURE__ */ new WeakMap(), it = /* @__PURE__ */ Symbol(""), at = /* @__PURE__ */ Symbol(""), ot = /* @__PURE__ */ Symbol("");
-function M(e, t, n) {
-	if (Je && j) {
-		let t = rt.get(e);
-		t || rt.set(e, t = /* @__PURE__ */ new Map());
+var it = /* @__PURE__ */ new WeakMap(), at = /* @__PURE__ */ Symbol(""), ot = /* @__PURE__ */ Symbol(""), st = /* @__PURE__ */ Symbol("");
+function j(e, t, n) {
+	if (Ye && A) {
+		let t = it.get(e);
+		t || it.set(e, t = /* @__PURE__ */ new Map());
 		let r = t.get(n);
-		r || (t.set(n, r = new tt()), r.map = t, r.key = n), r.track();
+		r || (t.set(n, r = new nt()), r.map = t, r.key = n), r.track();
 	}
 }
-function st(e, t, n, r, i, a) {
-	let o = rt.get(e);
+function ct(e, t, n, r, i, a) {
+	let o = it.get(e);
 	if (!o) {
-		$e++;
+		et++;
 		return;
 	}
 	let s = (e) => {
 		e && e.trigger();
 	};
-	if (Be(), t === "clear") o.forEach(s);
+	if (Ve(), t === "clear") o.forEach(s);
 	else {
 		let i = g(e), a = i && ie(n);
 		if (i && n === "length") {
 			let e = Number(r);
 			o.forEach((t, n) => {
-				(n === "length" || n === ot || !S(n) && n >= e) && s(t);
+				(n === "length" || n === st || !S(n) && n >= e) && s(t);
 			});
-		} else switch ((n !== void 0 || o.has(void 0)) && s(o.get(n)), a && s(o.get(ot)), t) {
+		} else switch ((n !== void 0 || o.has(void 0)) && s(o.get(n)), a && s(o.get(st)), t) {
 			case "add":
-				i ? a && s(o.get("length")) : (s(o.get(it)), _(e) && s(o.get(at)));
+				i ? a && s(o.get("length")) : (s(o.get(at)), _(e) && s(o.get(ot)));
 				break;
 			case "delete":
-				i || (s(o.get(it)), _(e) && s(o.get(at)));
+				i || (s(o.get(at)), _(e) && s(o.get(ot)));
 				break;
 			case "set":
-				_(e) && s(o.get(it));
+				_(e) && s(o.get(at));
 				break;
 		}
 	}
-	Ve();
+	He();
 }
-function ct(e, t) {
-	let n = rt.get(e);
+function lt(e, t) {
+	let n = it.get(e);
 	return n && n.get(t);
 }
-function lt(e) {
-	let t = /* @__PURE__ */ P(e);
-	return t === e ? t : (M(t, "iterate", ot), /* @__PURE__ */ N(e) ? t : t.map(Xt));
-}
 function ut(e) {
-	return M(e = /* @__PURE__ */ P(e), "iterate", ot), e;
+	let t = /* @__PURE__ */ N(e);
+	return t === e ? t : (j(t, "iterate", st), /* @__PURE__ */ M(e) ? t : t.map(Zt));
 }
-function dt(e, t) {
-	return /* @__PURE__ */ qt(e) ? Zt(/* @__PURE__ */ Kt(e) ? Xt(t) : t) : Xt(t);
+function dt(e) {
+	return j(e = /* @__PURE__ */ N(e), "iterate", st), e;
 }
-var ft = {
+function ft(e, t) {
+	return /* @__PURE__ */ Jt(e) ? Qt(/* @__PURE__ */ qt(e) ? Zt(t) : t) : Zt(t);
+}
+var pt = {
 	__proto__: null,
 	[Symbol.iterator]() {
-		return pt(this, Symbol.iterator, (e) => dt(this, e));
+		return mt(this, Symbol.iterator, (e) => ft(this, e));
 	},
 	concat(...e) {
-		return lt(this).concat(...e.map((e) => g(e) ? lt(e) : e));
+		return ut(this).concat(...e.map((e) => g(e) ? ut(e) : e));
 	},
 	entries() {
-		return pt(this, "entries", (e) => (e[1] = dt(this, e[1]), e));
+		return mt(this, "entries", (e) => (e[1] = ft(this, e[1]), e));
 	},
 	every(e, t) {
-		return ht(this, "every", e, t, void 0, arguments);
+		return gt(this, "every", e, t, void 0, arguments);
 	},
 	filter(e, t) {
-		return ht(this, "filter", e, t, (e) => e.map((e) => dt(this, e)), arguments);
+		return gt(this, "filter", e, t, (e) => e.map((e) => ft(this, e)), arguments);
 	},
 	find(e, t) {
-		return ht(this, "find", e, t, (e) => dt(this, e), arguments);
+		return gt(this, "find", e, t, (e) => ft(this, e), arguments);
 	},
 	findIndex(e, t) {
-		return ht(this, "findIndex", e, t, void 0, arguments);
+		return gt(this, "findIndex", e, t, void 0, arguments);
 	},
 	findLast(e, t) {
-		return ht(this, "findLast", e, t, (e) => dt(this, e), arguments);
+		return gt(this, "findLast", e, t, (e) => ft(this, e), arguments);
 	},
 	findLastIndex(e, t) {
-		return ht(this, "findLastIndex", e, t, void 0, arguments);
+		return gt(this, "findLastIndex", e, t, void 0, arguments);
 	},
 	forEach(e, t) {
-		return ht(this, "forEach", e, t, void 0, arguments);
+		return gt(this, "forEach", e, t, void 0, arguments);
 	},
 	includes(...e) {
-		return _t(this, "includes", e);
+		return vt(this, "includes", e);
 	},
 	indexOf(...e) {
-		return _t(this, "indexOf", e);
+		return vt(this, "indexOf", e);
 	},
 	join(e) {
-		return lt(this).join(e);
+		return ut(this).join(e);
 	},
 	lastIndexOf(...e) {
-		return _t(this, "lastIndexOf", e);
+		return vt(this, "lastIndexOf", e);
 	},
 	map(e, t) {
-		return ht(this, "map", e, t, void 0, arguments);
+		return gt(this, "map", e, t, void 0, arguments);
 	},
 	pop() {
-		return vt(this, "pop");
+		return yt(this, "pop");
 	},
 	push(...e) {
-		return vt(this, "push", e);
+		return yt(this, "push", e);
 	},
 	reduce(e, ...t) {
-		return gt(this, "reduce", e, t);
+		return _t(this, "reduce", e, t);
 	},
 	reduceRight(e, ...t) {
-		return gt(this, "reduceRight", e, t);
+		return _t(this, "reduceRight", e, t);
 	},
 	shift() {
-		return vt(this, "shift");
+		return yt(this, "shift");
 	},
 	some(e, t) {
-		return ht(this, "some", e, t, void 0, arguments);
+		return gt(this, "some", e, t, void 0, arguments);
 	},
 	splice(...e) {
-		return vt(this, "splice", e);
+		return yt(this, "splice", e);
 	},
 	toReversed() {
-		return lt(this).toReversed();
+		return ut(this).toReversed();
 	},
 	toSorted(e) {
-		return lt(this).toSorted(e);
+		return ut(this).toSorted(e);
 	},
 	toSpliced(...e) {
-		return lt(this).toSpliced(...e);
+		return ut(this).toSpliced(...e);
 	},
 	unshift(...e) {
-		return vt(this, "unshift", e);
+		return yt(this, "unshift", e);
 	},
 	values() {
-		return pt(this, "values", (e) => dt(this, e));
+		return mt(this, "values", (e) => ft(this, e));
 	}
 };
-function pt(e, t, n) {
-	let r = ut(e), i = r[t]();
-	return r !== e && !/* @__PURE__ */ N(e) && (i._next = i.next, i.next = () => {
+function mt(e, t, n) {
+	let r = dt(e), i = r[t]();
+	return r !== e && !/* @__PURE__ */ M(e) && (i._next = i.next, i.next = () => {
 		let e = i._next();
 		return e.done || (e.value = n(e.value)), e;
 	}), i;
 }
-var mt = Array.prototype;
-function ht(e, t, n, r, i, a) {
-	let o = ut(e), s = o !== e && !/* @__PURE__ */ N(e), c = o[t];
-	if (c !== mt[t]) {
+var ht = Array.prototype;
+function gt(e, t, n, r, i, a) {
+	let o = dt(e), s = o !== e && !/* @__PURE__ */ M(e), c = o[t];
+	if (c !== ht[t]) {
 		let t = c.apply(e, a);
-		return s ? Xt(t) : t;
+		return s ? Zt(t) : t;
 	}
 	let l = n;
 	o !== e && (s ? l = function(t, r) {
-		return n.call(this, dt(e, t), r, e);
+		return n.call(this, ft(e, t), r, e);
 	} : n.length > 2 && (l = function(t, r) {
 		return n.call(this, t, r, e);
 	}));
 	let u = c.call(o, l, r);
 	return s && i ? i(u) : u;
 }
-function gt(e, t, n, r) {
-	let i = ut(e), a = i !== e && !/* @__PURE__ */ N(e), o = n, s = !1;
+function _t(e, t, n, r) {
+	let i = dt(e), a = i !== e && !/* @__PURE__ */ M(e), o = n, s = !1;
 	i !== e && (a ? (s = r.length === 0, o = function(t, r, i) {
-		return s && (s = !1, t = dt(e, t)), n.call(this, t, dt(e, r), i, e);
+		return s && (s = !1, t = ft(e, t)), n.call(this, t, ft(e, r), i, e);
 	}) : n.length > 3 && (o = function(t, r, i) {
 		return n.call(this, t, r, i, e);
 	}));
 	let c = i[t](o, ...r);
-	return s ? dt(e, c) : c;
+	return s ? ft(e, c) : c;
 }
-function _t(e, t, n) {
-	let r = /* @__PURE__ */ P(e);
-	M(r, "iterate", ot);
+function vt(e, t, n) {
+	let r = /* @__PURE__ */ N(e);
+	j(r, "iterate", st);
 	let i = r[t](...n);
-	return (i === -1 || i === !1) && /* @__PURE__ */ Jt(n[0]) ? (n[0] = /* @__PURE__ */ P(n[0]), r[t](...n)) : i;
+	return (i === -1 || i === !1) && /* @__PURE__ */ Yt(n[0]) ? (n[0] = /* @__PURE__ */ N(n[0]), r[t](...n)) : i;
 }
-function vt(e, t, n = []) {
-	Xe(), Be();
-	let r = (/* @__PURE__ */ P(e))[t].apply(e, n);
-	return Ve(), Ze(), r;
+function yt(e, t, n = []) {
+	Ze(), Ve();
+	let r = (/* @__PURE__ */ N(e))[t].apply(e, n);
+	return He(), Qe(), r;
 }
-var yt = /* @__PURE__ */ a("__proto__,__v_isRef,__isVue"), bt = new Set(/* @__PURE__ */ Object.getOwnPropertyNames(Symbol).filter((e) => e !== "arguments" && e !== "caller").map((e) => Symbol[e]).filter(S));
-function xt(e) {
+var bt = /* @__PURE__ */ a("__proto__,__v_isRef,__isVue"), xt = new Set(/* @__PURE__ */ Object.getOwnPropertyNames(Symbol).filter((e) => e !== "arguments" && e !== "caller").map((e) => Symbol[e]).filter(S));
+function St(e) {
 	S(e) || (e = String(e));
-	let t = /* @__PURE__ */ P(this);
-	return M(t, "has", e), t.hasOwnProperty(e);
+	let t = /* @__PURE__ */ N(this);
+	return j(t, "has", e), t.hasOwnProperty(e);
 }
-var St = class {
+var Ct = class {
 	constructor(e = !1, t = !1) {
 		this._isReadonly = e, this._isShallow = t;
 	}
@@ -540,46 +540,46 @@ var St = class {
 		if (t === "__v_isReactive") return !r;
 		if (t === "__v_isReadonly") return r;
 		if (t === "__v_isShallow") return i;
-		if (t === "__v_raw") return n === (r ? i ? Bt : zt : i ? Rt : Lt).get(e) || Object.getPrototypeOf(e) === Object.getPrototypeOf(n) ? e : void 0;
+		if (t === "__v_raw") return n === (r ? i ? Vt : Bt : i ? zt : Rt).get(e) || Object.getPrototypeOf(e) === Object.getPrototypeOf(n) ? e : void 0;
 		let a = g(e);
 		if (!r) {
 			let e;
-			if (a && (e = ft[t])) return e;
-			if (t === "hasOwnProperty") return xt;
+			if (a && (e = pt[t])) return e;
+			if (t === "hasOwnProperty") return St;
 		}
-		let o = Reflect.get(e, t, /* @__PURE__ */ F(e) ? e : n);
-		if ((S(t) ? bt.has(t) : yt(t)) || (r || M(e, "get", t), i)) return o;
-		if (/* @__PURE__ */ F(o)) {
+		let o = Reflect.get(e, t, /* @__PURE__ */ P(e) ? e : n);
+		if ((S(t) ? xt.has(t) : bt(t)) || (r || j(e, "get", t), i)) return o;
+		if (/* @__PURE__ */ P(o)) {
 			let e = a && ie(t) ? o : o.value;
-			return r && C(e) ? /* @__PURE__ */ Wt(e) : e;
+			return r && C(e) ? /* @__PURE__ */ Gt(e) : e;
 		}
-		return C(o) ? r ? /* @__PURE__ */ Wt(o) : /* @__PURE__ */ Ht(o) : o;
+		return C(o) ? r ? /* @__PURE__ */ Gt(o) : /* @__PURE__ */ Ut(o) : o;
 	}
-}, Ct = class extends St {
+}, wt = class extends Ct {
 	constructor(e = !1) {
 		super(!1, e);
 	}
 	set(e, t, n, r) {
 		let i = e[t], a = g(e) && ie(t);
 		if (!this._isShallow) {
-			let e = /* @__PURE__ */ qt(i);
-			if (!/* @__PURE__ */ N(n) && !/* @__PURE__ */ qt(n) && (i = /* @__PURE__ */ P(i), n = /* @__PURE__ */ P(n)), !a && /* @__PURE__ */ F(i) && !/* @__PURE__ */ F(n)) return e || (i.value = n), !0;
+			let e = /* @__PURE__ */ Jt(i);
+			if (!/* @__PURE__ */ M(n) && !/* @__PURE__ */ Jt(n) && (i = /* @__PURE__ */ N(i), n = /* @__PURE__ */ N(n)), !a && /* @__PURE__ */ P(i) && !/* @__PURE__ */ P(n)) return e || (i.value = n), !0;
 		}
-		let o = a ? Number(t) < e.length : h(e, t), s = Reflect.set(e, t, n, /* @__PURE__ */ F(e) ? e : r);
-		return e === /* @__PURE__ */ P(r) && (o ? D(n, i) && st(e, "set", t, n, i) : st(e, "add", t, n)), s;
+		let o = a ? Number(t) < e.length : h(e, t), s = Reflect.set(e, t, n, /* @__PURE__ */ P(e) ? e : r);
+		return e === /* @__PURE__ */ N(r) && (o ? D(n, i) && ct(e, "set", t, n, i) : ct(e, "add", t, n)), s;
 	}
 	deleteProperty(e, t) {
 		let n = h(e, t), r = e[t], i = Reflect.deleteProperty(e, t);
-		return i && n && st(e, "delete", t, void 0, r), i;
+		return i && n && ct(e, "delete", t, void 0, r), i;
 	}
 	has(e, t) {
 		let n = Reflect.has(e, t);
-		return (!S(t) || !bt.has(t)) && M(e, "has", t), n;
+		return (!S(t) || !xt.has(t)) && j(e, "has", t), n;
 	}
 	ownKeys(e) {
-		return M(e, "iterate", g(e) ? "length" : it), Reflect.ownKeys(e);
+		return j(e, "iterate", g(e) ? "length" : at), Reflect.ownKeys(e);
 	}
-}, wt = class extends St {
+}, Tt = class extends Ct {
 	constructor(e = !1) {
 		super(!0, e);
 	}
@@ -589,11 +589,11 @@ var St = class {
 	deleteProperty(e, t) {
 		return !0;
 	}
-}, Tt = /* @__PURE__ */ new Ct(), Et = /* @__PURE__ */ new wt(), Dt = /* @__PURE__ */ new Ct(!0), Ot = (e) => e, kt = (e) => Reflect.getPrototypeOf(e);
-function At(e, t, n) {
+}, Et = /* @__PURE__ */ new wt(), Dt = /* @__PURE__ */ new Tt(), Ot = /* @__PURE__ */ new wt(!0), kt = (e) => e, At = (e) => Reflect.getPrototypeOf(e);
+function jt(e, t, n) {
 	return function(...r) {
-		let i = this.__v_raw, a = /* @__PURE__ */ P(i), o = _(a), s = e === "entries" || e === Symbol.iterator && o, c = e === "keys" && o, l = i[e](...r), u = n ? Ot : t ? Zt : Xt;
-		return !t && M(a, "iterate", c ? at : it), f(Object.create(l), { next() {
+		let i = this.__v_raw, a = /* @__PURE__ */ N(i), o = _(a), s = e === "entries" || e === Symbol.iterator && o, c = e === "keys" && o, l = i[e](...r), u = n ? kt : t ? Qt : Zt;
+		return !t && j(a, "iterate", c ? ot : at), f(Object.create(l), { next() {
 			let { value: e, done: t } = l.next();
 			return t ? {
 				value: e,
@@ -605,60 +605,60 @@ function At(e, t, n) {
 		} });
 	};
 }
-function jt(e) {
+function Mt(e) {
 	return function(...t) {
 		return e === "delete" ? !1 : e === "clear" ? void 0 : this;
 	};
 }
-function Mt(e, t) {
+function Nt(e, t) {
 	let n = {
 		get(n) {
-			let r = this.__v_raw, i = /* @__PURE__ */ P(r), a = /* @__PURE__ */ P(n);
-			e || (D(n, a) && M(i, "get", n), M(i, "get", a));
-			let { has: o } = kt(i), s = t ? Ot : e ? Zt : Xt;
+			let r = this.__v_raw, i = /* @__PURE__ */ N(r), a = /* @__PURE__ */ N(n);
+			e || (D(n, a) && j(i, "get", n), j(i, "get", a));
+			let { has: o } = At(i), s = t ? kt : e ? Qt : Zt;
 			if (o.call(i, n)) return s(r.get(n));
 			if (o.call(i, a)) return s(r.get(a));
 			r !== i && r.get(n);
 		},
 		get size() {
 			let t = this.__v_raw;
-			return !e && M(/* @__PURE__ */ P(t), "iterate", it), t.size;
+			return !e && j(/* @__PURE__ */ N(t), "iterate", at), t.size;
 		},
 		has(t) {
-			let n = this.__v_raw, r = /* @__PURE__ */ P(n), i = /* @__PURE__ */ P(t);
-			return e || (D(t, i) && M(r, "has", t), M(r, "has", i)), t === i ? n.has(t) : n.has(t) || n.has(i);
+			let n = this.__v_raw, r = /* @__PURE__ */ N(n), i = /* @__PURE__ */ N(t);
+			return e || (D(t, i) && j(r, "has", t), j(r, "has", i)), t === i ? n.has(t) : n.has(t) || n.has(i);
 		},
 		forEach(n, r) {
-			let i = this, a = i.__v_raw, o = /* @__PURE__ */ P(a), s = t ? Ot : e ? Zt : Xt;
-			return !e && M(o, "iterate", it), a.forEach((e, t) => n.call(r, s(e), s(t), i));
+			let i = this, a = i.__v_raw, o = /* @__PURE__ */ N(a), s = t ? kt : e ? Qt : Zt;
+			return !e && j(o, "iterate", at), a.forEach((e, t) => n.call(r, s(e), s(t), i));
 		}
 	};
 	return f(n, e ? {
-		add: jt("add"),
-		set: jt("set"),
-		delete: jt("delete"),
-		clear: jt("clear")
+		add: Mt("add"),
+		set: Mt("set"),
+		delete: Mt("delete"),
+		clear: Mt("clear")
 	} : {
 		add(e) {
-			let n = /* @__PURE__ */ P(this), r = kt(n), i = /* @__PURE__ */ P(e), a = !t && !/* @__PURE__ */ N(e) && !/* @__PURE__ */ qt(e) ? i : e;
-			return r.has.call(n, a) || D(e, a) && r.has.call(n, e) || D(i, a) && r.has.call(n, i) || (n.add(a), st(n, "add", a, a)), this;
+			let n = /* @__PURE__ */ N(this), r = At(n), i = /* @__PURE__ */ N(e), a = !t && !/* @__PURE__ */ M(e) && !/* @__PURE__ */ Jt(e) ? i : e;
+			return r.has.call(n, a) || D(e, a) && r.has.call(n, e) || D(i, a) && r.has.call(n, i) || (n.add(a), ct(n, "add", a, a)), this;
 		},
 		set(e, n) {
-			!t && !/* @__PURE__ */ N(n) && !/* @__PURE__ */ qt(n) && (n = /* @__PURE__ */ P(n));
-			let r = /* @__PURE__ */ P(this), { has: i, get: a } = kt(r), o = i.call(r, e);
-			o ||= (e = /* @__PURE__ */ P(e), i.call(r, e));
+			!t && !/* @__PURE__ */ M(n) && !/* @__PURE__ */ Jt(n) && (n = /* @__PURE__ */ N(n));
+			let r = /* @__PURE__ */ N(this), { has: i, get: a } = At(r), o = i.call(r, e);
+			o ||= (e = /* @__PURE__ */ N(e), i.call(r, e));
 			let s = a.call(r, e);
-			return r.set(e, n), o ? D(n, s) && st(r, "set", e, n, s) : st(r, "add", e, n), this;
+			return r.set(e, n), o ? D(n, s) && ct(r, "set", e, n, s) : ct(r, "add", e, n), this;
 		},
 		delete(e) {
-			let t = /* @__PURE__ */ P(this), { has: n, get: r } = kt(t), i = n.call(t, e);
-			i ||= (e = /* @__PURE__ */ P(e), n.call(t, e));
+			let t = /* @__PURE__ */ N(this), { has: n, get: r } = At(t), i = n.call(t, e);
+			i ||= (e = /* @__PURE__ */ N(e), n.call(t, e));
 			let a = r ? r.call(t, e) : void 0, o = t.delete(e);
-			return i && st(t, "delete", e, void 0, a), o;
+			return i && ct(t, "delete", e, void 0, a), o;
 		},
 		clear() {
-			let e = /* @__PURE__ */ P(this), t = e.size !== 0, n = e.clear();
-			return t && st(e, "clear", void 0, void 0, void 0), n;
+			let e = /* @__PURE__ */ N(this), t = e.size !== 0, n = e.clear();
+			return t && ct(e, "clear", void 0, void 0, void 0), n;
 		}
 	}), [
 		"keys",
@@ -666,15 +666,15 @@ function Mt(e, t) {
 		"entries",
 		Symbol.iterator
 	].forEach((r) => {
-		n[r] = At(r, e, t);
+		n[r] = jt(r, e, t);
 	}), n;
 }
-function Nt(e, t) {
-	let n = Mt(e, t);
+function Pt(e, t) {
+	let n = Nt(e, t);
 	return (t, r, i) => r === "__v_isReactive" ? !e : r === "__v_isReadonly" ? e : r === "__v_raw" ? t : Reflect.get(h(n, r) && r in t ? n : t, r, i);
 }
-var Pt = { get: /* @__PURE__ */ Nt(!1, !1) }, Ft = { get: /* @__PURE__ */ Nt(!1, !0) }, It = { get: /* @__PURE__ */ Nt(!0, !1) }, Lt = /* @__PURE__ */ new WeakMap(), Rt = /* @__PURE__ */ new WeakMap(), zt = /* @__PURE__ */ new WeakMap(), Bt = /* @__PURE__ */ new WeakMap();
-function Vt(e) {
+var Ft = { get: /* @__PURE__ */ Pt(!1, !1) }, It = { get: /* @__PURE__ */ Pt(!1, !0) }, Lt = { get: /* @__PURE__ */ Pt(!0, !1) }, Rt = /* @__PURE__ */ new WeakMap(), zt = /* @__PURE__ */ new WeakMap(), Bt = /* @__PURE__ */ new WeakMap(), Vt = /* @__PURE__ */ new WeakMap();
+function Ht(e) {
 	switch (e) {
 		case "Object":
 		case "Array": return 1;
@@ -686,95 +686,95 @@ function Vt(e) {
 	}
 }
 // @__NO_SIDE_EFFECTS__
-function Ht(e) {
-	return /* @__PURE__ */ qt(e) ? e : Gt(e, !1, Tt, Pt, Lt);
-}
-// @__NO_SIDE_EFFECTS__
 function Ut(e) {
-	return Gt(e, !1, Dt, Ft, Rt);
+	return /* @__PURE__ */ Jt(e) ? e : Kt(e, !1, Et, Ft, Rt);
 }
 // @__NO_SIDE_EFFECTS__
 function Wt(e) {
-	return Gt(e, !0, Et, It, zt);
+	return Kt(e, !1, Ot, It, zt);
 }
-function Gt(e, t, n, r, i) {
+// @__NO_SIDE_EFFECTS__
+function Gt(e) {
+	return Kt(e, !0, Dt, Lt, Bt);
+}
+function Kt(e, t, n, r, i) {
 	if (!C(e) || e.__v_raw && !(t && e.__v_isReactive) || e.__v_skip || !Object.isExtensible(e)) return e;
 	let a = i.get(e);
 	if (a) return a;
-	let o = Vt(ne(e));
+	let o = Ht(ne(e));
 	if (o === 0) return e;
 	let s = new Proxy(e, o === 2 ? r : n);
 	return i.set(e, s), s;
 }
 // @__NO_SIDE_EFFECTS__
-function Kt(e) {
-	return /* @__PURE__ */ qt(e) ? /* @__PURE__ */ Kt(e.__v_raw) : !!(e && e.__v_isReactive);
-}
-// @__NO_SIDE_EFFECTS__
 function qt(e) {
-	return !!(e && e.__v_isReadonly);
-}
-// @__NO_SIDE_EFFECTS__
-function N(e) {
-	return !!(e && e.__v_isShallow);
+	return /* @__PURE__ */ Jt(e) ? /* @__PURE__ */ qt(e.__v_raw) : !!(e && e.__v_isReactive);
 }
 // @__NO_SIDE_EFFECTS__
 function Jt(e) {
+	return !!(e && e.__v_isReadonly);
+}
+// @__NO_SIDE_EFFECTS__
+function M(e) {
+	return !!(e && e.__v_isShallow);
+}
+// @__NO_SIDE_EFFECTS__
+function Yt(e) {
 	return e ? !!e.__v_raw : !1;
 }
 // @__NO_SIDE_EFFECTS__
-function P(e) {
+function N(e) {
 	let t = e && e.__v_raw;
-	return t ? /* @__PURE__ */ P(t) : e;
+	return t ? /* @__PURE__ */ N(t) : e;
 }
-function Yt(e) {
+function Xt(e) {
 	return !h(e, "__v_skip") && Object.isExtensible(e) && fe(e, "__v_skip", !0), e;
 }
-var Xt = (e) => C(e) ? /* @__PURE__ */ Ht(e) : e, Zt = (e) => C(e) ? /* @__PURE__ */ Wt(e) : e;
+var Zt = (e) => C(e) ? /* @__PURE__ */ Ut(e) : e, Qt = (e) => C(e) ? /* @__PURE__ */ Gt(e) : e;
 // @__NO_SIDE_EFFECTS__
-function F(e) {
+function P(e) {
 	return e ? e.__v_isRef === !0 : !1;
 }
 // @__NO_SIDE_EFFECTS__
-function I(e) {
-	return $t(e, !1);
+function F(e) {
+	return en(e, !1);
 }
 // @__NO_SIDE_EFFECTS__
-function Qt(e) {
-	return $t(e, !0);
+function $t(e) {
+	return en(e, !0);
 }
-function $t(e, t) {
-	return /* @__PURE__ */ F(e) ? e : new en(e, t);
+function en(e, t) {
+	return /* @__PURE__ */ P(e) ? e : new tn(e, t);
 }
-var en = class {
+var tn = class {
 	constructor(e, t) {
-		this.dep = new tt(), this.__v_isRef = !0, this.__v_isShallow = !1, this._rawValue = t ? e : /* @__PURE__ */ P(e), this._value = t ? e : Xt(e), this.__v_isShallow = t;
+		this.dep = new nt(), this.__v_isRef = !0, this.__v_isShallow = !1, this._rawValue = t ? e : /* @__PURE__ */ N(e), this._value = t ? e : Zt(e), this.__v_isShallow = t;
 	}
 	get value() {
 		return this.dep.track(), this._value;
 	}
 	set value(e) {
-		let t = this._rawValue, n = this.__v_isShallow || /* @__PURE__ */ N(e) || /* @__PURE__ */ qt(e);
-		e = n ? e : /* @__PURE__ */ P(e), D(e, t) && (this._rawValue = e, this._value = n ? e : Xt(e), this.dep.trigger());
+		let t = this._rawValue, n = this.__v_isShallow || /* @__PURE__ */ M(e) || /* @__PURE__ */ Jt(e);
+		e = n ? e : /* @__PURE__ */ N(e), D(e, t) && (this._rawValue = e, this._value = n ? e : Zt(e), this.dep.trigger());
 	}
 };
-function L(e) {
-	return /* @__PURE__ */ F(e) ? e.value : e;
+function I(e) {
+	return /* @__PURE__ */ P(e) ? e.value : e;
 }
-var tn = {
-	get: (e, t, n) => t === "__v_raw" ? e : L(Reflect.get(e, t, n)),
+var nn = {
+	get: (e, t, n) => t === "__v_raw" ? e : I(Reflect.get(e, t, n)),
 	set: (e, t, n, r) => {
 		let i = e[t];
-		return /* @__PURE__ */ F(i) && !/* @__PURE__ */ F(n) ? (i.value = n, !0) : Reflect.set(e, t, n, r);
+		return /* @__PURE__ */ P(i) && !/* @__PURE__ */ P(n) ? (i.value = n, !0) : Reflect.set(e, t, n, r);
 	}
 };
-function nn(e) {
-	return /* @__PURE__ */ Kt(e) ? e : new Proxy(e, tn);
+function rn(e) {
+	return /* @__PURE__ */ qt(e) ? e : new Proxy(e, nn);
 }
-var rn = class {
+var an = class {
 	constructor(e) {
 		this.__v_isRef = !0, this._value = void 0;
-		let t = this.dep = new tt(), { get: n, set: r } = e(t.track.bind(t), t.trigger.bind(t));
+		let t = this.dep = new nt(), { get: n, set: r } = e(t.track.bind(t), t.trigger.bind(t));
 		this._get = n, this._set = r;
 	}
 	get value() {
@@ -784,32 +784,32 @@ var rn = class {
 		this._set(e);
 	}
 };
-function an(e) {
-	return new rn(e);
+function on(e) {
+	return new an(e);
 }
 // @__NO_SIDE_EFFECTS__
-function on(e) {
+function sn(e) {
 	let t = g(e) ? Array(e.length) : {};
-	for (let n in e) t[n] = un(e, n);
+	for (let n in e) t[n] = dn(e, n);
 	return t;
 }
-var sn = class {
+var cn = class {
 	constructor(e, t, n) {
-		this._object = e, this._defaultValue = n, this.__v_isRef = !0, this._value = void 0, this._key = S(t) ? t : String(t), this._raw = /* @__PURE__ */ P(e);
+		this._object = e, this._defaultValue = n, this.__v_isRef = !0, this._value = void 0, this._key = S(t) ? t : String(t), this._raw = /* @__PURE__ */ N(e);
 		let r = !0, i = e;
 		if (!g(e) || S(this._key) || !ie(this._key)) do
-			r = !/* @__PURE__ */ Jt(i) || /* @__PURE__ */ N(i);
+			r = !/* @__PURE__ */ Yt(i) || /* @__PURE__ */ M(i);
 		while (r && (i = i.__v_raw));
 		this._shallow = r;
 	}
 	get value() {
 		let e = this._object[this._key];
-		return this._shallow && (e = L(e)), this._value = e === void 0 ? this._defaultValue : e;
+		return this._shallow && (e = I(e)), this._value = e === void 0 ? this._defaultValue : e;
 	}
 	set value(e) {
-		if (this._shallow && /* @__PURE__ */ F(this._raw[this._key])) {
+		if (this._shallow && /* @__PURE__ */ P(this._raw[this._key])) {
 			let t = this._object[this._key];
-			if (/* @__PURE__ */ F(t)) {
+			if (/* @__PURE__ */ P(t)) {
 				t.value = e;
 				return;
 			}
@@ -817,9 +817,9 @@ var sn = class {
 		this._object[this._key] = e;
 	}
 	get dep() {
-		return ct(this._raw, this._key);
+		return lt(this._raw, this._key);
 	}
-}, cn = class {
+}, ln = class {
 	constructor(e) {
 		this._getter = e, this.__v_isRef = !0, this.__v_isReadonly = !0, this._value = void 0;
 	}
@@ -828,66 +828,66 @@ var sn = class {
 	}
 };
 // @__NO_SIDE_EFFECTS__
-function ln(e, t, n) {
-	return /* @__PURE__ */ F(e) ? e : b(e) ? new cn(e) : C(e) && arguments.length > 1 ? un(e, t, n) : /* @__PURE__ */ I(e);
-}
 function un(e, t, n) {
-	return new sn(e, t, n);
+	return /* @__PURE__ */ P(e) ? e : b(e) ? new ln(e) : C(e) && arguments.length > 1 ? dn(e, t, n) : /* @__PURE__ */ F(e);
 }
-var dn = class {
+function dn(e, t, n) {
+	return new cn(e, t, n);
+}
+var fn = class {
 	constructor(e, t, n) {
-		this.fn = e, this.setter = t, this._value = void 0, this.dep = new tt(this), this.__v_isRef = !0, this.deps = void 0, this.depsTail = void 0, this.flags = 16, this.globalVersion = $e - 1, this.next = void 0, this.effect = this, this.__v_isReadonly = !t, this.isSSR = n;
+		this.fn = e, this.setter = t, this._value = void 0, this.dep = new nt(this), this.__v_isRef = !0, this.deps = void 0, this.depsTail = void 0, this.flags = 16, this.globalVersion = et - 1, this.next = void 0, this.effect = this, this.__v_isReadonly = !t, this.isSSR = n;
 	}
 	notify() {
-		if (this.flags |= 16, !(this.flags & 8) && j !== this) return ze(this, !0), !0;
+		if (this.flags |= 16, !(this.flags & 8) && A !== this) return Be(this, !0), !0;
 	}
 	get value() {
 		let e = this.dep.track();
-		return Ge(this), e && (e.version = this.dep.version), this._value;
+		return Ke(this), e && (e.version = this.dep.version), this._value;
 	}
 	set value(e) {
 		this.setter && this.setter(e);
 	}
 };
 // @__NO_SIDE_EFFECTS__
-function fn(e, t, n = !1) {
+function pn(e, t, n = !1) {
 	let r, i;
-	return b(e) ? r = e : (r = e.get, i = e.set), new dn(r, i, n);
+	return b(e) ? r = e : (r = e.get, i = e.set), new fn(r, i, n);
 }
-var pn = {}, mn = /* @__PURE__ */ new WeakMap(), hn = void 0;
-function gn(e, t = !1, n = hn) {
+var mn = {}, hn = /* @__PURE__ */ new WeakMap(), gn = void 0;
+function _n(e, t = !1, n = gn) {
 	if (n) {
-		let t = mn.get(n);
-		t || mn.set(n, t = []), t.push(e);
+		let t = hn.get(n);
+		t || hn.set(n, t = []), t.push(e);
 	}
 }
-function _n(e, t, n = o) {
-	let { immediate: r, deep: i, once: a, scheduler: s, augmentJob: l, call: u } = n, d = (e) => i ? e : /* @__PURE__ */ N(e) || i === !1 || i === 0 ? vn(e, 1) : vn(e), f, m, h, _, v = !1, y = !1;
-	if (/* @__PURE__ */ F(e) ? (m = () => e.value, v = /* @__PURE__ */ N(e)) : /* @__PURE__ */ Kt(e) ? (m = () => d(e), v = !0) : g(e) ? (y = !0, v = e.some((e) => /* @__PURE__ */ Kt(e) || /* @__PURE__ */ N(e)), m = () => e.map((e) => {
-		if (/* @__PURE__ */ F(e)) return e.value;
-		if (/* @__PURE__ */ Kt(e)) return d(e);
+function vn(e, t, n = o) {
+	let { immediate: r, deep: i, once: a, scheduler: s, augmentJob: l, call: u } = n, d = (e) => i ? e : /* @__PURE__ */ M(e) || i === !1 || i === 0 ? yn(e, 1) : yn(e), f, m, h, _, v = !1, y = !1;
+	if (/* @__PURE__ */ P(e) ? (m = () => e.value, v = /* @__PURE__ */ M(e)) : /* @__PURE__ */ qt(e) ? (m = () => d(e), v = !0) : g(e) ? (y = !0, v = e.some((e) => /* @__PURE__ */ qt(e) || /* @__PURE__ */ M(e)), m = () => e.map((e) => {
+		if (/* @__PURE__ */ P(e)) return e.value;
+		if (/* @__PURE__ */ qt(e)) return d(e);
 		if (b(e)) return u ? u(e, 2) : e();
 	})) : m = b(e) ? t ? u ? () => u(e, 2) : e : () => {
 		if (h) {
-			Xe();
+			Ze();
 			try {
 				h();
 			} finally {
-				Ze();
+				Qe();
 			}
 		}
-		let t = hn;
-		hn = f;
+		let t = gn;
+		gn = f;
 		try {
 			return u ? u(e, 3, [_]) : e(_);
 		} finally {
-			hn = t;
+			gn = t;
 		}
 	} : c, t && i) {
 		let e = m, t = i === !0 ? Infinity : i;
-		m = () => vn(e(), t);
+		m = () => yn(e(), t);
 	}
-	let x = Me(), S = () => {
+	let x = Ne(), S = () => {
 		f.stop(), x && x.active && p(x.effects, f);
 	};
 	if (a && t) {
@@ -897,67 +897,67 @@ function _n(e, t, n = o) {
 			return S(), n;
 		};
 	}
-	let C = y ? Array(e.length).fill(pn) : pn, w = (e) => {
+	let C = y ? Array(e.length).fill(mn) : mn, w = (e) => {
 		if (!(!(f.flags & 1) || !f.dirty && !e)) if (t) {
 			let n = f.run();
 			if (e || i || v || (y ? n.some((e, t) => D(e, C[t])) : D(n, C))) {
 				h && h();
-				let e = hn;
-				hn = f;
+				let e = gn;
+				gn = f;
 				try {
 					let e = [
 						n,
-						C === pn ? void 0 : y && C[0] === pn ? [] : C,
+						C === mn ? void 0 : y && C[0] === mn ? [] : C,
 						_
 					];
 					C = n, u ? u(t, 3, e) : t(...e);
 				} finally {
-					hn = e;
+					gn = e;
 				}
 			}
 		} else f.run();
 	};
-	return l && l(w), f = new Fe(m), f.scheduler = s ? () => s(w, !1) : w, _ = (e) => gn(e, !1, f), h = f.onStop = () => {
-		let e = mn.get(f);
+	return l && l(w), f = new Ie(m), f.scheduler = s ? () => s(w, !1) : w, _ = (e) => _n(e, !1, f), h = f.onStop = () => {
+		let e = hn.get(f);
 		if (e) {
 			if (u) u(e, 4);
 			else for (let t of e) t();
-			mn.delete(f);
+			hn.delete(f);
 		}
 	}, t ? r ? w(!0) : C = f.run() : s ? s(w.bind(null, !0), !0) : f.run(), S.pause = f.pause.bind(f), S.resume = f.resume.bind(f), S.stop = S, S;
 }
-function vn(e, t = Infinity, n) {
+function yn(e, t = Infinity, n) {
 	if (t <= 0 || !C(e) || e.__v_skip || (n ||= /* @__PURE__ */ new Map(), (n.get(e) || 0) >= t)) return e;
-	if (n.set(e, t), t--, /* @__PURE__ */ F(e)) vn(e.value, t, n);
-	else if (g(e)) for (let r = 0; r < e.length; r++) vn(e[r], t, n);
+	if (n.set(e, t), t--, /* @__PURE__ */ P(e)) yn(e.value, t, n);
+	else if (g(e)) for (let r = 0; r < e.length; r++) yn(e[r], t, n);
 	else if (v(e) || _(e)) e.forEach((e) => {
-		vn(e, t, n);
+		yn(e, t, n);
 	});
 	else if (re(e)) {
-		for (let r in e) vn(e[r], t, n);
-		for (let r of Object.getOwnPropertySymbols(e)) Object.prototype.propertyIsEnumerable.call(e, r) && vn(e[r], t, n);
+		for (let r in e) yn(e[r], t, n);
+		for (let r of Object.getOwnPropertySymbols(e)) Object.prototype.propertyIsEnumerable.call(e, r) && yn(e[r], t, n);
 	}
 	return e;
 }
 //#endregion
 //#region node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js
-function yn(e, t, n, r) {
+function bn(e, t, n, r) {
 	try {
 		return r ? e(...r) : e();
 	} catch (e) {
 		xn(e, t, n);
 	}
 }
-function bn(e, t, n, r) {
+function L(e, t, n, r) {
 	if (b(e)) {
-		let i = yn(e, t, n, r);
+		let i = bn(e, t, n, r);
 		return i && w(i) && i.catch((e) => {
 			xn(e, t, n);
 		}), i;
 	}
 	if (g(e)) {
 		let i = [];
-		for (let a = 0; a < e.length; a++) i.push(bn(e[a], t, n, r));
+		for (let a = 0; a < e.length; a++) i.push(L(e[a], t, n, r));
 		return i;
 	}
 }
@@ -973,11 +973,11 @@ function xn(e, t, n, r = !0) {
 			r = r.parent;
 		}
 		if (a) {
-			Xe(), yn(a, null, 10, [
+			Ze(), bn(a, null, 10, [
 				e,
 				i,
 				o
-			]), Ze();
+			]), Qe();
 			return;
 		}
 	}
@@ -1040,7 +1040,7 @@ function Ln(e) {
 	try {
 		for (Cn = 0; Cn < R.length; Cn++) {
 			let e = R[Cn];
-			e && !(e.flags & 8) && (e.flags & 4 && (e.flags &= -2), yn(e, e.i, e.i ? 15 : 14), e.flags & 4 || (e.flags &= -2));
+			e && !(e.flags & 8) && (e.flags & 4 && (e.flags &= -2), bn(e, e.i, e.i ? 15 : 14), e.flags & 4 || (e.flags &= -2));
 		}
 	} finally {
 		for (; Cn < R.length; Cn++) {
@@ -1077,7 +1077,7 @@ function B(e, t) {
 		i && (b(i) && (i = {
 			mounted: i,
 			updated: i
-		}), i.deep && vn(a), r.push({
+		}), i.deep && yn(a), r.push({
 			dir: i,
 			instance: n,
 			value: a,
@@ -1094,12 +1094,12 @@ function Vn(e, t, n, r) {
 		let s = i[o];
 		a && (s.oldValue = a[o].value);
 		let c = s.dir[r];
-		c && (Xe(), bn(c, n, 8, [
+		c && (Ze(), L(c, n, 8, [
 			e.el,
 			s,
 			e,
 			t
-		]), Ze());
+		]), Qe());
 	}
 }
 function Hn(e, t) {
@@ -1138,7 +1138,7 @@ function Yn(e, t, n = o) {
 		}
 	}
 	let p = Z;
-	l.call = (e, t, n) => bn(e, p, t, n);
+	l.call = (e, t, n) => L(e, p, t, n);
 	let m = !1;
 	a === "post" ? l.scheduler = (e) => {
 		U(e, p && p.suspense);
@@ -1147,7 +1147,7 @@ function Yn(e, t, n = o) {
 	}), l.augmentJob = (e) => {
 		t && (e.flags |= 4), m && (e.flags |= 2, p && (e.id = p.uid, e.i = p));
 	};
-	let h = _n(e, t, l);
+	let h = vn(e, t, l);
 	return xa && (d ? d.push(h) : u && h()), h;
 }
 function Xn(e, t, n) {
@@ -1193,17 +1193,17 @@ function ar(e, t, n, r, i = !1) {
 		r.shapeFlag & 512 && r.type.__asyncResolved && r.component.subTree.component && ar(e, t, n, r.component.subTree);
 		return;
 	}
-	let a = r.shapeFlag & 4 ? Aa(r.component) : r.el, s = i ? null : a, { i: c, r: u } = e, d = t && t.r, f = c.refs === o ? c.refs = {} : c.refs, m = c.setupState, _ = /* @__PURE__ */ P(m), v = m === o ? l : (e) => rr(f, e) ? !1 : h(_, e), y = (e, t) => !(t && rr(f, t));
+	let a = r.shapeFlag & 4 ? Aa(r.component) : r.el, s = i ? null : a, { i: c, r: u } = e, d = t && t.r, f = c.refs === o ? c.refs = {} : c.refs, m = c.setupState, _ = /* @__PURE__ */ N(m), v = m === o ? l : (e) => rr(f, e) ? !1 : h(_, e), y = (e, t) => !(t && rr(f, t));
 	if (d != null && d !== u) {
 		if (or(t), x(d)) f[d] = null, v(d) && (m[d] = null);
-		else if (/* @__PURE__ */ F(d)) {
+		else if (/* @__PURE__ */ P(d)) {
 			let e = t;
 			y(d, e.k) && (d.value = null), e.k && (f[e.k] = null);
 		}
 	}
-	if (b(u)) yn(u, c, 12, [s, f]);
+	if (b(u)) bn(u, c, 12, [s, f]);
 	else {
-		let t = x(u), r = /* @__PURE__ */ F(u);
+		let t = x(u), r = /* @__PURE__ */ P(u);
 		if (t || r) {
 			let o = () => {
 				if (e.f) {
@@ -1261,9 +1261,9 @@ function fr(e, t, n, r) {
 function pr(e, t, n = Z, r = !1) {
 	if (n) {
 		let i = n[e] || (n[e] = []), a = t.__weh ||= (...r) => {
-			Xe();
-			let i = va(n), a = bn(t, n, e, r);
-			return i(), Ze(), a;
+			Ze();
+			let i = va(n), a = L(t, n, e, r);
+			return i(), Qe(), a;
 		};
 		return r ? i.unshift(a) : i.push(a), a;
 	}
@@ -1278,9 +1278,9 @@ var Tr = /* @__PURE__ */ Symbol.for("v-ndc");
 function Er(e, t, n, r) {
 	let i, a = n && n[r], o = g(e);
 	if (o || x(e)) {
-		let n = o && /* @__PURE__ */ Kt(e), r = !1, s = !1;
-		n && (r = !/* @__PURE__ */ N(e), s = /* @__PURE__ */ qt(e), e = ut(e)), i = Array(e.length);
-		for (let n = 0, o = e.length; n < o; n++) i[n] = t(r ? s ? Zt(Xt(e[n])) : Xt(e[n]) : e[n], n, void 0, a && a[n]);
+		let n = o && /* @__PURE__ */ qt(e), r = !1, s = !1;
+		n && (r = !/* @__PURE__ */ M(e), s = /* @__PURE__ */ Jt(e), e = dt(e)), i = Array(e.length);
+		for (let n = 0, o = e.length; n < o; n++) i[n] = t(r ? s ? Qt(Zt(e[n])) : Zt(e[n]) : e[n], n, void 0, a && a[n]);
 	} else if (typeof e == "number") {
 		i = Array(e);
 		for (let n = 0; n < e; n++) i[n] = t(n + 1, n, void 0, a && a[n]);
@@ -1346,7 +1346,7 @@ var kr = (e) => e ? ba(e) ? Aa(e) : kr(e.parent) : null, Ar = /* @__PURE__ */ f(
 			else Fr && (s[t] = 0);
 		}
 		let u = Ar[t], d, f;
-		if (u) return t === "$attrs" && M(e.attrs, "get", ""), u(e);
+		if (u) return t === "$attrs" && j(e.attrs, "get", ""), u(e);
 		if ((d = c.__cssModules) && (d = d[t])) return d;
 		if (n !== o && h(n, t)) return s[t] = 4, n[t];
 		if (f = l.config.globalProperties, h(f, t)) return f[t];
@@ -1380,7 +1380,7 @@ function Ir(e) {
 	}
 	if (i) {
 		let t = i.call(n, n);
-		C(t) && (e.data = /* @__PURE__ */ Ht(t));
+		C(t) && (e.data = /* @__PURE__ */ Ut(t));
 	}
 	if (Fr = !0, a) for (let e in a) {
 		let t = a[e], i = Q({
@@ -1421,7 +1421,7 @@ function Lr(e, t, n = c) {
 	g(e) && (e = Gr(e));
 	for (let n in e) {
 		let r = e[n], i;
-		i = C(r) ? "default" in r ? Un(r.from || n, r.default, !0) : Un(r.from || n) : Un(r), /* @__PURE__ */ F(i) ? Object.defineProperty(t, n, {
+		i = C(r) ? "default" in r ? Un(r.from || n, r.default, !0) : Un(r.from || n) : Un(r), /* @__PURE__ */ P(i) ? Object.defineProperty(t, n, {
 			enumerable: !0,
 			configurable: !0,
 			get: () => i.value,
@@ -1430,7 +1430,7 @@ function Lr(e, t, n = c) {
 	}
 }
 function Rr(e, t, n) {
-	bn(g(e) ? e.map((e) => e.bind(t.proxy)) : e.bind(t.proxy), t, n);
+	L(g(e) ? e.map((e) => e.bind(t.proxy)) : e.bind(t.proxy), t, n);
 }
 function zr(e, t, n, r) {
 	let i = r.includes(".") ? Zn(n, r) : () => n[r];
@@ -1574,7 +1574,7 @@ function Zr(e, t) {
 				o.push(e);
 			},
 			unmount() {
-				s && (bn(o, c._instance, 16), e(null, c._container), delete c._container.__vue_app__);
+				s && (L(o, c._instance, 16), e(null, c._container), delete c._container.__vue_app__);
 			},
 			provide(e, t) {
 				return i.provides[e] = t, c;
@@ -1594,7 +1594,7 @@ function Zr(e, t) {
 }
 var Qr = null;
 function $r(e, t, n = o) {
-	let r = ha(), i = T(t), a = E(t), s = ei(e, i), c = an((s, c) => {
+	let r = ha(), i = T(t), a = E(t), s = ei(e, i), c = on((s, c) => {
 		let l, u = o, d;
 		return qn(() => {
 			let t = e[i];
@@ -1627,12 +1627,12 @@ function ti(e, t, ...n) {
 	let r = e.vnode.props || o, i = n, a = t.startsWith("update:"), s = a && ei(r, t.slice(7));
 	s && (s.trim && (i = n.map((e) => x(e) ? e.trim() : e)), s.number && (i = n.map(pe)));
 	let c, l = r[c = ue(t)] || r[c = ue(T(t))];
-	!l && a && (l = r[c = ue(E(t))]), l && bn(l, e, 6, i);
+	!l && a && (l = r[c = ue(E(t))]), l && L(l, e, 6, i);
 	let u = r[c + "Once"];
 	if (u) {
 		if (!e.emitted) e.emitted = {};
 		else if (e.emitted[c]) return;
-		e.emitted[c] = !0, bn(u, e, 6, i);
+		e.emitted[c] = !0, L(u, e, 6, i);
 	}
 }
 var ni = /* @__PURE__ */ new WeakMap();
@@ -1712,7 +1712,7 @@ function li(e, t, n) {
 }
 function di(e, t, n) {
 	let r = e[n], i = t[n];
-	return n === "style" && C(r) && C(i) ? !Te(r, i) : r !== i;
+	return n === "style" && C(r) && C(i) ? !Ee(r, i) : r !== i;
 }
 function fi({ vnode: e, parent: t, suspense: n }, r) {
 	for (; t;) {
@@ -1727,10 +1727,10 @@ function gi(e, t, n, r = !1) {
 	let i = {}, a = mi();
 	e.propsDefaults = /* @__PURE__ */ Object.create(null), vi(e, t, i, a);
 	for (let t in e.propsOptions[0]) t in i || (i[t] = void 0);
-	n ? e.props = r ? i : /* @__PURE__ */ Ut(i) : e.type.props ? e.props = i : e.props = a, e.attrs = a;
+	n ? e.props = r ? i : /* @__PURE__ */ Wt(i) : e.type.props ? e.props = i : e.props = a, e.attrs = a;
 }
 function _i(e, t, n, r) {
-	let { props: i, attrs: a, vnode: { patchFlag: o } } = e, s = /* @__PURE__ */ P(i), [c] = e.propsOptions, l = !1;
+	let { props: i, attrs: a, vnode: { patchFlag: o } } = e, s = /* @__PURE__ */ N(i), [c] = e.propsOptions, l = !1;
 	if ((r || o > 0) && !(o & 16)) {
 		if (o & 8) {
 			let n = e.vnode.dynamicProps;
@@ -1752,7 +1752,7 @@ function _i(e, t, n, r) {
 		for (let a in s) (!t || !h(t, a) && ((r = E(a)) === a || !h(t, r))) && (c ? n && (n[a] !== void 0 || n[r] !== void 0) && (i[a] = yi(c, s, a, void 0, e, !0)) : delete i[a]);
 		if (a !== s) for (let e in a) (!t || !h(t, e)) && (delete a[e], l = !0);
 	}
-	l && st(e.attrs, "set", "");
+	l && ct(e.attrs, "set", "");
 }
 function vi(e, t, n, r) {
 	let [i, a] = e.propsOptions, s = !1, c;
@@ -1762,7 +1762,7 @@ function vi(e, t, n, r) {
 		i && h(i, u = T(o)) ? !a || !a.includes(u) ? n[u] = l : (c ||= {})[u] = l : ii(e.emitsOptions, o) || (!(o in r) || l !== r[o]) && (r[o] = l, s = !0);
 	}
 	if (a) {
-		let t = /* @__PURE__ */ P(n), r = c || o;
+		let t = /* @__PURE__ */ N(n), r = c || o;
 		for (let o = 0; o < a.length; o++) {
 			let s = a[o];
 			n[s] = yi(i, t, s, r[s], e, !h(r, s));
@@ -1871,7 +1871,7 @@ function Mi(e, t) {
 	n.__VUE__ = !0;
 	let { insert: r, remove: i, patchProp: a, createElement: l, createText: u, createComment: d, setText: f, setElementText: p, parentNode: m, nextSibling: h, setScopeId: g = c, insertStaticContent: _ } = e, v = (e, t, n, r = null, i = null, a = null, o = void 0, s = null, c = !!t.dynamicChildren) => {
 		if (e === t) return;
-		e && !$i(e, t) && (r = O(e), ge(e, i, a, !0), e = null), t.patchFlag === -2 && (c = !1, t.dynamicChildren = null);
+		e && !$i(e, t) && (r = xe(e), ge(e, i, a, !0), e = null), t.patchFlag === -2 && (c = !1, t.dynamicChildren = null);
 		let { type: l, ref: u, shapeFlag: d } = t;
 		switch (l) {
 			case Ui:
@@ -1886,7 +1886,7 @@ function Mi(e, t) {
 			case W:
 				se(e, t, n, r, i, a, o, s, c);
 				break;
-			default: d & 1 ? w(e, t, n, r, i, a, o, s, c) : d & 6 ? T(e, t, n, r, i, a, o, s, c) : (d & 64 || d & 128) && l.process(e, t, n, r, i, a, o, s, c, Ce);
+			default: d & 1 ? w(e, t, n, r, i, a, o, s, c) : d & 6 ? T(e, t, n, r, i, a, o, s, c) : (d & 64 || d & 128) && l.process(e, t, n, r, i, a, o, s, c, we);
 		}
 		u != null && i ? ar(u, e && e.ref, a, t || e, !t) : u == null && e && e.ref != null && ar(e.ref, null, a, e, !0);
 	}, y = (e, t, n, i) => {
@@ -1981,7 +1981,7 @@ function Mi(e, t) {
 		t.slotScopeIds = s, e == null ? t.shapeFlag & 512 ? i.ctx.activate(t, n, r, o, c) : ce(t, n, r, i, a, o, c) : E(e, t, c);
 	}, ce = (e, t, n, r, i, a, o) => {
 		let s = e.component = ma(e, r, i);
-		if (cr(e) && (s.ctx.renderer = Ce), Sa(s, !1, o), s.asyncDep) {
+		if (cr(e) && (s.ctx.renderer = we), Sa(s, !1, o), s.asyncDep) {
 			if (i && i.registerDep(s, le, o), !e.el) {
 				let r = s.subTree = Y(Wi);
 				b(null, r, t, n), e.placeholder = r.el;
@@ -2012,12 +2012,12 @@ function Mi(e, t) {
 				let u = t, d;
 				Pi(e, !1), t ? (t.el = c.el, ue(e, t, o)) : t = c, n && de(n), (d = t.props && t.props.onVnodeBeforeUpdate) && da(d, s, t, c), Pi(e, !0);
 				let f = ai(e), p = e.subTree;
-				e.subTree = f, v(p, f, m(p.el), O(p), e, i, a), t.el = f.el, u === null && fi(e, f.el), r && U(r, i), (d = t.props && t.props.onVnodeUpdated) && U(() => da(d, s, t, c), i);
+				e.subTree = f, v(p, f, m(p.el), xe(p), e, i, a), t.el = f.el, u === null && fi(e, f.el), r && U(r, i), (d = t.props && t.props.onVnodeUpdated) && U(() => da(d, s, t, c), i);
 			} else {
 				let o, { el: s, props: c } = t, { bm: l, m: u, parent: d, root: f, type: p } = e, m = sr(t);
-				if (Pi(e, !1), l && de(l), !m && (o = c && c.onVnodeBeforeMount) && da(o, d, t), Pi(e, !0), s && Te) {
+				if (Pi(e, !1), l && de(l), !m && (o = c && c.onVnodeBeforeMount) && da(o, d, t), Pi(e, !0), s && Ee) {
 					let t = () => {
-						e.subTree = ai(e), Te(s, e.subTree, e, i, null);
+						e.subTree = ai(e), Ee(s, e.subTree, e, i, null);
 					};
 					m && p.__asyncHydrate ? p.__asyncHydrate(s, e, t) : t();
 				} else {
@@ -2033,14 +2033,14 @@ function Mi(e, t) {
 			}
 		};
 		e.scope.on();
-		let c = e.effect = new Fe(s);
+		let c = e.effect = new Ie(s);
 		e.scope.off();
 		let l = e.update = c.run.bind(c), u = e.job = c.runIfDirty.bind(c);
 		u.i = e, u.id = e.uid, c.scheduler = () => jn(u), Pi(e, !0), l();
 	}, ue = (e, t, n) => {
 		t.component = e;
 		let r = e.vnode.props;
-		e.vnode = t, e.next = null, _i(e, t.props, r, n), Ai(e, t.children, n), Xe(), Pn(e), Ze();
+		e.vnode = t, e.next = null, _i(e, t.props, r, n), Ai(e, t.children, n), Ze(), Pn(e), Qe();
 	}, D = (e, t, n, r, i, a, o, s, c = !1) => {
 		let l = e && e.children, u = e ? e.shapeFlag : 0, d = t.children, { patchFlag: f, shapeFlag: m } = t;
 		if (f > 0) {
@@ -2120,7 +2120,7 @@ function Mi(e, t) {
 			return;
 		}
 		if (d & 64) {
-			c.move(e, t, n, Ce);
+			c.move(e, t, n, we);
 			return;
 		}
 		if (c === W) {
@@ -2148,7 +2148,7 @@ function Mi(e, t) {
 		else r(s, t, n);
 	}, ge = (e, t, n, r = !1, i = !1) => {
 		let { type: a, props: o, ref: s, children: c, dynamicChildren: l, shapeFlag: u, patchFlag: d, dirs: f, cacheIndex: p, memo: m } = e;
-		if (d === -2 && (i = !1), s != null && (Xe(), ar(s, null, n, e, !0), Ze()), p != null && (t.renderCache[p] = void 0), u & 256) {
+		if (d === -2 && (i = !1), s != null && (Ze(), ar(s, null, n, e, !0), Qe()), p != null && (t.renderCache[p] = void 0), u & 256) {
 			t.ctx.deactivate(e);
 			return;
 		}
@@ -2159,7 +2159,7 @@ function Mi(e, t) {
 				e.suspense.unmount(n, r);
 				return;
 			}
-			h && Vn(e, null, t, "beforeUnmount"), u & 64 ? e.type.remove(e, t, n, Ce, r) : l && !l.hasOnce && (a !== W || d > 0 && d & 64) ? be(l, t, n, !1, !0) : (a === W && d & 384 || !i && u & 16) && be(c, t, n), r && _e(e);
+			h && Vn(e, null, t, "beforeUnmount"), u & 64 ? e.type.remove(e, t, n, we, r) : l && !l.hasOnce && (a !== W || d > 0 && d & 64) ? be(l, t, n, !1, !0) : (a === W && d & 384 || !i && u & 16) && be(c, t, n), r && _e(e);
 		}
 		let v = m != null && p == null;
 		(g && (_ = o && o.onVnodeUnmounted) || h || v) && U(() => {
@@ -2193,15 +2193,15 @@ function Mi(e, t) {
 		}, t);
 	}, be = (e, t, n, r = !1, i = !1, a = 0) => {
 		for (let o = a; o < e.length; o++) ge(e[o], t, n, r, i);
-	}, O = (e) => {
-		if (e.shapeFlag & 6) return O(e.component.subTree);
+	}, xe = (e) => {
+		if (e.shapeFlag & 6) return xe(e.component.subTree);
 		if (e.shapeFlag & 128) return e.suspense.next();
 		let t = h(e.anchor || e.el), n = t && t[Qn];
 		return n ? h(n) : t;
-	}, xe = !1, Se = (e, t, n) => {
+	}, Se = !1, Ce = (e, t, n) => {
 		let r;
-		e == null ? t._vnode && (ge(t._vnode, null, null, !0), r = t._vnode.component) : v(t._vnode || null, e, t, null, null, null, n), t._vnode = e, xe ||= (xe = !0, Pn(r), Fn(), !1);
-	}, Ce = {
+		e == null ? t._vnode && (ge(t._vnode, null, null, !0), r = t._vnode.component) : v(t._vnode || null, e, t, null, null, null, n), t._vnode = e, Se ||= (Se = !0, Pn(r), Fn(), !1);
+	}, we = {
 		p: v,
 		um: ge,
 		m: me,
@@ -2210,13 +2210,13 @@ function Mi(e, t) {
 		mc: ne,
 		pc: D,
 		pbc: ie,
-		n: O,
+		n: xe,
 		o: e
-	}, we, Te;
-	return t && ([we, Te] = t(Ce)), {
-		render: Se,
-		hydrate: we,
-		createApp: Zr(Se, we)
+	}, Te, Ee;
+	return t && ([Te, Ee] = t(we)), {
+		render: Ce,
+		hydrate: Te,
+		createApp: Zr(Ce, Te)
 	};
 }
 function Ni({ type: e, props: t }, n) {
@@ -2293,7 +2293,7 @@ function Qi(e) {
 function $i(e, t) {
 	return e.type === t.type && e.key === t.key;
 }
-var ea = ({ key: e }) => e ?? null, ta = ({ ref: e, ref_key: t, ref_for: n }) => (typeof e == "number" && (e = "" + e), e == null ? null : x(e) || /* @__PURE__ */ F(e) || b(e) ? {
+var ea = ({ key: e }) => e ?? null, ta = ({ ref: e, ref_key: t, ref_for: n }) => (typeof e == "number" && (e = "" + e), e == null ? null : x(e) || /* @__PURE__ */ P(e) || b(e) ? {
 	i: z,
 	r: e,
 	k: t,
@@ -2340,13 +2340,13 @@ function na(e, t = null, n = null, r = 0, i = null, a = !1) {
 	if (ja(e) && (e = e.__vccOpts), t) {
 		t = ra(t);
 		let { class: e, style: n } = t;
-		e && !x(e) && (t.class = O(e)), C(n) && (/* @__PURE__ */ Jt(n) && !g(n) && (n = f({}, n)), t.style = ge(n));
+		e && !x(e) && (t.class = xe(e)), C(n) && (/* @__PURE__ */ Yt(n) && !g(n) && (n = f({}, n)), t.style = ge(n));
 	}
 	let o = x(e) ? 1 : Vi(e) ? 128 : $n(e) ? 64 : C(e) ? 4 : b(e) ? 2 : 0;
 	return J(e, t, n, r, i, o, a, !0);
 }
 function ra(e) {
-	return e ? /* @__PURE__ */ Jt(e) || hi(e) ? f({}, e) : e : null;
+	return e ? /* @__PURE__ */ Yt(e) || hi(e) ? f({}, e) : e : null;
 }
 function ia(e, t, n = !1, r = !1) {
 	let { props: i, ref: a, patchFlag: o, children: s, transition: c } = e, l = t ? ua(i || {}, t) : i, u = {
@@ -2421,7 +2421,7 @@ function ua(...e) {
 	let t = {};
 	for (let n = 0; n < e.length; n++) {
 		let r = e[n];
-		for (let e in r) if (e === "class") t.class !== r.class && (t.class = O([t.class, r.class]));
+		for (let e in r) if (e === "class") t.class !== r.class && (t.class = xe([t.class, r.class]));
 		else if (e === "style") t.style = ge([t.style, r.style]);
 		else if (u(e)) {
 			let n = t[e], i = r[e];
@@ -2431,7 +2431,7 @@ function ua(...e) {
 	return t;
 }
 function da(e, t, n, r = null) {
-	bn(e, t, 7, [n, r]);
+	L(e, t, 7, [n, r]);
 }
 var fa = Yr(), pa = 0;
 function ma(e, t, n) {
@@ -2447,7 +2447,7 @@ function ma(e, t, n) {
 		effect: null,
 		update: null,
 		job: null,
-		scope: new Ae(!0),
+		scope: new je(!0),
 		render: null,
 		proxy: null,
 		exposed: null,
@@ -2535,9 +2535,9 @@ function Ca(e, t) {
 	e.accessCache = /* @__PURE__ */ Object.create(null), e.proxy = new Proxy(e.ctx, Mr);
 	let { setup: r } = n;
 	if (r) {
-		Xe();
-		let n = e.setupContext = r.length > 1 ? ka(e) : null, i = va(e), a = yn(r, e, 0, [e.props, n]), o = w(a);
-		if (Ze(), i(), (o || e.sp) && !sr(e) && nr(e), o) {
+		Ze();
+		let n = e.setupContext = r.length > 1 ? ka(e) : null, i = va(e), a = bn(r, e, 0, [e.props, n]), o = w(a);
+		if (Qe(), i(), (o || e.sp) && !sr(e) && nr(e), o) {
 			if (a.then(ya, ya), t) return a.then((n) => {
 				wa(e, n, t);
 			}).catch((t) => {
@@ -2548,7 +2548,7 @@ function Ca(e, t) {
 	} else Da(e, t);
 }
 function wa(e, t, n) {
-	b(t) ? e.type.__ssrInlineRender ? e.ssrRender = t : e.render = t : C(t) && (e.setupState = nn(t)), Da(e, n);
+	b(t) ? e.type.__ssrInlineRender ? e.ssrRender = t : e.render = t : C(t) && (e.setupState = rn(t)), Da(e, n);
 }
 var Ta, Ea;
 function Da(e, t, n) {
@@ -2568,16 +2568,16 @@ function Da(e, t, n) {
 	}
 	{
 		let t = va(e);
-		Xe();
+		Ze();
 		try {
 			Ir(e);
 		} finally {
-			Ze(), t();
+			Qe(), t();
 		}
 	}
 }
 var Oa = { get(e, t) {
-	return M(e, "get", ""), e[t];
+	return j(e, "get", ""), e[t];
 } };
 function ka(e) {
 	return {
@@ -2590,7 +2590,7 @@ function ka(e) {
 	};
 }
 function Aa(e) {
-	return e.exposed ? e.exposeProxy ||= new Proxy(nn(Yt(e.exposed)), {
+	return e.exposed ? e.exposeProxy ||= new Proxy(rn(Xt(e.exposed)), {
 		get(t, n) {
 			if (n in t) return t[n];
 			if (n in Ar) return Ar[n](e);
@@ -2603,7 +2603,7 @@ function Aa(e) {
 function ja(e) {
 	return b(e) && "__vccOpts" in e;
 }
-var Q = (e, t) => /* @__PURE__ */ fn(e, t, xa), Ma = "3.5.38", Na = void 0, Pa = typeof window < "u" && window.trustedTypes;
+var Q = (e, t) => /* @__PURE__ */ pn(e, t, xa), Ma = "3.5.38", Na = void 0, Pa = typeof window < "u" && window.trustedTypes;
 if (Pa) try {
 	Na = /* @__PURE__ */ Pa.createPolicy("vue", { createHTML: (e) => e });
 } catch {}
@@ -2653,82 +2653,62 @@ function Ha(e, t, n) {
 	let r = e[Va];
 	r && (t = (t ? [t, ...r] : [...r]).join(" ")), t == null ? e.removeAttribute("class") : n ? e.setAttribute("class", t) : e.className = t;
 }
-var Ua = /* @__PURE__ */ Symbol("_vod"), Wa = /* @__PURE__ */ Symbol("_vsh"), Ga = {
-	name: "show",
-	beforeMount(e, { value: t }, { transition: n }) {
-		e[Ua] = e.style.display === "none" ? "" : e.style.display, n && t ? n.beforeEnter(e) : Ka(e, t);
-	},
-	mounted(e, { value: t }, { transition: n }) {
-		n && t && n.enter(e);
-	},
-	updated(e, { value: t, oldValue: n }, { transition: r }) {
-		!t != !n && (r ? t ? (r.beforeEnter(e), Ka(e, !0), r.enter(e)) : r.leave(e, () => {
-			Ka(e, !1);
-		}) : Ka(e, t));
-	},
-	beforeUnmount(e, { value: t }) {
-		Ka(e, t);
-	}
-};
-function Ka(e, t) {
-	e.style.display = t ? e[Ua] : "none", e[Wa] = !t;
-}
-var qa = /* @__PURE__ */ Symbol(""), Ja = /(?:^|;)\s*display\s*:/;
-function Ya(e, t, n) {
+var Ua = /* @__PURE__ */ Symbol("_vod"), Wa = /* @__PURE__ */ Symbol("_vsh"), Ga = /* @__PURE__ */ Symbol(""), Ka = /(?:^|;)\s*display\s*:/;
+function qa(e, t, n) {
 	let r = e.style, i = x(n), a = !1;
 	if (n && !i) {
 		if (t) if (x(t)) for (let e of t.split(";")) {
 			let t = e.slice(0, e.indexOf(":")).trim();
-			n[t] ?? Za(r, t, "");
+			n[t] ?? Ya(r, t, "");
 		}
-		else for (let e in t) n[e] ?? Za(r, e, "");
+		else for (let e in t) n[e] ?? Ya(r, e, "");
 		for (let i in n) {
 			i === "display" && (a = !0);
 			let o = n[i];
-			o == null ? Za(r, i, "") : to(e, i, !x(t) && t ? t[i] : void 0, o) || Za(r, i, o);
+			o == null ? Ya(r, i, "") : $a(e, i, !x(t) && t ? t[i] : void 0, o) || Ya(r, i, o);
 		}
 	} else if (i) {
 		if (t !== n) {
-			let e = r[qa];
-			e && (n += ";" + e), r.cssText = n, a = Ja.test(n);
+			let e = r[Ga];
+			e && (n += ";" + e), r.cssText = n, a = Ka.test(n);
 		}
 	} else t && e.removeAttribute("style");
 	Ua in e && (e[Ua] = a ? r.display : "", e[Wa] && (r.display = "none"));
 }
-var Xa = /\s*!important$/;
-function Za(e, t, n) {
-	if (g(n)) n.forEach((n) => Za(e, t, n));
+var Ja = /\s*!important$/;
+function Ya(e, t, n) {
+	if (g(n)) n.forEach((n) => Ya(e, t, n));
 	else if (n ??= "", t.startsWith("--")) e.setProperty(t, n);
 	else {
-		let r = eo(e, t);
-		Xa.test(n) ? e.setProperty(E(r), n.replace(Xa, ""), "important") : e[r] = n;
+		let r = Qa(e, t);
+		Ja.test(n) ? e.setProperty(E(r), n.replace(Ja, ""), "important") : e[r] = n;
 	}
 }
-var Qa = [
+var Xa = [
 	"Webkit",
 	"Moz",
 	"ms"
-], $a = {};
-function eo(e, t) {
-	let n = $a[t];
+], Za = {};
+function Qa(e, t) {
+	let n = Za[t];
 	if (n) return n;
 	let r = T(t);
-	if (r !== "filter" && r in e) return $a[t] = r;
+	if (r !== "filter" && r in e) return Za[t] = r;
 	r = le(r);
-	for (let n = 0; n < Qa.length; n++) {
-		let i = Qa[n] + r;
-		if (i in e) return $a[t] = i;
+	for (let n = 0; n < Xa.length; n++) {
+		let i = Xa[n] + r;
+		if (i in e) return Za[t] = i;
 	}
 	return t;
 }
-function to(e, t, n, r) {
+function $a(e, t, n, r) {
 	return e.tagName === "TEXTAREA" && (t === "width" || t === "height") && x(r) && n === r;
 }
-var no = "http://www.w3.org/1999/xlink";
-function ro(e, t, n, r, i, a = Se(t)) {
-	r && t.startsWith("xlink:") ? n == null ? e.removeAttributeNS(no, t.slice(6, t.length)) : e.setAttributeNS(no, t, n) : n == null || a && !Ce(n) ? e.removeAttribute(t) : e.setAttribute(t, a ? "" : S(n) ? String(n) : n);
+var eo = "http://www.w3.org/1999/xlink";
+function to(e, t, n, r, i, a = Ce(t)) {
+	r && t.startsWith("xlink:") ? n == null ? e.removeAttributeNS(eo, t.slice(6, t.length)) : e.setAttributeNS(eo, t, n) : n == null || a && !we(n) ? e.removeAttribute(t) : e.setAttribute(t, a ? "" : S(n) ? String(n) : n);
 }
-function io(e, t, n, r, i) {
+function no(e, t, n, r, i) {
 	if (t === "innerHTML" || t === "textContent") {
 		n != null && (e[t] = t === "innerHTML" ? Fa(n) : n);
 		return;
@@ -2742,40 +2722,40 @@ function io(e, t, n, r, i) {
 	let o = !1;
 	if (n === "" || n == null) {
 		let r = typeof e[t];
-		r === "boolean" ? n = Ce(n) : n == null && r === "string" ? (n = "", o = !0) : r === "number" && (n = 0, o = !0);
+		r === "boolean" ? n = we(n) : n == null && r === "string" ? (n = "", o = !0) : r === "number" && (n = 0, o = !0);
 	}
 	try {
 		e[t] = n;
 	} catch {}
 	o && e.removeAttribute(i || t);
 }
-function ao(e, t, n, r) {
+function ro(e, t, n, r) {
 	e.addEventListener(t, n, r);
 }
-function oo(e, t, n, r) {
+function io(e, t, n, r) {
 	e.removeEventListener(t, n, r);
 }
-var so = /* @__PURE__ */ Symbol("_vei");
-function co(e, t, n, r, i = null) {
-	let a = e[so] || (e[so] = {}), o = a[t];
+var ao = /* @__PURE__ */ Symbol("_vei");
+function oo(e, t, n, r, i = null) {
+	let a = e[ao] || (e[ao] = {}), o = a[t];
 	if (r && o) o.value = r;
 	else {
-		let [n, s] = uo(t);
-		r ? ao(e, n, a[t] = ho(r, i), s) : o && (oo(e, n, o, s), a[t] = void 0);
+		let [n, s] = co(t);
+		r ? ro(e, n, a[t] = po(r, i), s) : o && (io(e, n, o, s), a[t] = void 0);
 	}
 }
-var lo = /(?:Once|Passive|Capture)$/;
-function uo(e) {
+var so = /(?:Once|Passive|Capture)$/;
+function co(e) {
 	let t;
-	if (lo.test(e)) {
+	if (so.test(e)) {
 		t = {};
 		let n;
-		for (; n = e.match(lo);) e = e.slice(0, e.length - n[0].length), t[n[0].toLowerCase()] = !0;
+		for (; n = e.match(so);) e = e.slice(0, e.length - n[0].length), t[n[0].toLowerCase()] = !0;
 	}
 	return [e[2] === ":" ? e.slice(3) : E(e.slice(2)), t];
 }
-var fo = 0, po = /* @__PURE__ */ Promise.resolve(), mo = () => fo ||= (po.then(() => fo = 0), Date.now());
-function ho(e, t) {
+var lo = 0, uo = /* @__PURE__ */ Promise.resolve(), fo = () => lo ||= (uo.then(() => lo = 0), Date.now());
+function po(e, t) {
 	let n = (e) => {
 		if (!e._vts) e._vts = Date.now();
 		else if (e._vts <= n.attached) return;
@@ -2788,73 +2768,73 @@ function ho(e, t) {
 			let i = r.slice(), a = [e];
 			for (let n = 0; n < i.length && !e._stopped; n++) {
 				let e = i[n];
-				e && bn(e, t, 5, a);
+				e && L(e, t, 5, a);
 			}
-		} else bn(r, t, 5, [e]);
+		} else L(r, t, 5, [e]);
 	};
-	return n.value = e, n.attached = mo(), n;
+	return n.value = e, n.attached = fo(), n;
 }
-var go = (e) => e.charCodeAt(0) === 111 && e.charCodeAt(1) === 110 && e.charCodeAt(2) > 96 && e.charCodeAt(2) < 123, _o = (e, t, n, r, i, a) => {
+var mo = (e) => e.charCodeAt(0) === 111 && e.charCodeAt(1) === 110 && e.charCodeAt(2) > 96 && e.charCodeAt(2) < 123, ho = (e, t, n, r, i, a) => {
 	let o = i === "svg";
-	t === "class" ? Ha(e, r, o) : t === "style" ? Ya(e, n, r) : u(t) ? d(t) || co(e, t, n, r, a) : (t[0] === "." ? (t = t.slice(1), !0) : t[0] === "^" ? (t = t.slice(1), !1) : vo(e, t, r, o)) ? (io(e, t, r), !e.tagName.includes("-") && (t === "value" || t === "checked" || t === "selected") && ro(e, t, r, o, a, t !== "value")) : e._isVueCE && (yo(e, t) || e._def.__asyncLoader && (/[A-Z]/.test(t) || !x(r))) ? io(e, T(t), r, a, t) : (t === "true-value" ? e._trueValue = r : t === "false-value" && (e._falseValue = r), ro(e, t, r, o));
+	t === "class" ? Ha(e, r, o) : t === "style" ? qa(e, n, r) : u(t) ? d(t) || oo(e, t, n, r, a) : (t[0] === "." ? (t = t.slice(1), !0) : t[0] === "^" ? (t = t.slice(1), !1) : go(e, t, r, o)) ? (no(e, t, r), !e.tagName.includes("-") && (t === "value" || t === "checked" || t === "selected") && to(e, t, r, o, a, t !== "value")) : e._isVueCE && (_o(e, t) || e._def.__asyncLoader && (/[A-Z]/.test(t) || !x(r))) ? no(e, T(t), r, a, t) : (t === "true-value" ? e._trueValue = r : t === "false-value" && (e._falseValue = r), to(e, t, r, o));
 };
-function vo(e, t, n, r) {
-	if (r) return !!(t === "innerHTML" || t === "textContent" || t in e && go(t) && b(n));
+function go(e, t, n, r) {
+	if (r) return !!(t === "innerHTML" || t === "textContent" || t in e && mo(t) && b(n));
 	if (t === "spellcheck" || t === "draggable" || t === "translate" || t === "autocorrect" || t === "sandbox" && e.tagName === "IFRAME" || t === "form" || t === "list" && e.tagName === "INPUT" || t === "type" && e.tagName === "TEXTAREA") return !1;
 	if (t === "width" || t === "height") {
 		let t = e.tagName;
 		if (t === "IMG" || t === "VIDEO" || t === "CANVAS" || t === "SOURCE") return !1;
 	}
-	return go(t) && x(n) ? !1 : t in e;
+	return mo(t) && x(n) ? !1 : t in e;
 }
-function yo(e, t) {
+function _o(e, t) {
 	let n = e._def.props;
 	if (!n) return !1;
 	let r = T(t);
 	return Array.isArray(n) ? n.some((e) => T(e) === r) : Object.keys(n).some((e) => T(e) === r);
 }
-var bo = (e) => {
+var vo = (e) => {
 	let t = e.props["onUpdate:modelValue"] || !1;
 	return g(t) ? (e) => de(t, e) : t;
 };
-function xo(e) {
+function yo(e) {
 	e.target.composing = !0;
 }
-function So(e) {
+function bo(e) {
 	let t = e.target;
 	t.composing && (t.composing = !1, t.dispatchEvent(new Event("input")));
 }
-var Co = /* @__PURE__ */ Symbol("_assign");
-function wo(e, t, n) {
+var xo = /* @__PURE__ */ Symbol("_assign");
+function So(e, t, n) {
 	return t && (e = e.trim()), n && (e = pe(e)), e;
 }
-var To = {
+var Co = {
 	created(e, { modifiers: { lazy: t, trim: n, number: r } }, i) {
-		e[Co] = bo(i);
+		e[xo] = vo(i);
 		let a = r || i.props && i.props.type === "number";
-		ao(e, t ? "change" : "input", (t) => {
-			t.target.composing || e[Co](wo(e.value, n, a));
-		}), (n || a) && ao(e, "change", () => {
-			e.value = wo(e.value, n, a);
-		}), t || (ao(e, "compositionstart", xo), ao(e, "compositionend", So), ao(e, "change", So));
+		ro(e, t ? "change" : "input", (t) => {
+			t.target.composing || e[xo](So(e.value, n, a));
+		}), (n || a) && ro(e, "change", () => {
+			e.value = So(e.value, n, a);
+		}), t || (ro(e, "compositionstart", yo), ro(e, "compositionend", bo), ro(e, "change", bo));
 	},
 	mounted(e, { value: t }) {
 		e.value = t ?? "";
 	},
 	beforeUpdate(e, { value: t, oldValue: n, modifiers: { lazy: r, trim: i, number: a } }, o) {
-		if (e[Co] = bo(o), e.composing) return;
+		if (e[xo] = vo(o), e.composing) return;
 		let s = (a || e.type === "number") && !/^0\d/.test(e.value) ? pe(e.value) : e.value, c = t ?? "";
 		if (s === c) return;
 		let l = e.getRootNode();
 		(l instanceof Document || l instanceof ShadowRoot) && l.activeElement === e && e.type !== "range" && (r && t === n || i && e.value.trim() === c) || (e.value = c);
 	}
-}, Eo = {
+}, wo = {
 	deep: !0,
 	created(e, t, n) {
-		e[Co] = bo(n), ao(e, "change", () => {
-			let t = e._modelValue, n = Ao(e), r = e.checked, i = e[Co];
+		e[xo] = vo(n), ro(e, "change", () => {
+			let t = e._modelValue, n = Oo(e), r = e.checked, i = e[xo];
 			if (g(t)) {
-				let e = Ee(t, n), a = e !== -1;
+				let e = De(t, n), a = e !== -1;
 				if (r && !a) i(t.concat(n));
 				else if (!r && a) {
 					let n = [...t];
@@ -2863,56 +2843,56 @@ var To = {
 			} else if (v(t)) {
 				let e = new Set(t);
 				r ? e.add(n) : e.delete(n), i(e);
-			} else i(jo(e, r));
+			} else i(ko(e, r));
 		});
 	},
-	mounted: Do,
+	mounted: To,
 	beforeUpdate(e, t, n) {
-		e[Co] = bo(n), Do(e, t, n);
+		e[xo] = vo(n), To(e, t, n);
 	}
 };
-function Do(e, { value: t, oldValue: n }, r) {
+function To(e, { value: t, oldValue: n }, r) {
 	e._modelValue = t;
 	let i;
-	if (g(t)) i = Ee(t, r.props.value) > -1;
+	if (g(t)) i = De(t, r.props.value) > -1;
 	else if (v(t)) i = t.has(r.props.value);
 	else {
 		if (t === n) return;
-		i = Te(t, jo(e, !0));
+		i = Ee(t, ko(e, !0));
 	}
 	e.checked !== i && (e.checked = i);
 }
-var Oo = {
+var Eo = {
 	deep: !0,
 	created(e, { value: t, modifiers: { number: n } }, r) {
 		let i = v(t);
-		ao(e, "change", () => {
-			let t = Array.prototype.filter.call(e.options, (e) => e.selected).map((e) => n ? pe(Ao(e)) : Ao(e));
-			e[Co](e.multiple ? i ? new Set(t) : t : t[0]), e._assigning = !0, kn(() => {
+		ro(e, "change", () => {
+			let t = Array.prototype.filter.call(e.options, (e) => e.selected).map((e) => n ? pe(Oo(e)) : Oo(e));
+			e[xo](e.multiple ? i ? new Set(t) : t : t[0]), e._assigning = !0, kn(() => {
 				e._assigning = !1;
 			});
-		}), e[Co] = bo(r);
+		}), e[xo] = vo(r);
 	},
 	mounted(e, { value: t }) {
-		ko(e, t);
+		Do(e, t);
 	},
 	beforeUpdate(e, t, n) {
-		e[Co] = bo(n);
+		e[xo] = vo(n);
 	},
 	updated(e, { value: t }) {
-		e._assigning || ko(e, t);
+		e._assigning || Do(e, t);
 	}
 };
-function ko(e, t) {
+function Do(e, t) {
 	let n = e.multiple, r = g(t);
 	if (!(n && !r && !v(t))) {
 		for (let i = 0, a = e.options.length; i < a; i++) {
-			let a = e.options[i], o = Ao(a);
+			let a = e.options[i], o = Oo(a);
 			if (n) if (r) {
 				let e = typeof o;
-				e === "string" || e === "number" ? a.selected = t.some((e) => String(e) === String(o)) : a.selected = Ee(t, o) > -1;
+				e === "string" || e === "number" ? a.selected = t.some((e) => String(e) === String(o)) : a.selected = De(t, o) > -1;
 			} else a.selected = t.has(o);
-			else if (Te(Ao(a), t)) {
+			else if (Ee(Oo(a), t)) {
 				e.selectedIndex !== i && (e.selectedIndex = i);
 				return;
 			}
@@ -2920,19 +2900,19 @@ function ko(e, t) {
 		!n && e.selectedIndex !== -1 && (e.selectedIndex = -1);
 	}
 }
-function Ao(e) {
+function Oo(e) {
 	return "_value" in e ? e._value : e.value;
 }
-function jo(e, t) {
+function ko(e, t) {
 	let n = t ? "_trueValue" : "_falseValue";
 	return n in e ? e[n] : t;
 }
-var Mo = [
+var Ao = [
 	"ctrl",
 	"shift",
 	"alt",
 	"meta"
-], No = {
+], jo = {
 	stop: (e) => e.stopPropagation(),
 	prevent: (e) => e.preventDefault(),
 	self: (e) => e.target !== e.currentTarget,
@@ -2943,62 +2923,62 @@ var Mo = [
 	left: (e) => "button" in e && e.button !== 0,
 	middle: (e) => "button" in e && e.button !== 1,
 	right: (e) => "button" in e && e.button !== 2,
-	exact: (e, t) => Mo.some((n) => e[`${n}Key`] && !t.includes(n))
-}, Po = (e, t) => {
+	exact: (e, t) => Ao.some((n) => e[`${n}Key`] && !t.includes(n))
+}, Mo = (e, t) => {
 	if (!e) return e;
 	let n = e._withMods ||= {}, r = t.join(".");
 	return n[r] || (n[r] = ((n, ...r) => {
 		for (let e = 0; e < t.length; e++) {
-			let r = No[t[e]];
+			let r = jo[t[e]];
 			if (r && r(n, t)) return;
 		}
 		return e(n, ...r);
 	}));
-}, Fo = /* @__PURE__ */ f({ patchProp: _o }, Ba), Io;
-function Lo() {
-	return Io ||= ji(Fo);
+}, No = /* @__PURE__ */ f({ patchProp: ho }, Ba), Po;
+function Fo() {
+	return Po ||= ji(No);
 }
-var Ro = ((...e) => {
-	let t = Lo().createApp(...e), { mount: n } = t;
+var Io = ((...e) => {
+	let t = Fo().createApp(...e), { mount: n } = t;
 	return t.mount = (e) => {
-		let r = Bo(e);
+		let r = Ro(e);
 		if (!r) return;
 		let i = t._component;
 		!b(i) && !i.render && !i.template && (i.template = r.innerHTML), r.nodeType === 1 && (r.textContent = "");
-		let a = n(r, !1, zo(r));
+		let a = n(r, !1, Lo(r));
 		return r instanceof Element && (r.removeAttribute("v-cloak"), r.setAttribute("data-v-app", "")), a;
 	}, t;
 });
-function zo(e) {
+function Lo(e) {
 	if (e instanceof SVGElement) return "svg";
 	if (typeof MathMLElement == "function" && e instanceof MathMLElement) return "mathml";
 }
-function Bo(e) {
+function Ro(e) {
 	return x(e) ? document.querySelector(e) : e;
 }
 //#endregion
 //#region node_modules/pinia/dist/pinia.mjs
-var Vo = typeof window < "u", Ho, Uo = (e) => Ho = e, Wo = Symbol();
-function Go(e) {
+var zo = typeof window < "u", Bo, Vo = (e) => Bo = e, Ho = Symbol();
+function Uo(e) {
 	return e && typeof e == "object" && Object.prototype.toString.call(e) === "[object Object]" && typeof e.toJSON != "function";
 }
-var Ko;
+var Wo;
 (function(e) {
 	e.direct = "direct", e.patchObject = "patch object", e.patchFunction = "patch function";
-})(Ko ||= {});
-var qo = typeof window == "object" && window.window === window ? window : typeof self == "object" && self.self === self ? self : typeof global == "object" && global.global === global ? global : typeof globalThis == "object" ? globalThis : { HTMLElement: null };
-function Jo(e, { autoBom: t = !1 } = {}) {
+})(Wo ||= {});
+var Go = typeof window == "object" && window.window === window ? window : typeof self == "object" && self.self === self ? self : typeof global == "object" && global.global === global ? global : typeof globalThis == "object" ? globalThis : { HTMLElement: null };
+function Ko(e, { autoBom: t = !1 } = {}) {
 	return t && /^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(e.type) ? new Blob(["﻿", e], { type: e.type }) : e;
 }
-function Yo(e, t, n) {
+function qo(e, t, n) {
 	let r = new XMLHttpRequest();
 	r.open("GET", e), r.responseType = "blob", r.onload = function() {
-		es(r.response, t, n);
+		Qo(r.response, t, n);
 	}, r.onerror = function() {
 		console.error("could not download file");
 	}, r.send();
 }
-function Xo(e) {
+function Jo(e) {
 	let t = new XMLHttpRequest();
 	t.open("HEAD", e, !1);
 	try {
@@ -3006,7 +2986,7 @@ function Xo(e) {
 	} catch {}
 	return t.status >= 200 && t.status <= 299;
 }
-function Zo(e) {
+function Yo(e) {
 	try {
 		e.dispatchEvent(new MouseEvent("click"));
 	} catch {
@@ -3029,29 +3009,29 @@ function Zo(e) {
 		e.dispatchEvent(t);
 	}
 }
-var Qo = typeof navigator == "object" ? navigator : { userAgent: "" }, $o = /Macintosh/.test(Qo.userAgent) && /AppleWebKit/.test(Qo.userAgent) && !/Safari/.test(Qo.userAgent), es = Vo ? typeof HTMLAnchorElement < "u" && "download" in HTMLAnchorElement.prototype && !$o ? ts : "msSaveOrOpenBlob" in Qo ? ns : rs : () => {};
-function ts(e, t = "download", n) {
+var Xo = typeof navigator == "object" ? navigator : { userAgent: "" }, Zo = /Macintosh/.test(Xo.userAgent) && /AppleWebKit/.test(Xo.userAgent) && !/Safari/.test(Xo.userAgent), Qo = zo ? typeof HTMLAnchorElement < "u" && "download" in HTMLAnchorElement.prototype && !Zo ? $o : "msSaveOrOpenBlob" in Xo ? es : ts : () => {};
+function $o(e, t = "download", n) {
 	let r = document.createElement("a");
-	r.download = t, r.rel = "noopener", typeof e == "string" ? (r.href = e, r.origin === location.origin ? Zo(r) : Xo(r.href) ? Yo(e, t, n) : (r.target = "_blank", Zo(r))) : (r.href = URL.createObjectURL(e), setTimeout(function() {
+	r.download = t, r.rel = "noopener", typeof e == "string" ? (r.href = e, r.origin === location.origin ? Yo(r) : Jo(r.href) ? qo(e, t, n) : (r.target = "_blank", Yo(r))) : (r.href = URL.createObjectURL(e), setTimeout(function() {
 		URL.revokeObjectURL(r.href);
 	}, 4e4), setTimeout(function() {
-		Zo(r);
+		Yo(r);
 	}, 0));
 }
-function ns(e, t = "download", n) {
-	if (typeof e == "string") if (Xo(e)) Yo(e, t, n);
+function es(e, t = "download", n) {
+	if (typeof e == "string") if (Jo(e)) qo(e, t, n);
 	else {
 		let t = document.createElement("a");
 		t.href = e, t.target = "_blank", setTimeout(function() {
-			Zo(t);
+			Yo(t);
 		});
 	}
-	else navigator.msSaveOrOpenBlob(Jo(e, n), t);
+	else navigator.msSaveOrOpenBlob(Ko(e, n), t);
 }
-function rs(e, t, n, r) {
-	if (r ||= open("", "_blank"), r && (r.document.title = r.document.body.innerText = "downloading..."), typeof e == "string") return Yo(e, t, n);
-	let i = e.type === "application/octet-stream", a = /constructor/i.test(String(qo.HTMLElement)) || "safari" in qo, o = /CriOS\/[\d]+/.test(navigator.userAgent);
-	if ((o || i && a || $o) && typeof FileReader < "u") {
+function ts(e, t, n, r) {
+	if (r ||= open("", "_blank"), r && (r.document.title = r.document.body.innerText = "downloading..."), typeof e == "string") return qo(e, t, n);
+	let i = e.type === "application/octet-stream", a = /constructor/i.test(String(Go.HTMLElement)) || "safari" in Go, o = /CriOS\/[\d]+/.test(navigator.userAgent);
+	if ((o || i && a || Zo) && typeof FileReader < "u") {
 		let t = new FileReader();
 		t.onloadend = function() {
 			let e = t.result;
@@ -3065,11 +3045,11 @@ function rs(e, t, n, r) {
 		}, 4e4);
 	}
 }
-var { assign: is } = Object;
-function as() {
-	let e = je(!0), t = e.run(() => /* @__PURE__ */ I({})), n = [], r = [], i = Yt({
+var { assign: ns } = Object;
+function rs() {
+	let e = Me(!0), t = e.run(() => /* @__PURE__ */ F({})), n = [], r = [], i = Xt({
 		install(e) {
-			Uo(i), i._a = e, e.provide(Wo, i), e.config.globalProperties.$pinia = i, r.forEach((e) => n.push(e)), r = [];
+			Vo(i), i._a = e, e.provide(Ho, i), e.config.globalProperties.$pinia = i, r.forEach((e) => n.push(e)), r = [];
 		},
 		use(e) {
 			return this._a ? n.push(e) : r.push(e), this;
@@ -3082,60 +3062,60 @@ function as() {
 	});
 	return i;
 }
-var os = () => {};
-function ss(e, t, n, r = os) {
+var is = () => {};
+function as(e, t, n, r = is) {
 	e.add(t);
 	let i = () => {
 		e.delete(t) && r();
 	};
-	return !n && Me() && Ne(i), i;
+	return !n && Ne() && Pe(i), i;
 }
-function cs(e, ...t) {
+function os(e, ...t) {
 	e.forEach((e) => {
 		e(...t);
 	});
 }
-var ls = (e) => e(), us = Symbol(), ds = Symbol();
-function fs(e, t) {
+var ss = (e) => e(), cs = Symbol(), ls = Symbol();
+function us(e, t) {
 	e instanceof Map && t instanceof Map ? t.forEach((t, n) => e.set(n, t)) : e instanceof Set && t instanceof Set && t.forEach(e.add, e);
 	for (let n in t) {
 		if (!t.hasOwnProperty(n)) continue;
 		let r = t[n], i = e[n];
-		Go(i) && Go(r) && e.hasOwnProperty(n) && !/* @__PURE__ */ F(r) && !/* @__PURE__ */ Kt(r) ? e[n] = fs(i, r) : e[n] = r;
+		Uo(i) && Uo(r) && e.hasOwnProperty(n) && !/* @__PURE__ */ P(r) && !/* @__PURE__ */ qt(r) ? e[n] = us(i, r) : e[n] = r;
 	}
 	return e;
 }
-var ps = Symbol();
+var ds = Symbol();
+function fs(e) {
+	return !Uo(e) || !Object.prototype.hasOwnProperty.call(e, ds);
+}
+var { assign: ps } = Object;
 function ms(e) {
-	return !Go(e) || !Object.prototype.hasOwnProperty.call(e, ps);
+	return !!(/* @__PURE__ */ P(e) && e.effect);
 }
-var { assign: hs } = Object;
-function gs(e) {
-	return !!(/* @__PURE__ */ F(e) && e.effect);
-}
-function _s(e, t, n, r) {
+function hs(e, t, n, r) {
 	let { state: i, actions: a, getters: o } = t, s = n.state.value[e], c;
 	function l() {
-		return s || (n.state.value[e] = i ? i() : {}), hs(/* @__PURE__ */ on(n.state.value[e]), a, Object.keys(o || {}).reduce((t, r) => (t[r] = Yt(Q(() => {
-			Uo(n);
+		return s || (n.state.value[e] = i ? i() : {}), ps(/* @__PURE__ */ sn(n.state.value[e]), a, Object.keys(o || {}).reduce((t, r) => (t[r] = Xt(Q(() => {
+			Vo(n);
 			let t = n._s.get(e);
 			return o[r].call(t, t);
 		})), t), {}));
 	}
-	return c = vs(e, l, t, n, r, !0), c;
+	return c = gs(e, l, t, n, r, !0), c;
 }
-function vs(e, t, n = {}, r, i, a) {
-	let o, s = hs({ actions: {} }, n), c = { deep: !0 }, l, u, d = /* @__PURE__ */ new Set(), f = /* @__PURE__ */ new Set(), p = r.state.value[e];
+function gs(e, t, n = {}, r, i, a) {
+	let o, s = ps({ actions: {} }, n), c = { deep: !0 }, l, u, d = /* @__PURE__ */ new Set(), f = /* @__PURE__ */ new Set(), p = r.state.value[e];
 	!a && !p && (r.state.value[e] = {});
 	let m;
 	function h(t) {
 		let n;
 		l = u = !1, typeof t == "function" ? (t(r.state.value[e]), n = {
-			type: Ko.patchFunction,
+			type: Wo.patchFunction,
 			storeId: e,
 			events: void 0
-		}) : (fs(r.state.value[e], t), n = {
-			type: Ko.patchObject,
+		}) : (us(r.state.value[e], t), n = {
+			type: Wo.patchObject,
 			payload: t,
 			storeId: e,
 			events: void 0
@@ -3143,21 +3123,21 @@ function vs(e, t, n = {}, r, i, a) {
 		let i = m = Symbol();
 		kn().then(() => {
 			m === i && (l = !0);
-		}), u = !0, cs(d, n, r.state.value[e]);
+		}), u = !0, os(d, n, r.state.value[e]);
 	}
 	let g = a ? function() {
 		let { state: e } = n, t = e ? e() : {};
 		this.$patch((e) => {
-			hs(e, t);
+			ps(e, t);
 		});
-	} : os;
+	} : is;
 	function _() {
 		o.stop(), d.clear(), f.clear(), r._s.delete(e);
 	}
 	let v = (t, n = "") => {
-		if (us in t) return t[ds] = n, t;
+		if (cs in t) return t[ls] = n, t;
 		let i = function() {
-			Uo(r);
+			Vo(r);
 			let n = Array.from(arguments), a = /* @__PURE__ */ new Set(), o = /* @__PURE__ */ new Set();
 			function s(e) {
 				a.add(e);
@@ -3165,9 +3145,9 @@ function vs(e, t, n = {}, r, i, a) {
 			function c(e) {
 				o.add(e);
 			}
-			cs(f, {
+			os(f, {
 				args: n,
-				name: i[ds],
+				name: i[ls],
 				store: y,
 				after: s,
 				onError: c
@@ -3176,44 +3156,44 @@ function vs(e, t, n = {}, r, i, a) {
 			try {
 				l = t.apply(this && this.$id === e ? this : y, n);
 			} catch (e) {
-				throw cs(o, e), e;
+				throw os(o, e), e;
 			}
-			return l instanceof Promise ? l.then((e) => (cs(a, e), e)).catch((e) => (cs(o, e), Promise.reject(e))) : (cs(a, l), l);
+			return l instanceof Promise ? l.then((e) => (os(a, e), e)).catch((e) => (os(o, e), Promise.reject(e))) : (os(a, l), l);
 		};
-		return i[us] = !0, i[ds] = n, i;
-	}, y = /* @__PURE__ */ Ht({
+		return i[cs] = !0, i[ls] = n, i;
+	}, y = /* @__PURE__ */ Ut({
 		_p: r,
 		$id: e,
-		$onAction: ss.bind(null, f),
+		$onAction: as.bind(null, f),
 		$patch: h,
 		$reset: g,
 		$subscribe(t, n = {}) {
-			let i = ss(d, t, n.detached, () => a()), a = o.run(() => Jn(() => r.state.value[e], (r) => {
+			let i = as(d, t, n.detached, () => a()), a = o.run(() => Jn(() => r.state.value[e], (r) => {
 				(n.flush === "sync" ? u : l) && t({
 					storeId: e,
-					type: Ko.direct,
+					type: Wo.direct,
 					events: void 0
 				}, r);
-			}, hs({}, c, n)));
+			}, ps({}, c, n)));
 			return i;
 		},
 		$dispose: _
 	});
 	r._s.set(e, y);
-	let b = (r._a && r._a.runWithContext || ls)(() => r._e.run(() => (o = je()).run(() => t({ action: v }))));
+	let b = (r._a && r._a.runWithContext || ss)(() => r._e.run(() => (o = Me()).run(() => t({ action: v }))));
 	for (let t in b) {
 		let n = b[t];
-		/* @__PURE__ */ F(n) && !gs(n) || /* @__PURE__ */ Kt(n) ? a || (p && ms(n) && (/* @__PURE__ */ F(n) ? n.value = p[t] : fs(n, p[t])), r.state.value[e][t] = n) : typeof n == "function" && (b[t] = v(n, t), s.actions[t] = n);
+		/* @__PURE__ */ P(n) && !ms(n) || /* @__PURE__ */ qt(n) ? a || (p && fs(n) && (/* @__PURE__ */ P(n) ? n.value = p[t] : us(n, p[t])), r.state.value[e][t] = n) : typeof n == "function" && (b[t] = v(n, t), s.actions[t] = n);
 	}
-	return hs(y, b), hs(/* @__PURE__ */ P(y), b), Object.defineProperty(y, "$state", {
+	return ps(y, b), ps(/* @__PURE__ */ N(y), b), Object.defineProperty(y, "$state", {
 		get: () => r.state.value[e],
 		set: (e) => {
 			h((t) => {
-				hs(t, e);
+				ps(t, e);
 			});
 		}
 	}), r._p.forEach((e) => {
-		hs(y, o.run(() => e({
+		ps(y, o.run(() => e({
 			store: y,
 			app: r._a,
 			pinia: r,
@@ -3221,17 +3201,17 @@ function vs(e, t, n = {}, r, i, a) {
 		})));
 	}), p && a && n.hydrate && n.hydrate(y.$state, p), l = !0, u = !0, y;
 }
-function ys(e, t, n) {
+function _s(e, t, n) {
 	let r, i = typeof t == "function";
 	r = i ? n : t;
 	function a(n, a) {
 		let o = Wn();
-		return n ||= o ? Un(Wo, null) : null, n && Uo(n), n = Ho, n._s.has(e) || (i ? vs(e, t, r, n) : _s(e, r, n)), n._s.get(e);
+		return n ||= o ? Un(Ho, null) : null, n && Vo(n), n = Bo, n._s.has(e) || (i ? gs(e, t, r, n) : hs(e, r, n)), n._s.get(e);
 	}
 	return a.$id = e, a;
 }
-function bs(e) {
-	let t = /* @__PURE__ */ P(e), n = {};
+function vs(e) {
+	let t = /* @__PURE__ */ N(e), n = {};
 	for (let r in t) {
 		let i = t[r];
 		i.effect ? n[r] = Q({
@@ -3239,13 +3219,13 @@ function bs(e) {
 			set(t) {
 				e[r] = t;
 			}
-		}) : (/* @__PURE__ */ F(i) || /* @__PURE__ */ Kt(i)) && (n[r] = /* @__PURE__ */ ln(e, r));
+		}) : (/* @__PURE__ */ P(i) || /* @__PURE__ */ qt(i)) && (n[r] = /* @__PURE__ */ un(e, r));
 	}
 	return n;
 }
 //#endregion
 //#region src/functions/fear-terror/payload.ts
-function xs(e) {
+function ys(e) {
 	let t = e.type === "fear" ? 0 : 1, n = Number(e.rating), r = Number.isFinite(n) ? Math.max(0, Math.trunc(n)) : t, i = e.source?.trim();
 	return i ? {
 		rating: r,
@@ -3256,21 +3236,21 @@ function xs(e) {
 		type: e.type
 	};
 }
-function Ss(e) {
+function bs(e) {
 	return e === "fear" ? "Fear" : "Terror";
 }
-function Cs(e, t) {
+function xs(e, t) {
 	let n = t.source ? ` - ${t.source}` : "";
 	return `${e} ${t.rating}${n}`;
 }
-function ws(e, t) {
-	let n = Ss(t.type), r = t.source ? `, ${t.source}` : "";
+function Ss(e, t) {
+	let n = bs(t.type), r = t.source ? `, ${t.source}` : "";
 	return `<h2>${e}</h2>@${n}[${t.rating}${r}]`;
 }
 //#endregion
 //#region src/state/apps/fear-console/store.ts
-var Ts = ys("fear-console", () => {
-	let e = /* @__PURE__ */ I("fear"), t = /* @__PURE__ */ I(1), n = /* @__PURE__ */ I(""), r = /* @__PURE__ */ I([]), i = /* @__PURE__ */ I(), a = /* @__PURE__ */ I(), o, s = Q(() => i.value !== void 0), c = Q(() => Ss(e.value)), l = Q(() => {
+var Cs = _s("fear-console", () => {
+	let e = /* @__PURE__ */ F("fear"), t = /* @__PURE__ */ F(1), n = /* @__PURE__ */ F(""), r = /* @__PURE__ */ F([]), i = /* @__PURE__ */ F(), a = /* @__PURE__ */ F(), o, s = Q(() => i.value !== void 0), c = Q(() => bs(e.value)), l = Q(() => {
 		let r = {
 			rating: t.value,
 			type: e.value
@@ -3313,182 +3293,409 @@ var Ts = ys("fear-console", () => {
 		selectedTypeLabel: c,
 		source: n
 	};
-}), Es = { class: "tw:flex tw:min-h-full tw:flex-col tw:gap-4 tw:bg-base-200 tw:text-base-content" }, Ds = { class: "dui-navbar tw:items-start tw:border-b tw:border-base-300 tw:bg-base-100 tw:px-5 tw:py-4" }, Os = { class: "dui-navbar-end tw:w-auto tw:shrink-0" }, ks = { class: "dui-badge dui-badge-outline" }, As = {
+}), ws = { class: "dui-navbar tw:relative tw:min-h-0 tw:min-w-0 tw:flex-wrap tw:items-start tw:gap-3 tw:border-b-4 tw:border-double tw:border-base-content/25! tw:bg-base-100! tw:px-4 tw:py-3 tw:text-base-content! tw:shadow-md" }, Ts = { class: "dui-navbar-start tw:min-w-0 tw:flex-1 tw:items-start tw:gap-3" }, Es = {
+	class: "tw:inline-grid tw:size-11 tw:shrink-0 tw:place-items-center tw:rounded-full tw:border-2 tw:border-base-100/50! tw:bg-primary! tw:text-lg tw:text-primary-content! tw:shadow-md",
+	"aria-hidden": "true"
+}, Ds = { class: "tw:min-w-0" }, Os = { class: "tw:m-0 tw:font-serif tw:text-2xl tw:font-bold tw:leading-tight tw:tracking-wide tw:text-base-content!" }, ks = { class: "tw:mt-1 tw:max-w-2xl tw:text-sm tw:leading-relaxed tw:text-base-content/70!" }, As = { class: "dui-navbar-end tw:w-auto tw:max-w-full tw:shrink tw:items-center tw:gap-2" }, js = ["data-tip"], Ms = ["aria-label", "title"], Ns = /* @__PURE__ */ V({
+	__name: "ApplicationHeader",
+	props: {
+		configureLabel: {},
+		description: {},
+		icon: {},
+		title: {}
+	},
+	emits: ["configure"],
+	setup(e, { emit: t }) {
+		let n = t;
+		return (t, r) => (K(), q("header", ws, [J("div", Ts, [J("span", Es, [J("i", { class: xe(e.icon) }, null, 2)]), J("div", Ds, [
+			r[1] ||= J("div", { class: "dui-breadcrumbs tw:mb-0.5 tw:max-w-full tw:text-xs tw:text-secondary!" }, [J("ul", null, [J("li", null, "WFRP4e"), J("li", null, "Drowsy’s Toolkit")])], -1),
+			J("h1", Os, O(e.title), 1),
+			J("p", ks, O(e.description), 1)
+		])]), J("div", As, [Dr(t.$slots, "end"), e.configureLabel ? (K(), q("span", {
+			key: 0,
+			class: "dui-tooltip dui-tooltip-left",
+			"data-tip": e.configureLabel
+		}, [J("button", {
+			class: "dui-btn dui-btn-ghost dui-btn-sm dui-btn-square tw:border tw:border-base-content/20! tw:bg-base-200! tw:text-base-content!",
+			type: "button",
+			"aria-label": e.configureLabel,
+			title: e.configureLabel,
+			onClick: r[0] ||= (e) => n("configure")
+		}, [...r[2] ||= [J("i", {
+			class: "fa-solid fa-gear",
+			"aria-hidden": "true"
+		}, null, -1)]], 8, Ms)], 8, js)) : oa("", !0)])]));
+	}
+}), Ps = { class: "tw:flex tw:min-h-full tw:flex-col tw:gap-4 tw:bg-base-200! tw:text-base-content tw:text-base-content!" }, Fs = { class: "dui-badge dui-badge-outline tw:border-base-content/25!" }, Is = {
 	key: 0,
 	class: "dui-alert dui-alert-error tw:mx-4",
 	role: "alert"
-}, js = {
+}, Ls = {
 	class: "tw:grid tw:min-w-0 tw:grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] tw:gap-3 tw:px-4",
 	"aria-label": "Fear and Terror setup"
-}, Ms = { class: "dui-fieldset tw:min-w-0 tw:w-full tw:rounded-box tw:border tw:border-base-300 tw:bg-base-100 tw:p-4" }, Ns = {
+}, Rs = { class: "dui-fieldset tw:min-w-0 tw:w-full tw:rounded-box tw:border-2 tw:border-base-content/20! tw:bg-base-100! tw:p-4 tw:text-base-content! tw:shadow-sm" }, zs = {
 	class: "dui-join tw:w-full",
 	role: "group",
 	"aria-label": "Effect type"
-}, Ps = ["aria-pressed"], Fs = ["aria-pressed"], Is = { class: "dui-fieldset tw:min-w-0 tw:w-full tw:rounded-box tw:border tw:border-base-300 tw:bg-base-100 tw:p-4" }, Ls = { class: "dui-fieldset tw:col-span-full tw:min-w-0 tw:w-full tw:rounded-box tw:border tw:border-base-300 tw:bg-base-100 tw:p-4" }, Rs = {
-	class: "dui-card dui-card-border tw:mx-4 tw:min-h-40 tw:flex-1 tw:bg-base-100",
+}, Bs = ["aria-pressed"], Vs = ["aria-pressed"], Hs = { class: "dui-fieldset tw:min-w-0 tw:w-full tw:rounded-box tw:border-2 tw:border-base-content/20! tw:bg-base-100! tw:p-4 tw:text-base-content! tw:shadow-sm" }, Us = { class: "dui-fieldset tw:col-span-full tw:min-w-0 tw:w-full tw:rounded-box tw:border-2 tw:border-base-content/20! tw:bg-base-100! tw:p-4 tw:text-base-content! tw:shadow-sm" }, Ws = {
+	class: "dui-card dui-card-border tw:mx-4 tw:min-h-40 tw:flex-1 tw:border-2 tw:border-base-content/20! tw:bg-base-100! tw:text-base-content! tw:shadow-md",
 	"aria-labelledby": "fear-terror-recipients"
-}, zs = { class: "dui-card-body tw:gap-3 tw:p-4" }, Bs = { class: "tw:flex tw:items-center tw:justify-between tw:gap-3" }, Vs = { class: "tw:flex tw:items-center tw:gap-2" }, Hs = { class: "dui-badge dui-badge-sm" }, Us = ["disabled"], Ws = {
+}, Gs = { class: "dui-card-body tw:gap-3 tw:p-4" }, Ks = { class: "tw:flex tw:items-center tw:justify-between tw:gap-3" }, qs = { class: "tw:flex tw:items-center tw:gap-2" }, Js = { class: "dui-badge dui-badge-sm" }, Ys = ["disabled"], Xs = {
 	key: 0,
 	class: "dui-list tw:gap-1",
 	"aria-live": "polite"
-}, Gs = { class: "tw:min-w-0 tw:font-semibold" }, Ks = { class: "dui-badge dui-badge-ghost tw:capitalize" }, qs = {
+}, Zs = { class: "tw:min-w-0 tw:font-semibold" }, Qs = { class: "dui-badge dui-badge-ghost tw:capitalize" }, $s = {
 	key: 1,
 	class: "dui-alert",
 	role: "status"
-}, Js = {
-	class: "tw:sticky tw:bottom-0 tw:z-10 tw:grid tw:grid-cols-[repeat(auto-fit,minmax(9rem,1fr))] tw:gap-2 tw:border-t tw:border-base-300 tw:bg-base-100 tw:p-4",
-	"aria-label": "Fear Console actions"
-}, Ys = ["disabled"], Xs = {
-	key: 0,
-	class: "dui-loading dui-loading-spinner dui-loading-sm",
-	"aria-hidden": "true"
-}, Zs = {
-	key: 1,
-	class: "fa-solid fa-message",
-	"aria-hidden": "true"
-}, Qs = ["disabled"], $s = {
-	key: 0,
-	class: "dui-loading dui-loading-spinner dui-loading-sm",
-	"aria-hidden": "true"
 }, ec = {
-	key: 1,
-	class: "fa-solid fa-link",
-	"aria-hidden": "true"
+	class: "tw:sticky tw:bottom-0 tw:z-10 tw:grid tw:grid-cols-[repeat(auto-fit,minmax(9rem,1fr))] tw:gap-2 tw:border-t-4 tw:border-double tw:border-base-content/25! tw:bg-base-100! tw:p-4",
+	"aria-label": "Fear Console actions"
 }, tc = ["disabled"], nc = {
 	key: 0,
 	class: "dui-loading dui-loading-spinner dui-loading-sm",
 	"aria-hidden": "true"
 }, rc = {
 	key: 1,
+	class: "fa-solid fa-message",
+	"aria-hidden": "true"
+}, ic = ["disabled"], ac = {
+	key: 0,
+	class: "dui-loading dui-loading-spinner dui-loading-sm",
+	"aria-hidden": "true"
+}, oc = {
+	key: 1,
+	class: "fa-solid fa-link",
+	"aria-hidden": "true"
+}, sc = ["disabled"], cc = {
+	key: 0,
+	class: "dui-loading dui-loading-spinner dui-loading-sm",
+	"aria-hidden": "true"
+}, lc = {
+	key: 1,
 	class: "fa-solid fa-bolt",
 	"aria-hidden": "true"
-}, ic = /* @__PURE__ */ V({
+}, uc = /* @__PURE__ */ V({
 	__name: "FearConsoleApp",
 	props: {
 		initialPayload: {},
 		actions: {}
 	},
 	setup(e) {
-		let t = e, n = Ts();
+		let t = e, n = Cs();
 		t.initialPayload ? n.initialize({
 			actions: t.actions,
 			initialPayload: t.initialPayload
 		}) : n.initialize({ actions: t.actions });
-		let { activeAction: r, actors: i, errorMessage: a, isWorking: o, rating: s, selectedType: c, selectedTypeLabel: l, source: u } = bs(n);
-		return (e, t) => (K(), q("main", Es, [
-			J("header", Ds, [t[8] ||= aa("<div class=\"dui-navbar-start tw:min-w-0 tw:flex-1 tw:items-start\"><div><div class=\"dui-breadcrumbs tw:mb-1 tw:text-xs tw:text-secondary\"><ul><li>WFRP4e</li><li>Drowsy’s Toolkit</li></ul></div><h1 class=\"tw:m-0 tw:font-serif tw:text-2xl tw:font-bold tw:leading-tight\"><i class=\"fa-solid fa-skull tw:mr-1 tw:text-secondary\" aria-hidden=\"true\"></i> Fear Console </h1><p class=\"tw:mt-1 tw:max-w-xl tw:text-sm tw:text-base-content/70\"> Post a card for players to answer, or apply the WFRP4e effect directly to targeted tokens. </p></div></div>", 1), J("div", Os, [J("span", ks, k(L(l)) + " " + k(L(s)), 1)])]),
-			L(a) ? (K(), q("div", As, [t[9] ||= J("i", {
+		let { activeAction: r, actors: i, errorMessage: a, isWorking: o, rating: s, selectedType: c, selectedTypeLabel: l, source: u } = vs(n);
+		return (e, d) => (K(), q("main", Ps, [
+			Y(Ns, {
+				"configure-label": "Configure Fear Console",
+				description: "Post a card for players to answer, or apply the WFRP4e effect directly to targeted tokens.",
+				icon: "fa-solid fa-skull",
+				title: "Fear Console",
+				onConfigure: t.actions.openConfigurator
+			}, {
+				end: Bn(() => [J("span", Fs, O(I(l)) + " " + O(I(s)), 1)]),
+				_: 1
+			}, 8, ["onConfigure"]),
+			I(a) ? (K(), q("div", Is, [d[8] ||= J("i", {
 				class: "fa-solid fa-triangle-exclamation",
 				"aria-hidden": "true"
-			}, null, -1), J("span", null, k(L(a)), 1)])) : oa("", !0),
-			J("section", js, [
-				J("fieldset", Ms, [
-					t[10] ||= J("legend", { class: "dui-fieldset-legend" }, "Effect", -1),
-					J("div", Ns, [J("button", {
-						class: O(["dui-btn dui-join-item tw:flex-1", {
-							"dui-btn-primary": L(c) === "fear",
-							"dui-btn-ghost": L(c) !== "fear"
+			}, null, -1), J("span", null, O(I(a)), 1)])) : oa("", !0),
+			J("section", Ls, [
+				J("fieldset", Rs, [
+					d[9] ||= J("legend", { class: "dui-fieldset-legend tw:text-base-content!" }, "Effect", -1),
+					J("div", zs, [J("button", {
+						class: xe(["dui-btn dui-join-item tw:flex-1", {
+							"dui-btn-primary": I(c) === "fear",
+							"dui-btn-ghost": I(c) !== "fear"
 						}]),
 						type: "button",
-						"aria-pressed": L(c) === "fear",
-						onClick: t[0] ||= (e) => c.value = "fear"
-					}, " Fear ", 10, Ps), J("button", {
-						class: O(["dui-btn dui-join-item tw:flex-1", {
-							"dui-btn-primary": L(c) === "terror",
-							"dui-btn-ghost": L(c) !== "terror"
+						"aria-pressed": I(c) === "fear",
+						onClick: d[0] ||= (e) => c.value = "fear"
+					}, " Fear ", 10, Bs), J("button", {
+						class: xe(["dui-btn dui-join-item tw:flex-1", {
+							"dui-btn-primary": I(c) === "terror",
+							"dui-btn-ghost": I(c) !== "terror"
 						}]),
 						type: "button",
-						"aria-pressed": L(c) === "terror",
-						onClick: t[1] ||= (e) => c.value = "terror"
-					}, " Terror ", 10, Fs)]),
-					t[11] ||= J("p", { class: "dui-label" }, "Choose the WFRP4e psychology test to prompt or apply.", -1)
+						"aria-pressed": I(c) === "terror",
+						onClick: d[1] ||= (e) => c.value = "terror"
+					}, " Terror ", 10, Vs)]),
+					d[10] ||= J("p", { class: "dui-label" }, "Choose the WFRP4e psychology test to prompt or apply.", -1)
 				]),
-				J("fieldset", Is, [
-					t[12] ||= J("legend", { class: "dui-fieldset-legend" }, "Difficulty", -1),
-					t[13] ||= J("label", {
+				J("fieldset", Hs, [
+					d[11] ||= J("legend", { class: "dui-fieldset-legend tw:text-base-content!" }, "Difficulty", -1),
+					d[12] ||= J("label", {
 						class: "dui-label",
 						for: "fear-terror-rating"
 					}, "Rating", -1),
 					B(J("input", {
 						id: "fear-terror-rating",
-						"onUpdate:modelValue": t[2] ||= (e) => /* @__PURE__ */ F(s) ? s.value = e : null,
-						class: "dui-input dui-validator tw:w-full tw:tabular-nums",
+						"onUpdate:modelValue": d[2] ||= (e) => /* @__PURE__ */ P(s) ? s.value = e : null,
+						class: "dui-input dui-validator tw:w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content! tw:tabular-nums",
 						min: "0",
 						required: "",
 						step: "1",
 						type: "number"
 					}, null, 512), [[
-						To,
-						L(s),
+						Co,
+						I(s),
 						void 0,
 						{ number: !0 }
 					]]),
-					t[14] ||= J("p", { class: "dui-validator-hint" }, "Enter a whole number of zero or greater.", -1)
+					d[13] ||= J("p", { class: "dui-validator-hint" }, "Enter a whole number of zero or greater.", -1)
 				]),
-				J("fieldset", Ls, [
-					t[15] ||= aa("<legend class=\"dui-fieldset-legend\">Source</legend><div class=\"tw:flex tw:min-w-0 tw:max-w-full tw:items-center tw:gap-2\"><label class=\"dui-label\" for=\"fear-terror-source\">Source name</label><span class=\"dui-tooltip\" data-tip=\"WFRP4e matches Fear sources by name.\"><span aria-label=\"Fear source naming help\" class=\"tw:inline-flex tw:text-secondary\" tabindex=\"0\"><i class=\"fa-solid fa-circle-question\" aria-hidden=\"true\"></i></span></span></div>", 2),
+				J("fieldset", Us, [
+					d[14] ||= aa("<legend class=\"dui-fieldset-legend tw:text-base-content!\">Source</legend><div class=\"tw:flex tw:min-w-0 tw:max-w-full tw:items-center tw:gap-2\"><label class=\"dui-label\" for=\"fear-terror-source\">Source name</label><span class=\"dui-tooltip\" data-tip=\"WFRP4e matches Fear sources by name.\"><span aria-label=\"Fear source naming help\" class=\"tw:inline-flex tw:text-secondary!\" tabindex=\"0\"><i class=\"fa-solid fa-circle-question\" aria-hidden=\"true\"></i></span></span></div>", 2),
 					B(J("input", {
 						id: "fear-terror-source",
-						"onUpdate:modelValue": t[3] ||= (e) => /* @__PURE__ */ F(u) ? u.value = e : null,
+						"onUpdate:modelValue": d[3] ||= (e) => /* @__PURE__ */ P(u) ? u.value = e : null,
 						autocomplete: "off",
-						class: "dui-input tw:min-w-0 tw:max-w-full tw:w-full",
+						class: "dui-input tw:min-w-0 tw:max-w-full tw:w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content!",
 						placeholder: "Actor, creature group, ability, or scene hazard",
 						type: "text"
-					}, null, 512), [[To, L(u)]]),
-					t[16] ||= J("p", { class: "dui-label tw:min-w-0 tw:max-w-full tw:whitespace-normal" }, " Use a shared name such as “Ghouls” for one pack, or a unique name for one threat. ", -1)
+					}, null, 512), [[Co, I(u)]]),
+					d[15] ||= J("p", { class: "dui-label tw:min-w-0 tw:max-w-full tw:whitespace-normal" }, " Use a shared name such as “Ghouls” for one pack, or a unique name for one threat. ", -1)
 				])
 			]),
-			J("section", Rs, [J("div", zs, [J("div", Bs, [J("div", Vs, [t[17] ||= J("h2", {
+			J("section", Ws, [J("div", Gs, [J("div", Ks, [J("div", qs, [d[16] ||= J("h2", {
 				id: "fear-terror-recipients",
-				class: "dui-card-title tw:text-base"
-			}, "Recipients", -1), J("span", Hs, k(L(i).length), 1)]), J("button", {
+				class: "dui-card-title tw:font-serif tw:text-lg tw:text-base-content!"
+			}, " Recipients ", -1), J("span", Js, O(I(i).length), 1)]), J("button", {
 				class: "dui-btn dui-btn-ghost dui-btn-sm",
-				disabled: L(o),
+				disabled: I(o),
 				type: "button",
-				onClick: t[4] ||= (...e) => L(n).refreshActors && L(n).refreshActors(...e)
-			}, [...t[18] ||= [J("i", {
+				onClick: d[4] ||= (...e) => I(n).refreshActors && I(n).refreshActors(...e)
+			}, [...d[17] ||= [J("i", {
 				class: "fa-solid fa-rotate-right",
 				"aria-hidden": "true"
-			}, null, -1), X(" Refresh ", -1)]], 8, Us)]), L(i).length ? (K(), q("ul", Ws, [(K(!0), q(W, null, Er(L(i), (e) => (K(), q("li", {
+			}, null, -1), X(" Refresh ", -1)]], 8, Ys)]), I(i).length ? (K(), q("ul", Xs, [(K(!0), q(W, null, Er(I(i), (e) => (K(), q("li", {
 				key: e.id,
-				class: "dui-list-row tw:items-center tw:bg-base-200"
+				class: "dui-list-row tw:items-center tw:bg-base-200!"
 			}, [
-				t[19] ||= J("span", {
-					class: "dui-status dui-status-primary",
+				d[18] ||= J("span", {
+					class: "dui-status dui-status-secondary",
 					"aria-hidden": "true"
 				}, null, -1),
-				J("span", Gs, k(e.name), 1),
-				J("span", Ks, k(e.source), 1)
-			]))), 128))])) : (K(), q("div", qs, [t[20] ||= J("i", {
+				J("span", Zs, O(e.name), 1),
+				J("span", Qs, O(e.source), 1)
+			]))), 128))])) : (K(), q("div", $s, [d[19] ||= J("i", {
 				class: "fa-solid fa-users",
 				"aria-hidden": "true"
-			}, null, -1), J("span", null, " Target one or more tokens to apply " + k(L(l)) + " directly. You can post a chat card without targets. ", 1)]))])]),
-			J("footer", Js, [
+			}, null, -1), J("span", null, " Target one or more tokens to apply " + O(I(l)) + " directly. You can post a chat card without targets. ", 1)]))])]),
+			J("footer", ec, [
 				J("button", {
-					class: "dui-btn dui-btn-primary",
-					disabled: L(o),
+					class: "dui-btn dui-btn-primary tw:rounded-full tw:shadow-md",
+					disabled: I(o),
 					type: "button",
-					onClick: t[5] ||= (e) => L(n).runAction("post-card")
-				}, [L(r) === "post-card" ? (K(), q("span", Xs)) : (K(), q("i", Zs)), t[21] ||= X(" Post Card ", -1)], 8, Ys),
-				J("button", {
-					class: "dui-btn",
-					disabled: L(o),
-					type: "button",
-					onClick: t[6] ||= (e) => L(n).runAction("post-link")
-				}, [L(r) === "post-link" ? (K(), q("span", $s)) : (K(), q("i", ec)), t[22] ||= X(" Post Link ", -1)], 8, Qs),
+					onClick: d[5] ||= (e) => I(n).runAction("post-card")
+				}, [I(r) === "post-card" ? (K(), q("span", nc)) : (K(), q("i", rc)), d[20] ||= X(" Post Card ", -1)], 8, tc),
 				J("button", {
 					class: "dui-btn",
-					disabled: L(o),
+					disabled: I(o),
 					type: "button",
-					onClick: t[7] ||= (e) => L(n).runAction("apply")
-				}, [L(r) === "apply" ? (K(), q("span", nc)) : (K(), q("i", rc)), X(" Apply " + k(L(l)), 1)], 8, tc)
+					onClick: d[6] ||= (e) => I(n).runAction("post-link")
+				}, [I(r) === "post-link" ? (K(), q("span", ac)) : (K(), q("i", oc)), d[21] ||= X(" Post Link ", -1)], 8, ic),
+				J("button", {
+					class: "dui-btn",
+					disabled: I(o),
+					type: "button",
+					onClick: d[7] ||= (e) => I(n).runAction("apply")
+				}, [I(r) === "apply" ? (K(), q("span", cc)) : (K(), q("i", lc)), X(" Apply " + O(I(l)), 1)], 8, sc)
 			])
 		]));
 	}
-});
+}), dc = _s("fear-console-configurator", () => {
+	let e = /* @__PURE__ */ F({ launchers: {
+		actorSheet: !0,
+		tokenControls: !0
+	} }), t = /* @__PURE__ */ F(), n = /* @__PURE__ */ F(), r = /* @__PURE__ */ F(!1), i;
+	function a(r, a) {
+		i = a, e.value = { launchers: { ...r.launchers } }, t.value = void 0, n.value = void 0;
+	}
+	async function o() {
+		if (!r.value) {
+			r.value = !0, t.value = void 0, n.value = void 0;
+			try {
+				await s().saveConfiguration({ launchers: { ...e.value.launchers } }), n.value = "Launcher preferences saved. Reload Foundry to apply them.";
+			} catch (e) {
+				console.error("WFRP4e | Drowsy’s Toolkit | Fear configuration save failed.", e), t.value = e instanceof Error ? e.message : "The Fear Console configuration could not be saved.";
+			} finally {
+				r.value = !1;
+			}
+		}
+	}
+	function s() {
+		if (!i) throw Error("The Fear Console Configurator has not been initialized.");
+		return i;
+	}
+	return {
+		configuration: e,
+		errorMessage: t,
+		initialize: a,
+		isSaving: r,
+		saveConfiguration: o,
+		statusMessage: n
+	};
+}), fc = { class: "tw:flex tw:h-full tw:max-h-full tw:min-h-0 tw:flex-col tw:overflow-hidden tw:bg-base-200! tw:text-base-content!" }, pc = { class: "tw:min-h-0 tw:flex-1 tw:overflow-auto tw:p-4" }, mc = {
+	key: 0,
+	class: "dui-alert dui-alert-error tw:mb-3",
+	role: "alert"
+}, hc = {
+	key: 1,
+	class: "dui-alert dui-alert-success tw:mb-3",
+	role: "status",
+	"aria-live": "polite"
+}, gc = {
+	class: "dui-card dui-card-border tw:border-2 tw:border-base-content/20! tw:bg-base-100! tw:text-base-content! tw:shadow-md",
+	"aria-labelledby": "fear-launcher-settings"
+}, _c = { class: "dui-card-body tw:gap-4 tw:p-4" }, vc = { class: "dui-fieldset tw:gap-2" }, yc = { class: "dui-label tw:cursor-pointer tw:items-start tw:gap-3 tw:rounded-box tw:border tw:border-base-content/15! tw:bg-base-200! tw:p-3 tw:text-base-content! tw:whitespace-normal" }, bc = { class: "dui-label tw:cursor-pointer tw:items-start tw:gap-3 tw:rounded-box tw:border tw:border-base-content/15! tw:bg-base-200! tw:p-3 tw:text-base-content! tw:whitespace-normal" }, xc = { class: "tw:flex tw:shrink-0 tw:flex-col tw:items-stretch tw:gap-2 tw:border-t-4 tw:border-double tw:border-base-content/25! tw:bg-base-100! tw:p-4 tw:min-[32rem]:flex-row tw:min-[32rem]:items-center tw:min-[32rem]:justify-between" }, Sc = ["disabled"], Cc = {
+	key: 0,
+	class: "dui-loading dui-loading-spinner dui-loading-sm",
+	"aria-hidden": "true"
+}, wc = {
+	key: 1,
+	class: "fa-solid fa-stamp",
+	"aria-hidden": "true"
+}, Tc = /* @__PURE__ */ V({
+	__name: "FearConsoleConfiguratorApp",
+	props: {
+		actions: {},
+		configuration: {}
+	},
+	setup(e) {
+		let t = e, n = dc();
+		n.initialize(t.configuration, t.actions);
+		let { configuration: r, errorMessage: i, isSaving: a, statusMessage: o } = vs(n);
+		return (e, t) => (K(), q("main", fc, [
+			Y(Ns, {
+				description: "Choose where the Fear Console appears for this browser and account.",
+				icon: "fa-solid fa-gears",
+				title: "Fear Console Configurator"
+			}),
+			J("div", pc, [
+				I(i) ? (K(), q("div", mc, [t[3] ||= J("i", {
+					class: "fa-solid fa-triangle-exclamation",
+					"aria-hidden": "true"
+				}, null, -1), J("span", null, O(I(i)), 1)])) : oa("", !0),
+				I(o) ? (K(), q("div", hc, [t[4] ||= J("i", {
+					class: "fa-solid fa-circle-check",
+					"aria-hidden": "true"
+				}, null, -1), J("span", null, O(I(o)), 1)])) : oa("", !0),
+				J("section", gc, [J("div", _c, [
+					t[8] ||= J("div", null, [J("h2", {
+						id: "fear-launcher-settings",
+						class: "dui-card-title tw:font-serif tw:text-lg tw:text-base-content!"
+					}, " Console launchers "), J("p", { class: "tw:m-0 tw:text-sm tw:text-base-content/70!" }, " These client preferences control only where shortcuts appear. Macros and the module API remain available. ")], -1),
+					J("fieldset", vc, [
+						t[7] ||= J("legend", { class: "dui-fieldset-legend tw:text-base-content!" }, "Available locations", -1),
+						J("label", yc, [B(J("input", {
+							"onUpdate:modelValue": t[0] ||= (e) => I(r).launchers.tokenControls = e,
+							class: "dui-toggle dui-toggle-sm tw:mt-0.5 tw:shrink-0 tw:checked:border-primary! tw:checked:bg-primary! tw:checked:text-primary-content!",
+							type: "checkbox"
+						}, null, 512), [[wo, I(r).launchers.tokenControls]]), t[5] ||= J("span", { class: "tw:min-w-0" }, [J("strong", { class: "tw:block" }, "Token Controls"), J("span", { class: "tw:text-xs tw:text-base-content/65!" }, " Show the skull launcher in Foundry’s Token Controls palette. ")], -1)]),
+						J("label", bc, [B(J("input", {
+							"onUpdate:modelValue": t[1] ||= (e) => I(r).launchers.actorSheet = e,
+							class: "dui-toggle dui-toggle-sm tw:mt-0.5 tw:shrink-0 tw:checked:border-primary! tw:checked:bg-primary! tw:checked:text-primary-content!",
+							type: "checkbox"
+						}, null, 512), [[wo, I(r).launchers.actorSheet]]), t[6] ||= J("span", { class: "tw:min-w-0" }, [J("strong", { class: "tw:block" }, "Actor-sheet headers"), J("span", { class: "tw:text-xs tw:text-base-content/65!" }, " Show a Fear Console action on supported WFRP4e actor sheets. ")], -1)])
+					]),
+					t[9] ||= J("div", {
+						class: "dui-alert tw:text-sm",
+						role: "note"
+					}, [J("i", {
+						class: "fa-solid fa-rotate",
+						"aria-hidden": "true"
+					}), J("span", null, "Launcher changes take effect after Foundry is reloaded.")], -1)
+				])])
+			]),
+			J("footer", xc, [t[11] ||= J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65!" }, "Scope: this client and user.", -1), J("button", {
+				class: "dui-btn dui-btn-primary tw:min-w-40 tw:rounded-full tw:border-2 tw:border-base-100/40! tw:shadow-md",
+				disabled: I(a),
+				type: "button",
+				onClick: t[2] ||= (...e) => I(n).saveConfiguration && I(n).saveConfiguration(...e)
+			}, [I(a) ? (K(), q("span", Cc)) : (K(), q("i", wc)), t[10] ||= X(" Save configuration ", -1)], 8, Sc)])
+		]));
+	}
+}), Ec = {
+	actorSheet: "showActorSheetLauncher",
+	tokenControls: "showTokenControlsLauncher"
+};
+function Dc(e) {
+	return game.settings.get(t, e) === !0;
+}
+//#endregion
+//#region src/module/fear-terror/configuration.ts
+function Oc() {
+	return { launchers: {
+		actorSheet: Dc(Ec.actorSheet),
+		tokenControls: Dc(Ec.tokenControls)
+	} };
+}
+async function kc(e) {
+	let n = [[Ec.actorSheet, e.launchers.actorSheet], [Ec.tokenControls, e.launchers.tokenControls]];
+	for (let [e, r] of n) await game.settings.set(t, e, r);
+	ui.notifications.info("Fear Console configuration saved. Reload to update its launchers.");
+}
+//#endregion
+//#region src/module/apps/FoundryVueApplication.ts
+var Ac = class extends foundry.applications.api.ApplicationV2 {
+	#e;
+	getVueProps() {}
+	async _renderHTML(e, t) {
+		let n = document.createElement("div");
+		return n.classList.add("wfrp4e-enhanced-fear-terror-root", "tw:[&_*]:box-border", "tw:box-border", "tw:block", "tw:h-full", "tw:max-h-full", "tw:max-w-full", "tw:min-h-0", "tw:overflow-auto", "tw:text-base-content", "tw:w-full"), n.dataset.theme = "wfrp4e-enhanced-fear-terror", n;
+	}
+	_replaceHTML(e, t, n) {
+		this.unmountVue(), t.classList.add("wfrp4e-enhanced-fear-terror-app", "tw:box-border", "tw:min-h-0", "tw:overflow-hidden", "tw:p-0", "tw:relative"), t.replaceChildren(e), this.#e = Io(this.getVueComponent(), this.getVueProps() ?? {}), this.#e.use(rs()), this.#e.mount(e);
+	}
+	async _preClose(e) {
+		this.unmountVue(), await super._preClose(e);
+	}
+	unmountVue() {
+		this.#e?.unmount(), this.#e = void 0;
+	}
+}, jc = class extends Ac {
+	static DEFAULT_OPTIONS = {
+		...super.DEFAULT_OPTIONS,
+		classes: [t, `${t}-fear-console-configurator`],
+		id: `${t}-fear-console-configurator`,
+		position: {
+			height: 500,
+			width: 560
+		},
+		window: {
+			icon: "fa-solid fa-skull",
+			resizable: !0,
+			title: `${n} — Fear Console Configurator`
+		}
+	};
+	getVueComponent() {
+		return Tc;
+	}
+	getVueProps() {
+		return {
+			actions: { saveConfiguration: kc },
+			configuration: Oc()
+		};
+	}
+};
+//#endregion
+//#region src/module/apps/fear-console-configurator/open.ts
+async function Mc() {
+	let e = new jc();
+	return await e.render(!0), e;
+}
+function Nc() {
+	Mc().catch((e) => {
+		console.error(`${t} | Failed to open the Fear Console Configurator.`, e), ui.notifications.error("Drowsy’s Toolkit could not open the Fear Console Configurator. See the browser console for details.");
+	});
+}
 //#endregion
 //#region src/functions/fear-terror/suggestion.ts
-function ac({ fearRating: e, source: t, terrorRating: n }) {
+function Pc({ fearRating: e, source: t, terrorRating: n }) {
 	return n === void 0 ? e === void 0 ? {
 		rating: 1,
 		source: t,
@@ -3505,20 +3712,20 @@ function ac({ fearRating: e, source: t, terrorRating: n }) {
 }
 //#endregion
 //#region src/module/fear-terror/infer.ts
-function oc() {
+function Fc() {
 	if (!(typeof canvas > "u" || !canvas)) {
-		for (let e of canvas.tokens?.controlled ?? []) if (e.actor) return sc(e.actor);
+		for (let e of canvas.tokens?.controlled ?? []) if (e.actor) return Ic(e.actor);
 	}
 }
-function sc(e) {
-	let t = cc(e, "CHAT.Terror");
-	return ac({
-		fearRating: t === void 0 ? cc(e, "CHAT.Fear") : void 0,
+function Ic(e) {
+	let t = Lc(e, "CHAT.Terror");
+	return Pc({
+		fearRating: t === void 0 ? Lc(e, "CHAT.Fear") : void 0,
 		source: e.name,
 		terrorRating: t
 	});
 }
-function cc(e, t) {
+function Lc(e, t) {
 	if (typeof e.has != "function") throw Error(`WFRP4e actor "${e.name}" does not expose the required trait lookup method.`);
 	let n = e.has(game.i18n.localize(t))?.specification?.value;
 	if (typeof n == "number") return n;
@@ -3529,18 +3736,18 @@ function cc(e, t) {
 }
 //#endregion
 //#region src/module/fear-terror/selection.ts
-function lc() {
-	return dc().map(({ choice: e }) => e);
+function Rc() {
+	return Bc().map(({ choice: e }) => e);
 }
-function uc() {
-	return dc().map(({ actor: e }) => e);
+function zc() {
+	return Bc().map(({ actor: e }) => e);
 }
-function dc() {
+function Bc() {
 	let e = /* @__PURE__ */ new Map();
-	for (let t of game.user.targets ?? []) fc(e, t.actor);
+	for (let t of game.user.targets ?? []) Vc(e, t.actor);
 	return Array.from(e.values());
 }
-function fc(e, t) {
+function Vc(e, t) {
 	!t || e.has(t.id) || e.set(t.id, {
 		actor: t,
 		choice: {
@@ -3552,17 +3759,17 @@ function fc(e, t) {
 }
 //#endregion
 //#region src/module/fear-terror/service.ts
-async function pc(e) {
-	let t = uc();
+async function Hc(e) {
+	let t = zc();
 	if (t.length === 0) {
 		ui.notifications.warn("Target one or more tokens before applying Fear or Terror.");
 		return;
 	}
-	let n = xs(e);
-	await Promise.all(t.map((e) => gc(e, n)));
+	let n = ys(e);
+	await Promise.all(t.map((e) => Gc(e, n)));
 }
-async function mc(e) {
-	let t = xs(e), n = _c(t), r = Cs(n, t), i = await foundry.applications.handlebars.renderTemplate("systems/wfrp4e/templates/chat/fear.hbs", { title: r });
+async function Uc(e) {
+	let t = ys(e), n = Kc(t), r = xs(n, t), i = await foundry.applications.handlebars.renderTemplate("systems/wfrp4e/templates/chat/fear.hbs", { title: r });
 	await ChatMessage.create({
 		content: i,
 		speaker: { alias: n },
@@ -3574,40 +3781,24 @@ async function mc(e) {
 		type: "psych"
 	});
 }
-async function hc(e) {
-	let t = xs(e), n = ws(_c(t), t), r = game.wfrp4e.utility.chatDataSetup(n, "gmroll", !1, { alias: "Drowsy’s Toolkit" });
+async function Wc(e) {
+	let t = ys(e), n = Ss(Kc(t), t), r = game.wfrp4e.utility.chatDataSetup(n, "gmroll", !1, { alias: "Drowsy’s Toolkit" });
 	await ChatMessage.create(r);
 }
-async function gc(e, t) {
+async function Gc(e, t) {
 	if (t.type === "fear") {
 		await e.applyFear(t.rating, t.source);
 		return;
 	}
 	await e.applyTerror(t.rating, t.source);
 }
-function _c(e) {
+function Kc(e) {
 	let t = e.type === "fear" ? "CHAT.Fear" : "CHAT.Terror";
 	return game.i18n.localize(t);
 }
 //#endregion
-//#region src/module/apps/FoundryVueApplication.ts
-var vc = class extends foundry.applications.api.ApplicationV2 {
-	#e;
-	getVueProps() {}
-	async _renderHTML(e, t) {
-		let n = document.createElement("div");
-		return n.classList.add("wfrp4e-enhanced-fear-terror-root", "tw:[&_*]:box-border", "tw:box-border", "tw:block", "tw:h-full", "tw:max-h-full", "tw:max-w-full", "tw:min-h-0", "tw:overflow-auto", "tw:w-full"), n.dataset.theme = "wfrp4e-enhanced-fear-terror", n;
-	}
-	_replaceHTML(e, t, n) {
-		this.unmountVue(), t.classList.add("wfrp4e-enhanced-fear-terror-app", "tw:box-border", "tw:min-h-0", "tw:overflow-hidden", "tw:p-0", "tw:relative"), t.replaceChildren(e), this.#e = Ro(this.getVueComponent(), this.getVueProps() ?? {}), this.#e.use(as()), this.#e.mount(e);
-	}
-	async _preClose(e) {
-		this.unmountVue(), await super._preClose(e);
-	}
-	unmountVue() {
-		this.#e?.unmount(), this.#e = void 0;
-	}
-}, yc = class extends vc {
+//#region src/module/apps/fear-console/FearConsoleApplication.ts
+var qc = class extends Ac {
 	static DEFAULT_OPTIONS = {
 		...super.DEFAULT_OPTIONS,
 		classes: [t, `${t}-fear-console`],
@@ -3627,52 +3818,53 @@ var vc = class extends foundry.applications.api.ApplicationV2 {
 		super(), this.#e = e;
 	}
 	getVueComponent() {
-		return ic;
+		return uc;
 	}
 	getVueProps() {
 		return {
 			actions: {
-				applyToSelectedActors: pc,
-				getActorChoices: lc,
+				applyToSelectedActors: Hc,
+				getActorChoices: Rc,
 				onActionComplete: () => {
 					this.close().catch((e) => {
 						console.error(`${t} | Failed to close the Fear Console.`, e), ui.notifications.error("The Fear Console completed the action but could not close its window.");
 					});
 				},
-				postPrompt: mc,
-				postSummaryPrompt: hc
+				openConfigurator: Nc,
+				postPrompt: Uc,
+				postSummaryPrompt: Wc
 			},
-			initialPayload: this.#e.initialPayload ?? oc()
+			initialPayload: this.#e.initialPayload ?? Fc()
 		};
 	}
 };
 //#endregion
 //#region src/module/apps/fear-console/open.ts
-async function bc(e = {}) {
-	let t = new yc(e);
+async function Jc(e = {}) {
+	let t = new qc(e);
 	return await t.render(!0), t;
 }
-function xc(e = {}) {
-	bc(e).catch((e) => {
+function Yc(e = {}) {
+	Jc(e).catch((e) => {
 		console.error(`${t} | Failed to open the Fear Console.`, e), ui.notifications.error("Drowsy’s Toolkit could not open the Fear Console. See the browser console for details.");
 	});
 }
 //#endregion
 //#region src/functions/xp-curve/calculate.ts
-var Sc = .01, Cc = 2 ** 53 - 1;
-function wc(e) {
+var Xc = .01, Zc = 2 ** 53 - 1;
+function Qc(e) {
 	return {
-		companionMultiplier: Ac(e.companionMultiplier, 0, 1),
-		curveExponent: Ac(e.curveExponent, .1, 5),
-		gapForMaximumAward: Math.max(1, jc(e.gapForMaximumAward)),
-		maximumAward: Math.max(0, jc(e.maximumAward)),
-		scaleExponent: Ac(e.scaleExponent, 0, 2),
-		scalePivot: Math.max(1, jc(e.scalePivot))
+		companionMultiplier: il(e.companionMultiplier, 0, 1),
+		curveExponent: il(e.curveExponent, .1, 5),
+		gapForMaximumAward: Math.max(1, al(e.gapForMaximumAward)),
+		maximumAward: Math.max(0, al(e.maximumAward)),
+		scaleExponent: il(e.scaleExponent, 0, 2),
+		scalePivot: Math.max(1, al(e.scalePivot))
 	};
 }
-function Tc(e, t) {
-	let n = e.filter((e) => e.selected), r = wc(t), i = Math.max(0, ...n.map((e) => e.totalXp)), a = n.map((e) => {
-		let t = jc(e.totalXp), n = Math.max(0, i - t), a = e.category === "companion" ? r.companionMultiplier : 1, o = Ec(n, r), s = Dc(t, r), c = Math.max(0, Math.round(o * s * a)), l = Math.min(r.maximumAward, c);
+function $c(e, t) {
+	let n = e.filter((e) => e.selected), r = Qc(t), i = Math.max(0, ...n.map((e) => e.totalXp)), a = n.map((e) => {
+		let t = al(e.totalXp), n = Math.max(0, i - t), a = e.category === "companion" ? r.companionMultiplier : 1, o = el(n, r), s = tl(t, r), c = Math.max(0, Math.round(o * s * a)), l = Math.min(r.maximumAward, c);
 		return {
 			actorId: e.id,
 			actorName: e.name,
@@ -3693,172 +3885,146 @@ function Tc(e, t) {
 		totalAward: a.reduce((e, t) => e + t.award, 0)
 	};
 }
-function Ec(e, t) {
-	let n = wc(t), r = Math.max(0, Number.isFinite(e) ? e : 0) / n.gapForMaximumAward, i = n.maximumAward * r ** n.curveExponent;
-	return Number.isFinite(i) ? Math.min(i, Cc) : Cc;
+function el(e, t) {
+	let n = Qc(t), r = Math.max(0, Number.isFinite(e) ? e : 0) / n.gapForMaximumAward, i = n.maximumAward * r ** n.curveExponent;
+	return Number.isFinite(i) ? Math.min(i, Zc) : Zc;
 }
-function Dc(e, t) {
-	let n = wc(t), r = Math.max(0, Number.isFinite(e) ? e : 0);
+function tl(e, t) {
+	let n = Qc(t), r = Math.max(0, Number.isFinite(e) ? e : 0);
 	return Math.min(1, n.scalePivot / Math.max(r, n.scalePivot)) ** n.scaleExponent;
 }
-function Oc(e, t = e.gapForMaximumAward * 1.4, n = 24) {
-	let r = wc(e), i = Math.max(2, jc(n)), a = Math.max(r.gapForMaximumAward * 1.4, Number.isFinite(t) ? t : 0);
+function nl(e, t = e.gapForMaximumAward * 1.4, n = 24) {
+	let r = Qc(e), i = Math.max(2, al(n)), a = Math.max(r.gapForMaximumAward * 1.4, Number.isFinite(t) ? t : 0);
 	return Array.from({ length: i + 1 }, (e, t) => {
 		let n = a * t / i;
 		return {
-			award: Ec(n, r),
+			award: el(n, r),
 			gap: n
 		};
 	});
 }
-function kc(e, t = e.scalePivot * 4, n = 32) {
-	let r = wc(e), i = Math.max(2, jc(n)), a = Math.max(1e3, r.scalePivot * 4, Number.isFinite(t) ? t : 0);
+function rl(e, t = e.scalePivot * 4, n = 32) {
+	let r = Qc(e), i = Math.max(2, al(n)), a = Math.max(1e3, r.scalePivot * 4, Number.isFinite(t) ? t : 0);
 	return Array.from({ length: i + 1 }, (e, t) => {
 		let n = a * t / i;
 		return {
-			multiplier: Dc(n, r),
+			multiplier: tl(n, r),
 			recipientXp: n
 		};
 	});
 }
-function Ac(e, t, n) {
+function il(e, t, n) {
 	let r = Number(e);
-	return Math.min(n, Math.max(t, Number.isFinite(r) ? r : Sc));
+	return Math.min(n, Math.max(t, Number.isFinite(r) ? r : Xc));
 }
-function jc(e) {
+function al(e) {
 	let t = Number(e);
 	return Number.isFinite(t) ? Math.round(t) : 0;
 }
 //#endregion
 //#region src/functions/xp-curve/reason.ts
-function Mc(e, t) {
+function ol(e, t) {
 	return e.replaceAll("%session%", t.session).replaceAll("%date%", t.date).replace(/\s+\(\s*\)\s*/g, " ").replace(/\s{2,}/g, " ").trim();
 }
-function Nc(e) {
+function sl(e) {
 	return e.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\"", "&quot;").replaceAll("'", "&#039;");
 }
 //#endregion
 //#region src/types/xp-curve/XpCurve.ts
-var Pc = {
+var cl = {
 	companionMultiplier: .5,
 	curveExponent: .75,
 	gapForMaximumAward: 1e3,
 	maximumAward: 500,
 	scaleExponent: .5,
 	scalePivot: 5e3
-}, Fc = ys("xp-curve-console", () => {
-	let e = /* @__PURE__ */ I([]), t = /* @__PURE__ */ I({ ...Pc }), n = /* @__PURE__ */ I(""), r = /* @__PURE__ */ I("party"), i = /* @__PURE__ */ I(!0), a = /* @__PURE__ */ I("default"), o = /* @__PURE__ */ I(), s = /* @__PURE__ */ I(), c = /* @__PURE__ */ I(!1), l = /* @__PURE__ */ I(!1), u, d = /* @__PURE__ */ new Set(), f, p = Q(() => e.value.filter((e) => e.selected)), m = Q(() => Tc(e.value, t.value)), h = Q(() => m.value.awards.filter((e) => e.award > 0).length), g = Q(() => p.value.length >= 2 && m.value.totalAward > 0 && !l.value), _ = Q(() => {
-		let e = re();
-		return Mc(n.value, {
+}, ll = _s("xp-curve-console", () => {
+	let e = /* @__PURE__ */ F([]), t = /* @__PURE__ */ F({ ...cl }), n = /* @__PURE__ */ F(""), r = /* @__PURE__ */ F("party"), i = /* @__PURE__ */ F(!0), a = /* @__PURE__ */ F("default"), o = /* @__PURE__ */ F(), s = /* @__PURE__ */ F(!1), c, l = /* @__PURE__ */ new Set(), u, d = Q(() => e.value.filter((e) => e.selected)), f = Q(() => $c(e.value, t.value)), p = Q(() => f.value.awards.filter((e) => e.award > 0).length), m = Q(() => d.value.length >= 2 && f.value.totalAward > 0 && !s.value), h = Q(() => {
+		let e = S();
+		return ol(n.value, {
 			...e,
 			session: i.value ? e.session : ""
 		});
-	}), v = Q(() => Math.max(0, ...m.value.awards.map((e) => e.gap))), y = Q(() => Oc(t.value, Math.max(v.value * 1.1, 1))), b = Q(() => kc(t.value, Math.max(m.value.highestXp * 1.1, 1)));
-	function x(c, l) {
-		u = l, f = c.reasonContext, e.value = c.actors.map((e) => ({ ...e })), t.value = { ...c.parameters }, n.value = c.defaultReason, r.value = c.defaultSelection, i.value = c.useGmToolkitDefaults, a.value = c.selectionSource, d = new Set(c.actors.filter((e) => e.selected).map((e) => e.id)), o.value = void 0, s.value = void 0;
+	});
+	function g(s, d) {
+		c = d, u = s.reasonContext, e.value = s.actors.map((e) => ({ ...e })), t.value = { ...s.parameters }, n.value = s.defaultReason, r.value = s.defaultSelection, i.value = s.useGmToolkitDefaults, a.value = s.selectionSource, l = new Set(s.actors.filter((e) => e.selected).map((e) => e.id)), o.value = void 0;
 	}
-	function S(t, n) {
+	function _(t, n) {
 		let r = e.value.find((e) => e.id === t);
-		r && (r.selected = n);
+		if (!r) throw Error(`The XP Curve Console cannot select unknown actor ${t}.`);
+		r.selected = n;
 	}
-	function C(t) {
+	function v(t) {
 		for (let n of e.value) n.selected = t;
 	}
-	function w() {
-		for (let t of e.value) t.selected = d.has(t.id);
+	function y() {
+		for (let t of e.value) t.selected = l.has(t.id);
 	}
-	async function ee() {
-		if (!(!g.value || l.value)) {
-			l.value = !0, o.value = void 0, s.value = void 0;
+	async function b() {
+		if (!(!m.value || s.value)) {
+			s.value = !0, o.value = void 0;
 			try {
 				let e = {
-					actorIds: p.value.map((e) => e.id),
+					actorIds: d.value.map((e) => e.id),
 					defaultReason: n.value,
 					defaultSelection: r.value,
 					parameters: t.value,
 					useGmToolkitDefaults: i.value
-				}, a = await ne().applyAwards(e);
-				ne().onActionComplete(a);
+				}, a = await x().applyAwards(e);
+				x().onActionComplete(a);
 			} catch (e) {
 				console.error("WFRP4e | Drowsy’s Toolkit | XP curve award failed.", e), o.value = e instanceof Error ? e.message : "The XP awards could not be completed.";
 			} finally {
-				l.value = !1;
+				s.value = !1;
 			}
 		}
 	}
-	async function te() {
-		if (!(c.value || l.value)) {
-			c.value = !0, o.value = void 0, s.value = void 0;
-			try {
-				t.value = wc(t.value);
-				let e = {
-					defaultReason: n.value,
-					defaultSelection: r.value,
-					parameters: t.value,
-					useGmToolkitDefaults: i.value
-				};
-				await ne().saveSettings(e), s.value = "Curve and recipient defaults saved.";
-			} catch (e) {
-				console.error("WFRP4e | Drowsy’s Toolkit | XP curve settings save failed.", e), o.value = e instanceof Error ? e.message : "The XP Curve Console defaults could not be saved.";
-			} finally {
-				c.value = !1;
-			}
-		}
+	function x() {
+		if (!c) throw Error("The XP Curve Console has not been initialized.");
+		return c;
 	}
-	function ne() {
+	function S() {
 		if (!u) throw Error("The XP Curve Console has not been initialized.");
 		return u;
 	}
-	function re() {
-		if (!f) throw Error("The XP Curve Console has not been initialized.");
-		return f;
-	}
 	return {
 		actors: e,
-		applyAwards: ee,
-		canApply: g,
-		curveSamples: y,
-		decaySamples: b,
+		applyAwards: b,
+		canApply: m,
 		defaultReason: n,
-		defaultSelection: r,
 		errorMessage: o,
-		initialize: x,
-		isSavingSettings: c,
-		isWorking: l,
-		parameters: t,
-		plan: m,
-		positiveAwardCount: h,
-		resetSelection: w,
-		resolvedReason: _,
-		saveDefaults: te,
-		selectedActors: p,
+		initialize: g,
+		isWorking: s,
+		plan: f,
+		positiveAwardCount: p,
+		resetSelection: y,
+		resolvedReason: h,
+		selectedActors: d,
 		selectionSource: a,
-		settingsStatusMessage: s,
-		setActorSelected: S,
-		setAllActorsSelected: C,
-		useGmToolkitDefaults: i
+		setActorSelected: _,
+		setAllActorsSelected: v
 	};
-}), Ic = {
-	class: "dui-card dui-card-border tw:min-w-0 tw:bg-base-100",
+}), ul = {
+	class: "dui-card dui-card-border tw:min-w-0 tw:border-2 tw:border-base-content/20! tw:bg-base-100! tw:text-base-content! tw:shadow-md",
 	"aria-labelledby": "recipients-title"
-}, Lc = { class: "dui-card-body tw:min-w-0 tw:gap-3 tw:p-4" }, Rc = { class: "tw:flex tw:flex-wrap tw:items-start tw:justify-between tw:gap-2" }, zc = { class: "tw:flex tw:items-center tw:gap-2" }, Bc = { class: "dui-badge dui-badge-sm" }, Vc = { class: "tw:flex tw:flex-wrap tw:gap-1" }, Hc = ["disabled"], Uc = ["disabled"], Wc = ["disabled"], Gc = {
+}, dl = { class: "dui-card-body tw:min-w-0 tw:gap-3 tw:p-4" }, fl = { class: "tw:flex tw:flex-wrap tw:items-start tw:justify-between tw:gap-2" }, pl = { class: "tw:flex tw:items-center tw:gap-2" }, ml = { class: "dui-badge dui-badge-sm" }, hl = { class: "tw:flex tw:flex-wrap tw:gap-1" }, gl = ["disabled"], _l = ["disabled"], vl = ["disabled"], yl = {
 	key: 0,
-	class: "tw:max-w-full tw:min-w-0 tw:overflow-x-auto tw:rounded-box tw:border tw:border-base-300"
-}, Kc = { class: "dui-table dui-table-sm tw:min-w-[52rem]" }, qc = { class: "tw:cursor-pointer" }, Jc = [
+	class: "tw:max-w-full tw:min-w-0 tw:overflow-x-auto tw:rounded-box tw:border tw:border-base-content/20! tw:bg-base-100!"
+}, bl = { class: "dui-table dui-table-sm tw:min-w-[52rem]" }, xl = { class: "tw:cursor-pointer" }, Sl = [
 	"checked",
 	"disabled",
 	"onChange"
-], Yc = { class: "tw:sr-only" }, Xc = {
+], Cl = { class: "tw:sr-only" }, wl = {
 	class: "tw:min-w-44",
 	scope: "row"
-}, Zc = { class: "tw:block tw:font-semibold" }, Qc = {
+}, Tl = { class: "tw:block tw:font-semibold" }, El = {
 	key: 0,
 	class: "dui-badge dui-badge-ghost dui-badge-xs"
-}, $c = { class: "tw:text-right tw:tabular-nums" }, el = { class: "tw:text-right tw:tabular-nums" }, tl = { class: "tw:text-right tw:tabular-nums" }, nl = { class: "tw:text-right tw:tabular-nums" }, rl = { class: "tw:text-right tw:font-bold tw:tabular-nums" }, il = { class: "tw:text-right tw:tabular-nums" }, al = {
+}, Dl = { class: "tw:text-right tw:tabular-nums" }, Ol = { class: "tw:text-right tw:tabular-nums" }, kl = { class: "tw:text-right tw:tabular-nums" }, Al = { class: "tw:text-right tw:tabular-nums" }, jl = { class: "tw:text-right tw:font-bold tw:tabular-nums" }, Ml = { class: "tw:text-right tw:tabular-nums" }, Nl = {
 	key: 1,
 	class: "dui-alert dui-alert-warning",
 	role: "status"
-}, ol = /* @__PURE__ */ V({
+}, Pl = /* @__PURE__ */ V({
 	__name: "XpRecipientTable",
 	props: {
 		actors: {},
@@ -3879,29 +4045,29 @@ var Pc = {
 			let n = t.currentTarget;
 			n instanceof HTMLInputElement && r("update:selected", e, n.checked);
 		}
-		return (t, n) => (K(), q("section", Ic, [J("div", Lc, [J("div", Rc, [J("div", null, [J("div", zc, [n[3] ||= J("h2", {
+		return (t, n) => (K(), q("section", ul, [J("div", dl, [J("div", fl, [J("div", null, [J("div", pl, [n[3] ||= J("h2", {
 			id: "recipients-title",
-			class: "dui-card-title tw:text-base"
-		}, "Recipients", -1), J("span", Bc, k(e.plan.awards.length) + " selected", 1)]), n[4] ||= J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65" }, " The XP leader sets the gap only. Decay is calculated from each recipient’s own total. ", -1)]), J("div", Vc, [
+			class: "dui-card-title tw:font-serif tw:text-lg tw:text-base-content!"
+		}, " Recipients ", -1), J("span", ml, O(e.plan.awards.length) + " selected", 1)]), n[4] ||= J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65!" }, " The XP leader sets the gap only. Decay is calculated from each recipient’s own total. ", -1)]), J("div", hl, [
 			J("button", {
 				class: "dui-btn dui-btn-ghost dui-btn-sm",
 				disabled: e.disabled,
 				type: "button",
 				onClick: n[0] ||= (e) => r("select-all", !0)
-			}, " All ", 8, Hc),
+			}, " All ", 8, gl),
 			J("button", {
 				class: "dui-btn dui-btn-ghost dui-btn-sm",
 				disabled: e.disabled,
 				type: "button",
 				onClick: n[1] ||= (e) => r("select-all", !1)
-			}, " None ", 8, Uc),
+			}, " None ", 8, _l),
 			J("button", {
 				class: "dui-btn dui-btn-ghost dui-btn-sm",
 				disabled: e.disabled,
 				type: "button",
 				onClick: n[2] ||= (e) => r("reset")
-			}, " Reset ", 8, Wc)
-		])]), e.actors.length ? (K(), q("div", Gc, [J("table", Kc, [n[5] ||= J("thead", null, [J("tr", null, [
+			}, " Reset ", 8, vl)
+		])]), e.actors.length ? (K(), q("div", yl, [J("table", bl, [n[5] ||= J("thead", { class: "tw:bg-base-300/60!" }, [J("tr", null, [
 			J("th", { scope: "col" }, "Use"),
 			J("th", { scope: "col" }, "Actor"),
 			J("th", {
@@ -3930,35 +4096,35 @@ var Pc = {
 			}, "New total")
 		])], -1), J("tbody", null, [(K(!0), q(W, null, Er(e.actors, (t) => (K(), q("tr", {
 			key: t.id,
-			class: O({ "tw:bg-base-200": t.selected })
+			class: xe({ "tw:bg-base-200!": t.selected })
 		}, [
-			J("td", null, [J("label", qc, [J("input", {
-				class: "dui-checkbox dui-checkbox-sm",
+			J("td", null, [J("label", xl, [J("input", {
+				class: "dui-checkbox dui-checkbox-primary dui-checkbox-sm tw:appearance-none! tw:rounded-sm! tw:border-2! tw:border-primary! tw:bg-base-100! tw:bg-none! tw:shadow-none! tw:checked:border-primary! tw:checked:bg-primary! tw:checked:bg-none! tw:checked:text-primary-content!",
 				type: "checkbox",
 				checked: t.selected,
 				disabled: e.disabled,
 				onChange: (e) => a(t.id, e)
-			}, null, 40, Jc), J("span", Yc, "Include " + k(t.name) + " in the XP curve", 1)])]),
-			J("th", Xc, [J("span", Zc, k(t.name), 1), t.category === "companion" ? (K(), q("span", Qc, " Companion rate ")) : oa("", !0)]),
-			J("td", $c, k(t.totalXp), 1),
-			J("td", el, k(i(t.id)?.gap ?? "—"), 1),
-			J("td", tl, k(i(t.id) ? Math.round(i(t.id)?.catchUpValue ?? 0) : "—"), 1),
-			J("td", nl, k(i(t.id) ? `${Math.round((i(t.id)?.decayMultiplier ?? 0) * 100)}%` : "—"), 1),
-			J("td", rl, k(i(t.id) ? `+${i(t.id)?.award}` : "—"), 1),
-			J("td", il, k(i(t.id)?.afterXp ?? "—"), 1)
-		], 2))), 128))])])])) : (K(), q("div", al, [...n[6] ||= [J("i", {
+			}, null, 40, Sl), J("span", Cl, "Include " + O(t.name) + " in the XP curve", 1)])]),
+			J("th", wl, [J("span", Tl, O(t.name), 1), t.category === "companion" ? (K(), q("span", El, " Companion rate ")) : oa("", !0)]),
+			J("td", Dl, O(t.totalXp), 1),
+			J("td", Ol, O(i(t.id)?.gap ?? "—"), 1),
+			J("td", kl, O(i(t.id) ? Math.round(i(t.id)?.catchUpValue ?? 0) : "—"), 1),
+			J("td", Al, O(i(t.id) ? `${Math.round((i(t.id)?.decayMultiplier ?? 0) * 100)}%` : "—"), 1),
+			J("td", jl, O(i(t.id) ? `+${i(t.id)?.award}` : "—"), 1),
+			J("td", Ml, O(i(t.id)?.afterXp ?? "—"), 1)
+		], 2))), 128))])])])) : (K(), q("div", Nl, [...n[6] ||= [J("i", {
 			class: "fa-solid fa-user-slash",
 			"aria-hidden": "true"
 		}, null, -1), J("span", null, "No WFRP4e character actors are available in this world.", -1)]]))])]));
 	}
-}), sl = {
+}), Fl = {
 	key: 0,
 	class: "dui-alert dui-alert-warning tw:mb-3",
 	role: "status"
-}, cl = { class: "tw:grid tw:min-w-0 tw:gap-3 tw:min-[68rem]:grid-cols-[1.25fr_1fr]" }, ll = {
-	class: "dui-card dui-card-border tw:min-w-0 tw:bg-base-100",
+}, Il = { class: "tw:grid tw:min-w-0 tw:gap-3 tw:min-[68rem]:grid-cols-[1.25fr_1fr]" }, Ll = {
+	class: "dui-card dui-card-border tw:min-w-0 tw:border-2 tw:border-base-content/20! tw:bg-base-100! tw:text-base-content! tw:shadow-md",
 	"aria-labelledby": "award-message-title"
-}, ul = { class: "dui-card-body tw:min-w-0 tw:gap-3 tw:p-4" }, dl = { class: "tw:min-w-0 tw:rounded-box tw:bg-base-200 tw:p-3 tw:text-sm" }, fl = { class: "tw:m-0 tw:break-words tw:font-semibold" }, pl = /* @__PURE__ */ V({
+}, Rl = { class: "dui-card-body tw:min-w-0 tw:gap-3 tw:p-4" }, zl = { class: "tw:min-w-0 tw:rounded-box tw:bg-base-200! tw:p-3 tw:text-sm" }, Bl = { class: "tw:m-0 tw:break-words tw:font-semibold" }, Vl = /* @__PURE__ */ V({
 	__name: "XpAwardWorkspace",
 	props: /*@__PURE__*/ Pr({
 		actors: {},
@@ -3980,10 +4146,10 @@ var Pc = {
 		function i(e, t) {
 			r("update:selected", e, t);
 		}
-		return (t, a) => (K(), q(W, null, [e.selectionSource === "targets" && e.plan.awards.length === 0 ? (K(), q("div", sl, [...a[3] ||= [J("i", {
+		return (t, a) => (K(), q(W, null, [e.selectionSource === "targets" && e.plan.awards.length === 0 ? (K(), q("div", Fl, [...a[3] ||= [J("i", {
 			class: "fa-solid fa-bullseye",
 			"aria-hidden": "true"
-		}, null, -1), J("span", { class: "tw:min-w-0 tw:break-words" }, " The targeted tokens do not contain eligible WFRP4e character actors. ", -1)]])) : oa("", !0), J("div", cl, [Y(ol, {
+		}, null, -1), J("span", { class: "tw:min-w-0 tw:break-words" }, " The targeted tokens do not contain eligible WFRP4e character actors. ", -1)]])) : oa("", !0), J("div", Il, [Y(Pl, {
 			actors: e.actors,
 			disabled: e.disabled,
 			plan: e.plan,
@@ -3994,11 +4160,11 @@ var Pc = {
 			"actors",
 			"disabled",
 			"plan"
-		]), J("section", ll, [J("div", ul, [
+		]), J("section", Ll, [J("div", Rl, [
 			a[5] ||= J("div", null, [J("h2", {
 				id: "award-message-title",
-				class: "dui-card-title tw:text-base"
-			}, "Award message"), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65" }, " This reason is written to each recipient’s WFRP4e experience log. ")], -1),
+				class: "dui-card-title tw:font-serif tw:text-lg tw:text-base-content!"
+			}, " Award message "), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65!" }, " This reason is written to each recipient’s WFRP4e experience log. ")], -1),
 			a[6] ||= J("label", {
 				class: "dui-label tw:whitespace-normal",
 				for: "xp-award-reason"
@@ -4006,58 +4172,346 @@ var Pc = {
 			B(J("input", {
 				id: "xp-award-reason",
 				"onUpdate:modelValue": a[2] ||= (e) => n.value = e,
-				class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full",
+				class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content!",
 				type: "text"
-			}, null, 512), [[To, n.value]]),
-			a[7] ||= J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65" }, [
+			}, null, 512), [[Co, n.value]]),
+			a[7] ||= J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65!" }, [
 				X(" Supports GM Toolkit’s "),
 				J("code", null, "%session%"),
 				X(" and "),
 				J("code", null, "%date%"),
 				X(" tokens. ")
 			], -1),
-			J("div", dl, [a[4] ||= J("span", { class: "tw:text-xs tw:text-base-content/60" }, "This award will record", -1), J("p", fl, k(e.resolvedReason || "No reason"), 1)]),
+			J("div", zl, [a[4] ||= J("span", { class: "tw:text-xs tw:text-base-content/60!" }, "This award will record", -1), J("p", Bl, O(e.resolvedReason || "No reason"), 1)]),
 			a[8] ||= J("div", {
 				class: "dui-alert tw:text-xs",
 				role: "note"
 			}, [J("i", {
 				class: "fa-solid fa-circle-info",
 				"aria-hidden": "true"
-			}), J("span", { class: "tw:min-w-0 tw:break-words" }, " Change curves and recipient defaults in the Curves & defaults tab. All calculated awards update live. ")], -1)
+			}), J("span", { class: "tw:min-w-0 tw:break-words" }, " Use the cog in the header to change curves and recipient defaults. Saving there refreshes this award ledger with the new calculation. ")], -1)
 		])])])], 64));
 	}
+}), Hl = { class: "dui-navbar tw:min-h-0 tw:min-w-0 tw:gap-2 tw:border-b-4 tw:border-double tw:border-base-content/25! tw:bg-base-100! tw:px-3 tw:py-2 tw:text-base-content! tw:shadow-sm" }, Ul = { class: "dui-navbar-end tw:w-auto tw:max-w-full tw:shrink tw:items-center tw:gap-2" }, Wl = ["title"], Gl = {
+	class: "dui-tooltip dui-tooltip-left",
+	"data-tip": "Configure XP Curve Console"
+}, Kl = { class: "tw:grid tw:grid-cols-2 tw:gap-px tw:border-b tw:border-base-content/20! tw:bg-base-content/20! tw:min-[38rem]:grid-cols-4" }, ql = { class: "tw:contents" }, Jl = { class: "tw:min-w-0 tw:bg-base-100! tw:px-4 tw:py-2" }, Yl = { class: "tw:m-0 tw:font-serif tw:text-lg tw:font-bold tw:text-base-content! tw:tabular-nums" }, Xl = { class: "tw:min-w-0 tw:bg-base-100! tw:px-4 tw:py-2" }, Zl = { class: "tw:m-0 tw:font-serif tw:text-lg tw:font-bold tw:text-base-content! tw:tabular-nums" }, Ql = { class: "tw:min-w-0 tw:bg-base-100! tw:px-4 tw:py-2" }, $l = { class: "tw:m-0 tw:font-serif tw:text-lg tw:font-bold tw:text-base-content! tw:tabular-nums" }, eu = { class: "tw:min-w-0 tw:bg-base-100! tw:px-4 tw:py-2" }, tu = { class: "tw:m-0 tw:font-serif tw:text-lg tw:font-bold tw:text-base-content! tw:tabular-nums" }, nu = /* @__PURE__ */ V({
+	__name: "XpConsoleHeader",
+	props: {
+		highestXp: {},
+		positiveAwardCount: {},
+		selectedCount: {},
+		selectionLabel: {},
+		selectionSource: {},
+		totalAward: {}
+	},
+	emits: ["configure"],
+	setup(e, { emit: t }) {
+		let n = t;
+		return (t, r) => (K(), q(W, null, [J("header", Hl, [r[3] ||= J("div", { class: "dui-navbar-start tw:min-w-0 tw:flex-1" }, [J("span", {
+			class: "tw:inline-grid tw:size-8 tw:shrink-0 tw:place-items-center tw:rounded-full tw:border-2 tw:border-base-100/50! tw:bg-primary! tw:text-sm tw:text-primary-content! tw:shadow-sm",
+			"aria-hidden": "true"
+		}, [J("i", { class: "fa-solid fa-chart-line" })])], -1), J("div", Ul, [J("span", {
+			class: "dui-badge dui-badge-outline dui-badge-sm tw:h-auto tw:max-w-56 tw:whitespace-normal tw:border-base-content/25! tw:py-1 tw:text-center",
+			title: e.selectionSource === "targets" ? "Eligible targeted character tokens were selected when the console opened." : "No tokens were targeted, so the configured recipient default was used."
+		}, [r[1] ||= J("span", {
+			class: "dui-status dui-status-primary dui-status-sm tw:shrink-0",
+			"aria-hidden": "true"
+		}, null, -1), X(" " + O(e.selectionLabel), 1)], 8, Wl), J("span", Gl, [J("button", {
+			class: "dui-btn dui-btn-ghost dui-btn-sm dui-btn-square tw:border tw:border-base-content/20! tw:bg-base-200! tw:text-base-content!",
+			"aria-label": "Configure XP Curve Console",
+			title: "Configure XP Curve Console",
+			type: "button",
+			onClick: r[0] ||= (e) => n("configure")
+		}, [...r[2] ||= [J("i", {
+			class: "fa-solid fa-gear",
+			"aria-hidden": "true"
+		}, null, -1)]])])])]), J("div", Kl, [J("dl", ql, [
+			J("div", Jl, [r[4] ||= J("dt", { class: "tw:text-xs tw:text-base-content/60!" }, "Selected recipients", -1), J("dd", Yl, O(e.selectedCount), 1)]),
+			J("div", Xl, [r[5] ||= J("dt", { class: "tw:text-xs tw:text-base-content/60!" }, "XP leader total", -1), J("dd", Zl, O(e.highestXp), 1)]),
+			J("div", Ql, [r[6] ||= J("dt", { class: "tw:text-xs tw:text-base-content/60!" }, "Recipients gaining XP", -1), J("dd", $l, O(e.positiveAwardCount), 1)]),
+			J("div", eu, [r[7] ||= J("dt", { class: "tw:text-xs tw:text-base-content/60!" }, "Total award", -1), J("dd", tu, O(e.totalAward) + " XP ", 1)])
+		])])], 64));
+	}
+}), ru = { class: "tw:flex tw:h-full tw:max-h-full tw:min-h-0 tw:min-w-0 tw:flex-col tw:overflow-hidden tw:bg-base-200! tw:text-base-content!" }, iu = {
+	key: 0,
+	class: "dui-alert dui-alert-error tw:m-4 tw:mb-0",
+	role: "alert"
+}, au = { class: "tw:min-w-0 tw:break-words" }, ou = { class: "tw:min-h-0 tw:min-w-0 tw:flex-1 tw:overflow-auto tw:p-4" }, su = { class: "tw:flex tw:min-w-0 tw:shrink-0 tw:justify-end tw:border-t-4 tw:border-double tw:border-base-content/25! tw:bg-base-100! tw:p-3" }, cu = ["disabled"], lu = {
+	key: 0,
+	class: "dui-loading dui-loading-spinner dui-loading-sm",
+	"aria-hidden": "true"
+}, uu = {
+	key: 1,
+	class: "fa-solid fa-award",
+	"aria-hidden": "true"
+}, du = /* @__PURE__ */ V({
+	__name: "XpCurveConsoleApp",
+	props: {
+		actions: {},
+		initialization: {}
+	},
+	setup(e) {
+		let t = e, n = ll();
+		n.initialize(t.initialization, t.actions);
+		let { actors: r, canApply: i, defaultReason: a, errorMessage: o, isWorking: s, plan: c, positiveAwardCount: l, resolvedReason: u, selectedActors: d, selectionSource: f } = vs(n), p = Q(() => f.value === "targets" ? "Recipients: targeted tokens" : `Recipients: ${{
+			company: "company default",
+			party: "party default",
+			world: "world default"
+		}[t.initialization.defaultSelection]}`);
+		return (e, m) => (K(), q("main", ru, [
+			Y(nu, {
+				"highest-xp": I(c).highestXp,
+				"positive-award-count": I(l),
+				"selected-count": I(d).length,
+				"selection-label": p.value,
+				"selection-source": I(f),
+				"total-award": I(c).totalAward,
+				onConfigure: t.actions.openConfigurator
+			}, null, 8, [
+				"highest-xp",
+				"positive-award-count",
+				"selected-count",
+				"selection-label",
+				"selection-source",
+				"total-award",
+				"onConfigure"
+			]),
+			I(o) ? (K(), q("div", iu, [m[2] ||= J("i", {
+				class: "fa-solid fa-triangle-exclamation",
+				"aria-hidden": "true"
+			}, null, -1), J("span", au, O(I(o)), 1)])) : oa("", !0),
+			J("div", ou, [Y(Vl, {
+				"default-reason": I(a),
+				"onUpdate:defaultReason": m[0] ||= (e) => /* @__PURE__ */ P(a) ? a.value = e : null,
+				actors: I(r),
+				disabled: I(s),
+				plan: I(c),
+				"resolved-reason": I(u),
+				"selection-source": I(f),
+				onReset: I(n).resetSelection,
+				onSelectAll: I(n).setAllActorsSelected,
+				"onUpdate:selected": I(n).setActorSelected
+			}, null, 8, [
+				"default-reason",
+				"actors",
+				"disabled",
+				"plan",
+				"resolved-reason",
+				"selection-source",
+				"onReset",
+				"onSelectAll",
+				"onUpdate:selected"
+			])]),
+			J("footer", su, [J("button", {
+				class: "dui-btn dui-btn-primary tw:w-full tw:min-w-0 tw:rounded-full tw:border-2 tw:border-base-100/40! tw:shadow-md tw:min-[32rem]:w-auto tw:min-[32rem]:min-w-52",
+				disabled: !I(i),
+				type: "button",
+				onClick: m[1] ||= (...e) => I(n).applyAwards && I(n).applyAwards(...e)
+			}, [I(s) ? (K(), q("span", lu)) : (K(), q("i", uu)), X(" Award " + O(I(c).totalAward) + " XP ", 1)], 8, cu)])
+		]));
+	}
+}), fu = _s("xp-curve-configurator", () => {
+	let e = /* @__PURE__ */ F([]), t = /* @__PURE__ */ F({ ...cl }), n = /* @__PURE__ */ F(""), r = /* @__PURE__ */ F("party"), i = /* @__PURE__ */ F(!0), a = /* @__PURE__ */ F({ tokenControls: !0 }), o = /* @__PURE__ */ F(), s = /* @__PURE__ */ F(), c = /* @__PURE__ */ F(!1), l, u = Q(() => $c(e.value, t.value)), d = Q(() => Math.max(0, ...u.value.awards.map((e) => e.gap))), f = Q(() => nl(t.value, Math.max(d.value * 1.1, 1))), p = Q(() => rl(t.value, Math.max(u.value.highestXp * 1.1, 1)));
+	function m(c, u) {
+		l = u, e.value = c.actors.map((e) => ({ ...e })), t.value = { ...c.parameters }, n.value = c.defaultReason, r.value = c.defaultSelection, i.value = c.useGmToolkitDefaults, a.value = { ...c.launchers }, o.value = void 0, s.value = void 0;
+	}
+	function h(e) {
+		r.value = e, i.value = !1, s.value = void 0;
+	}
+	async function g() {
+		if (!c.value) {
+			c.value = !0, o.value = void 0, s.value = void 0;
+			try {
+				t.value = Qc(t.value);
+				let e = {
+					defaultReason: n.value,
+					defaultSelection: r.value,
+					launchers: { ...a.value },
+					parameters: { ...t.value },
+					useGmToolkitDefaults: i.value
+				};
+				await _().saveConfiguration(e), s.value = "Configuration saved. Launcher changes apply after a reload.";
+			} catch (e) {
+				console.error("WFRP4e | Drowsy’s Toolkit | XP configuration save failed.", e), o.value = e instanceof Error ? e.message : "The XP Curve Console configuration could not be saved.";
+			} finally {
+				c.value = !1;
+			}
+		}
+	}
+	function _() {
+		if (!l) throw Error("The XP Curve Configurator has not been initialized.");
+		return l;
+	}
+	return {
+		actors: e,
+		curveSamples: f,
+		decaySamples: p,
+		defaultReason: n,
+		defaultSelection: r,
+		errorMessage: o,
+		initialize: m,
+		isSaving: c,
+		launchers: a,
+		parameters: t,
+		plan: u,
+		saveConfiguration: g,
+		setDefaultSelection: h,
+		statusMessage: s,
+		useGmToolkitDefaults: i
+	};
 });
-function ml(e, t, n) {
+function pu(e, t, n, r) {
+	return {
+		maximumGap: Math.max(1, e * 1.4, ...n.map((e) => e.gap), ...r.map((e) => e.gap * 1.05)),
+		maximumValue: Math.max(1, t * 1.25, ...n.map((e) => e.award * 1.05), ...r.map((e) => e.catchUpValue * 1.05))
+	};
+}
+function mu(e, t, n) {
+	return { maximumRecipientXp: Math.max(1e3, e * 4, ...t.map((e) => e.recipientXp), ...n.map((e) => e.beforeXp * 1.05)) };
+}
+function hu(e) {
+	let t = (t) => Su(t, e.bounds.maximumGap), n = (t) => Cu(t, e.bounds.maximumValue);
+	return {
+		points: e.samples.map((e) => `${t(e.gap).toFixed(1)},${n(e.award).toFixed(1)}`).join(" "),
+		recipientLegend: e.awards.map((e, t) => ({
+			actorId: e.actorId,
+			index: t + 1,
+			text: `${e.actorName} — ${e.gap} XP gap — initial ${Math.round(e.catchUpValue)} XP`
+		})),
+		recipientPoints: e.awards.map((e, r) => ({
+			actorId: e.actorId,
+			index: r + 1,
+			label: `${e.actorName}: ${Math.round(e.gap)} XP gap, ${Math.round(e.catchUpValue)} initial XP`,
+			x: t(e.gap),
+			y: n(e.catchUpValue)
+		})),
+		referencePoint: {
+			x: t(e.gapForMaximumAward),
+			y: n(e.maximumAward)
+		},
+		shapePoint: {
+			x: t(e.gapForMaximumAward / 2),
+			y: n(e.maximumAward * .5 ** e.curveExponent)
+		}
+	};
+}
+function gu(e) {
+	let t = (t) => Su(t, e.bounds.maximumRecipientXp), n = wu;
+	return {
+		pivotPoint: {
+			x: t(e.scalePivot),
+			y: n(1)
+		},
+		points: e.samples.map((e) => `${t(e.recipientXp).toFixed(1)},${n(e.multiplier).toFixed(1)}`).join(" "),
+		recipientLegend: e.awards.map((e, t) => ({
+			actorId: e.actorId,
+			index: t + 1,
+			text: `${e.actorName} — ${e.beforeXp} XP — ${Math.round(e.decayMultiplier * 100)}% multiplier`
+		})),
+		recipientPoints: e.awards.map((e, r) => ({
+			actorId: e.actorId,
+			index: r + 1,
+			label: `${e.actorName}: ${e.beforeXp} total XP, ${Math.round(e.decayMultiplier * 100)}% catch-up strength`,
+			x: t(e.beforeXp),
+			y: n(e.decayMultiplier)
+		})),
+		strengthPoint: {
+			x: t(e.scalePivot * 2),
+			y: n(.5 ** e.scaleExponent)
+		}
+	};
+}
+function _u(e, t, n, r) {
+	if (e === "reference") {
+		let r = Tu((t.x - 68) / 472, .001, 1), i = 1 - Tu((t.y - 24) / 192, 0, 1);
+		return {
+			gapForMaximumAward: Math.max(1, Math.round(r * n.maximumGap)),
+			kind: e,
+			maximumAward: Math.max(0, Math.round(i * n.maximumValue))
+		};
+	}
+	let i = Tu((216 - t.y) / 192 * (n.maximumValue / Math.max(1, r)), .03, .99);
+	return {
+		curveExponent: Eu(Tu(Math.log(i) / Math.log(.5), .1, 5), .05),
+		kind: e
+	};
+}
+function vu(e, t, n) {
+	if (e === "pivot") {
+		let r = Tu((t.x - 68) / 472, .001, 1);
+		return {
+			kind: e,
+			scalePivot: Math.max(1, Math.round(r * n.maximumRecipientXp))
+		};
+	}
+	let r = Tu(1 - (t.y - 24) / 192, .25, .99);
+	return {
+		kind: e,
+		scaleExponent: Eu(Tu(Math.log(r) / Math.log(.5), 0, 2), .05)
+	};
+}
+function yu(e, t, n) {
+	let r = Math.max(10, Math.round(t / 20)), i = Math.max(1, Math.round(Math.max(1, n) / 20));
+	if (e === "ArrowLeft" || e === "ArrowRight") return { gapForMaximumAward: Math.max(1, t + (e === "ArrowLeft" ? -r : r)) };
+	if (e === "ArrowUp" || e === "ArrowDown") return { maximumAward: Math.max(0, n + (e === "ArrowUp" ? i : -i)) };
+}
+function bu(e, t, n, r) {
+	if ([
+		"ArrowDown",
+		"ArrowLeft",
+		"ArrowRight",
+		"ArrowUp"
+	].includes(e)) return Eu(Tu(t + (e === "ArrowUp" || e === "ArrowRight" ? -1 : 1) * .05, n, r), .05);
+}
+function xu(e, t) {
+	if (e !== "ArrowLeft" && e !== "ArrowRight") return;
+	let n = Math.max(100, Math.round(t / 20));
+	return Math.max(1, t + (e === "ArrowLeft" ? -n : n));
+}
+function Su(e, t) {
+	return 68 + Math.max(0, e) / Math.max(1, t) * 472;
+}
+function Cu(e, t) {
+	return 24 + (1 - Math.max(0, e) / Math.max(1, t)) * 192;
+}
+function wu(e) {
+	return 24 + (1 - Tu(e, 0, 1)) * 192;
+}
+function Tu(e, t, n) {
 	return Math.min(n, Math.max(t, e));
 }
-function hl(e, t) {
+function Eu(e, t) {
+	let n = t.toString().split(".")[1]?.length ?? 0;
+	return Number((Math.round(e / t) * t).toFixed(n));
+}
+//#endregion
+//#region src/view/apps/xp-curve-configurator/curve/graphMath.ts
+function Du(e, t) {
 	let n = e.getBoundingClientRect();
 	return {
 		x: (t.clientX - n.left) / n.width * 560,
 		y: (t.clientY - n.top) / n.height * 270
 	};
 }
-function gl(e, t) {
-	return Math.round(e / t) * t;
-}
 //#endregion
-//#region src/view/apps/xp-curve-console/curve/graph/GraphCanvas.vue?vue&type=script&setup=true&lang.ts
-var _l = ["viewBox", "aria-labelledby"], vl = ["id"], yl = ["id"], bl = [
+//#region src/view/apps/xp-curve-configurator/curve/graph/GraphCanvas.vue?vue&type=script&setup=true&lang.ts
+var Ou = ["viewBox", "aria-labelledby"], ku = ["id"], Au = ["id"], ju = [
 	"x1",
 	"x2",
 	"y1",
 	"y2"
-], xl = [
+], Mu = [
 	"x1",
 	"x2",
 	"y1",
 	"y2"
-], Sl = [
+], Nu = [
 	"x1",
 	"x2",
 	"y1",
 	"y2"
-], Cl = ["points"], wl = ["cx", "cy"], Tl = ["x", "y"], El = ["x", "y"], Dl = ["x", "y"], Ol = ["x", "y"], kl = ["x", "y"], Al = ["x", "y"], jl = ["transform", "y"], Ml = /* @__PURE__ */ V({
+], Pu = ["points"], Fu = ["cx", "cy"], Iu = ["x", "y"], Lu = ["x", "y"], Ru = ["x", "y"], zu = ["x", "y"], Bu = ["x", "y"], Vu = ["x", "y"], Hu = ["transform", "y"], Uu = /* @__PURE__ */ V({
 	__name: "GraphCanvas",
 	props: {
 		description: {},
@@ -4082,132 +4536,132 @@ var _l = ["viewBox", "aria-labelledby"], vl = ["id"], yl = ["id"], bl = [
 		let n = t;
 		return (t, r) => (K(), q("svg", {
 			class: "tw:block tw:h-auto tw:w-full tw:max-w-full tw:touch-none tw:[user-select:none]",
-			viewBox: `0 0 ${L(560)} ${L(270)}`,
+			viewBox: `0 0 ${I(560)} ${I(270)}`,
 			role: "img",
 			"aria-labelledby": `${e.titleId} ${e.descriptionId}`,
 			onPointercancel: r[0] ||= (e) => n("pointercancel", e),
 			onPointermove: r[1] ||= (e) => n("pointermove", e),
 			onPointerup: r[2] ||= (e) => n("pointerup", e)
 		}, [
-			J("title", { id: e.titleId }, k(e.title), 9, vl),
-			J("desc", { id: e.descriptionId }, k(e.description), 9, yl),
+			J("title", { id: e.titleId }, O(e.title), 9, ku),
+			J("desc", { id: e.descriptionId }, O(e.description), 9, Au),
 			J("line", {
-				class: "tw:text-base-content/25",
-				x1: L(68),
-				x2: L(68),
-				y1: L(24),
-				y2: L(24) + L(192),
+				class: "tw:text-base-content/25!",
+				x1: I(68),
+				x2: I(68),
+				y1: I(24),
+				y2: I(24) + I(192),
 				stroke: "currentColor"
-			}, null, 8, bl),
+			}, null, 8, ju),
 			J("line", {
-				class: "tw:text-base-content/25",
-				x1: L(68),
-				x2: L(68) + L(472),
-				y1: L(24) + L(192),
-				y2: L(24) + L(192),
+				class: "tw:text-base-content/25!",
+				x1: I(68),
+				x2: I(68) + I(472),
+				y1: I(24) + I(192),
+				y2: I(24) + I(192),
 				stroke: "currentColor"
-			}, null, 8, xl),
+			}, null, 8, Mu),
 			J("line", {
-				class: "tw:text-base-content/25",
+				class: "tw:text-base-content/25!",
 				x1: e.verticalGuideX,
 				x2: e.verticalGuideX,
-				y1: L(24),
-				y2: L(24) + L(192),
+				y1: I(24),
+				y2: I(24) + I(192),
 				stroke: "currentColor",
 				"stroke-dasharray": "4 5"
-			}, null, 8, Sl),
+			}, null, 8, Nu),
 			Dr(t.$slots, "guides"),
 			J("polyline", {
-				class: "tw:text-secondary",
+				class: "tw:text-secondary!",
 				fill: "none",
 				points: e.points,
 				stroke: "currentColor",
 				"stroke-linecap": "round",
 				"stroke-linejoin": "round",
 				"stroke-width": "3"
-			}, null, 8, Cl),
+			}, null, 8, Pu),
 			(K(!0), q(W, null, Er(e.markers, (e) => (K(), q("g", {
 				key: e.actorId,
-				class: "tw:text-base-content",
+				class: "tw:text-base-content!",
 				"aria-hidden": "true"
 			}, [J("circle", {
 				cx: e.x,
 				cy: e.y,
 				fill: "currentColor",
 				r: "9"
-			}, [J("title", null, k(e.label), 1)], 8, wl), J("text", {
-				class: "tw:text-base-100",
+			}, [J("title", null, O(e.label), 1)], 8, Fu), J("text", {
+				class: "tw:text-base-100!",
 				x: e.x,
 				y: e.y + 3,
 				fill: "currentColor",
 				"font-size": "9",
 				"font-weight": "700",
 				"text-anchor": "middle"
-			}, k(e.index), 9, Tl)]))), 128)),
+			}, O(e.index), 9, Iu)]))), 128)),
 			Dr(t.$slots, "handles"),
 			J("text", {
-				class: "tw:text-base-content/65",
-				x: L(68),
-				y: L(24) + L(192) + 18,
+				class: "tw:text-base-content/65!",
+				x: I(68),
+				y: I(24) + I(192) + 18,
 				fill: "currentColor",
 				"font-size": "11",
 				"text-anchor": "middle"
-			}, " 0 ", 8, El),
+			}, " 0 ", 8, Lu),
 			J("text", {
-				class: "tw:text-base-content/65",
-				x: L(68) + L(472),
-				y: L(24) + L(192) + 18,
+				class: "tw:text-base-content/65!",
+				x: I(68) + I(472),
+				y: I(24) + I(192) + 18,
 				fill: "currentColor",
 				"font-size": "11",
 				"text-anchor": "end"
-			}, k(e.maximumXLabel), 9, Dl),
+			}, O(e.maximumXLabel), 9, Ru),
 			J("text", {
-				class: "tw:text-base-content/75",
-				x: L(68) + L(472) / 2,
-				y: L(270) - 8,
+				class: "tw:text-base-content/75!",
+				x: I(68) + I(472) / 2,
+				y: I(270) - 8,
 				fill: "currentColor",
 				"font-size": "12",
 				"font-weight": "600",
 				"text-anchor": "middle"
-			}, k(e.xAxisLabel), 9, Ol),
+			}, O(e.xAxisLabel), 9, zu),
 			e.maximumYLabel ? (K(), q("text", {
 				key: 0,
-				class: "tw:text-base-content/65",
-				x: L(68) - 10,
-				y: L(24) + 4,
+				class: "tw:text-base-content/65!",
+				x: I(68) - 10,
+				y: I(24) + 4,
 				fill: "currentColor",
 				"font-size": "11",
 				"text-anchor": "end"
-			}, k(e.maximumYLabel), 9, kl)) : oa("", !0),
+			}, O(e.maximumYLabel), 9, Bu)) : oa("", !0),
 			J("text", {
-				class: "tw:text-base-content/65",
-				x: L(68) - 10,
-				y: L(24) + L(192) + 3,
+				class: "tw:text-base-content/65!",
+				x: I(68) - 10,
+				y: I(24) + I(192) + 3,
 				fill: "currentColor",
 				"font-size": "11",
 				"text-anchor": "end"
-			}, k(e.minimumYLabel), 9, Al),
+			}, O(e.minimumYLabel), 9, Vu),
 			J("text", {
-				class: "tw:text-base-content/75",
-				transform: `rotate(-90 16 ${L(24) + L(192) / 2})`,
+				class: "tw:text-base-content/75!",
+				transform: `rotate(-90 16 ${I(24) + I(192) / 2})`,
 				x: "16",
-				y: L(24) + L(192) / 2,
+				y: I(24) + I(192) / 2,
 				fill: "currentColor",
 				"font-size": "12",
 				"font-weight": "600",
 				"text-anchor": "middle"
-			}, k(e.yAxisLabel), 9, jl),
+			}, O(e.yAxisLabel), 9, Hu),
 			Dr(t.$slots, "labels")
-		], 40, _l));
+		], 40, Ou));
 	}
-}), Nl = [
+}), Wu = [
 	"role",
 	"aria-label",
 	"aria-valuemax",
 	"aria-valuemin",
 	"aria-valuenow",
 	"aria-valuetext"
-], Pl = ["x", "y"], Fl = ["x", "y"], Il = /* @__PURE__ */ V({
+], Gu = ["x", "y"], Ku = ["x", "y"], qu = /* @__PURE__ */ V({
 	__name: "DiamondHandle",
 	props: {
 		ariaLabel: {},
@@ -4223,7 +4677,7 @@ var _l = ["viewBox", "aria-labelledby"], vl = ["id"], yl = ["id"], bl = [
 	setup(e, { emit: t }) {
 		let n = t;
 		return (t, r) => (K(), q("g", {
-			class: "tw:cursor-grab tw:text-secondary",
+			class: "tw:cursor-grab tw:text-secondary!",
 			role: e.role ?? "slider",
 			tabindex: "0",
 			"aria-label": e.ariaLabel,
@@ -4232,7 +4686,7 @@ var _l = ["viewBox", "aria-labelledby"], vl = ["id"], yl = ["id"], bl = [
 			"aria-valuenow": e.ariaValueNow,
 			"aria-valuetext": e.ariaValueText,
 			onKeydown: r[0] ||= (e) => n("keydown", e),
-			onPointerdown: r[1] ||= Po((e) => n("pointerdown", e), ["stop"])
+			onPointerdown: r[1] ||= Mo((e) => n("pointerdown", e), ["stop"])
 		}, [J("rect", {
 			x: e.x - 8,
 			y: e.y - 8,
@@ -4243,35 +4697,35 @@ var _l = ["viewBox", "aria-labelledby"], vl = ["id"], yl = ["id"], bl = [
 			"stroke-width": "8",
 			"stroke-opacity": "0.18",
 			width: "16"
-		}, null, 8, Pl), J("rect", {
-			class: "tw:text-base-100",
+		}, null, 8, Gu), J("rect", {
+			class: "tw:text-base-100!",
 			x: e.x - 3,
 			y: e.y - 3,
 			fill: "currentColor",
 			height: "6",
 			rx: "1",
 			width: "6"
-		}, null, 8, Fl)], 40, Nl));
+		}, null, 8, Ku)], 40, Wu));
 	}
-}), Ll = {
+}), Ju = {
 	key: 0,
 	class: "tw:mt-2"
-}, Rl = { class: "tw:mt-1 tw:grid tw:[list-style:none] tw:grid-cols-1 tw:gap-x-3 tw:gap-y-1 tw:p-0 tw:text-xs tw:text-base-content/70 tw:min-[32rem]:grid-cols-2" }, zl = { class: "tw:font-bold tw:text-base-content" }, Bl = { class: "tw:break-words" }, Vl = /* @__PURE__ */ V({
+}, Yu = { class: "tw:mt-1 tw:grid tw:[list-style:none] tw:grid-cols-1 tw:gap-x-3 tw:gap-y-1 tw:p-0 tw:text-xs tw:text-base-content/70! tw:min-[32rem]:grid-cols-2" }, Xu = { class: "tw:font-bold tw:text-base-content!" }, Zu = { class: "tw:break-words" }, Qu = /* @__PURE__ */ V({
 	__name: "RecipientLegend",
 	props: { items: {} },
 	setup(e) {
-		return (t, n) => e.items.length ? (K(), q("figcaption", Ll, [n[0] ||= J("span", { class: "tw:text-xs tw:font-semibold" }, "Selected recipients", -1), J("ol", Rl, [(K(!0), q(W, null, Er(e.items, (e) => (K(), q("li", {
+		return (t, n) => e.items.length ? (K(), q("figcaption", Ju, [n[0] ||= J("span", { class: "tw:text-xs tw:font-semibold" }, "Selected recipients", -1), J("ol", Yu, [(K(!0), q(W, null, Er(e.items, (e) => (K(), q("li", {
 			key: e.actorId,
 			class: "tw:min-w-0"
-		}, [J("span", zl, k(e.index) + ".", 1), J("span", Bl, k(e.text), 1)]))), 128))])])) : oa("", !0);
+		}, [J("span", Xu, O(e.index) + ".", 1), J("span", Zu, O(e.text), 1)]))), 128))])])) : oa("", !0);
 	}
-}), Hl = [
+}), $u = [
 	"aria-label",
 	"aria-valuemax",
 	"aria-valuemin",
 	"aria-valuenow",
 	"aria-valuetext"
-], Ul = ["cx", "cy"], Wl = ["cx", "cy"], Gl = /* @__PURE__ */ V({
+], ed = ["cx", "cy"], td = ["cx", "cy"], nd = /* @__PURE__ */ V({
 	__name: "RoundHandle",
 	props: {
 		ariaLabel: {},
@@ -4286,7 +4740,7 @@ var _l = ["viewBox", "aria-labelledby"], vl = ["id"], yl = ["id"], bl = [
 	setup(e, { emit: t }) {
 		let n = t;
 		return (t, r) => (K(), q("g", {
-			class: "tw:cursor-grab tw:text-secondary",
+			class: "tw:cursor-grab tw:text-secondary!",
 			role: "slider",
 			tabindex: "0",
 			"aria-label": e.ariaLabel,
@@ -4295,7 +4749,7 @@ var _l = ["viewBox", "aria-labelledby"], vl = ["id"], yl = ["id"], bl = [
 			"aria-valuenow": e.ariaValueNow,
 			"aria-valuetext": e.ariaValueText,
 			onKeydown: r[0] ||= (e) => n("keydown", e),
-			onPointerdown: r[1] ||= Po((e) => n("pointerdown", e), ["stop"])
+			onPointerdown: r[1] ||= Mo((e) => n("pointerdown", e), ["stop"])
 		}, [J("circle", {
 			cx: e.x,
 			cy: e.y,
@@ -4304,22 +4758,22 @@ var _l = ["viewBox", "aria-labelledby"], vl = ["id"], yl = ["id"], bl = [
 			stroke: "currentColor",
 			"stroke-width": "8",
 			"stroke-opacity": "0.18"
-		}, null, 8, Ul), J("circle", {
-			class: "tw:text-base-100",
+		}, null, 8, ed), J("circle", {
+			class: "tw:text-base-100!",
 			cx: e.x,
 			cy: e.y,
 			fill: "currentColor",
 			r: "3"
-		}, null, 8, Wl)], 40, Hl));
+		}, null, 8, td)], 40, $u));
 	}
 });
 //#endregion
-//#region src/view/apps/xp-curve-console/curve/graph/drag.ts
-function Kl(e, t) {
-	let n = /* @__PURE__ */ Qt();
+//#region src/view/apps/xp-curve-configurator/curve/graph/drag.ts
+function rd(e, t) {
+	let n = /* @__PURE__ */ $t();
 	function r(r, i) {
 		let a = i.currentTarget.ownerSVGElement;
-		if (!a) return;
+		if (!a) throw Error("XP graph drag handles must be rendered inside an SVG element.");
 		let o = {
 			kind: r,
 			pointerId: i.pointerId,
@@ -4343,88 +4797,66 @@ function Kl(e, t) {
 		updateDrag: i
 	};
 }
-function ql(e) {
-	if ([
-		"ArrowDown",
-		"ArrowLeft",
-		"ArrowRight",
-		"ArrowUp"
-	].includes(e.key)) return e.preventDefault(), e.key === "ArrowUp" || e.key === "ArrowRight" ? -1 : 1;
-}
 //#endregion
-//#region src/view/apps/xp-curve-console/curve/useCatchUpGraph.ts
-function Jl(e, t) {
-	let n = Q(() => Math.max(1, e.gapForMaximumAward * 1.4, ...e.samples.map((e) => e.gap), ...e.awards.map((e) => e.gap * 1.05))), r = Q(() => Math.max(1, e.maximumAward * 1.25, ...e.samples.map((e) => e.award * 1.05), ...e.awards.map((e) => e.catchUpValue * 1.05))), { activeDrag: i, beginDrag: a, endDrag: o, updateDrag: s } = Kl(() => ({
-		maximumGap: n.value,
-		maximumValue: r.value
-	}), _), c = Q(() => i.value?.snapshot.maximumGap ?? n.value), l = Q(() => i.value?.snapshot.maximumValue ?? r.value), u = Q(() => e.samples.map((e) => `${h(e.gap).toFixed(1)},${g(e.award).toFixed(1)}`).join(" ")), d = Q(() => ({
-		x: h(e.gapForMaximumAward),
-		y: g(e.maximumAward)
-	})), f = Q(() => ({
-		x: h(e.gapForMaximumAward / 2),
-		y: g(e.maximumAward * .5 ** e.curveExponent)
-	})), p = Q(() => e.awards.map((e, t) => ({
-		actorId: e.actorId,
-		index: t + 1,
-		label: `${e.actorName}: ${Math.round(e.gap)} XP gap, ${Math.round(e.catchUpValue)} initial XP`,
-		x: h(e.gap),
-		y: g(e.catchUpValue)
-	}))), m = Q(() => e.awards.map((e, t) => ({
-		actorId: e.actorId,
-		index: t + 1,
-		text: `${e.actorName} — ${e.gap} XP gap — initial ${Math.round(e.catchUpValue)} XP`
-	})));
+//#region src/view/apps/xp-curve-configurator/curve/useCatchUpGraph.ts
+function id(e, t) {
+	let n = Q(() => pu(e.gapForMaximumAward, e.maximumAward, e.samples, e.awards)), { activeDrag: r, beginDrag: i, endDrag: a, updateDrag: o } = rd(() => ({ ...n.value }), _), s = Q(() => r.value?.snapshot ?? n.value), c = Q(() => hu({
+		awards: e.awards,
+		bounds: s.value,
+		curveExponent: e.curveExponent,
+		gapForMaximumAward: e.gapForMaximumAward,
+		maximumAward: e.maximumAward,
+		samples: e.samples
+	})), l = Q(() => s.value.maximumGap), u = Q(() => c.value.points), d = Q(() => c.value.recipientLegend), f = Q(() => c.value.recipientPoints), p = Q(() => c.value.referencePoint), m = Q(() => c.value.shapePoint);
 	function h(e) {
-		return 68 + Math.max(0, e) / c.value * 472;
+		return Su(e, s.value.maximumGap);
 	}
 	function g(e) {
-		return 24 + (1 - Math.max(0, e) / l.value) * 192;
+		return Cu(e, s.value.maximumValue);
 	}
 	function _(n, r) {
-		let { x: i, y: a } = hl(n.svg, r);
-		if (n.kind === "reference") {
-			let e = ml((i - 68) / 472, .001, 1), r = 1 - ml((a - 24) / 192, 0, 1);
-			t("update:gapForMaximumAward", Math.max(1, Math.round(e * n.snapshot.maximumGap))), t("update:maximumAward", Math.max(0, Math.round(r * n.snapshot.maximumValue)));
+		let i = _u(n.kind, Du(n.svg, r), n.snapshot, e.maximumAward);
+		if (i.kind === "reference") {
+			t("update:gapForMaximumAward", i.gapForMaximumAward), t("update:maximumAward", i.maximumAward);
 			return;
 		}
-		let o = ml((216 - a) / 192 * (n.snapshot.maximumValue / Math.max(1, e.maximumAward)), .03, .99);
-		t("update:curveExponent", gl(ml(Math.log(o) / Math.log(.5), .1, 5), .05));
+		t("update:curveExponent", i.curveExponent);
 	}
 	function v(n) {
-		let r = Math.max(10, Math.round(e.gapForMaximumAward / 20)), i = Math.max(1, Math.round(Math.max(1, e.maximumAward) / 20));
-		(n.key === "ArrowLeft" || n.key === "ArrowRight") && (n.preventDefault(), t("update:gapForMaximumAward", Math.max(1, e.gapForMaximumAward + (n.key === "ArrowLeft" ? -r : r)))), (n.key === "ArrowUp" || n.key === "ArrowDown") && (n.preventDefault(), t("update:maximumAward", Math.max(0, e.maximumAward + (n.key === "ArrowUp" ? i : -i))));
+		let r = yu(n.key, e.gapForMaximumAward, e.maximumAward);
+		r && (n.preventDefault(), r.gapForMaximumAward !== void 0 && t("update:gapForMaximumAward", r.gapForMaximumAward), r.maximumAward !== void 0 && t("update:maximumAward", r.maximumAward));
 	}
 	function y(n) {
-		let r = ql(n);
-		r !== void 0 && t("update:curveExponent", gl(ml(e.curveExponent + r * .05, .1, 5), .05));
+		let r = bu(n.key, e.curveExponent, .1, 5);
+		r !== void 0 && (n.preventDefault(), t("update:curveExponent", r));
 	}
 	return {
-		beginDrag: a,
-		endDrag: o,
-		maximumGap: c,
+		beginDrag: i,
+		endDrag: a,
+		maximumGap: l,
 		points: u,
-		recipientLegend: m,
-		recipientPoints: p,
-		referencePoint: d,
-		shapePoint: f,
+		recipientLegend: d,
+		recipientPoints: f,
+		referencePoint: p,
+		shapePoint: m,
 		toGraphX: h,
 		toGraphY: g,
-		updateDrag: s,
+		updateDrag: o,
 		updateReferenceWithKeyboard: v,
 		updateShapeWithKeyboard: y
 	};
 }
 //#endregion
-//#region src/view/apps/xp-curve-console/curve/XpCurveGraph.vue?vue&type=script&setup=true&lang.ts
-var Yl = {
+//#region src/view/apps/xp-curve-configurator/curve/XpCurveGraph.vue?vue&type=script&setup=true&lang.ts
+var ad = {
 	class: "tw:m-0 tw:block tw:min-w-0",
 	"aria-labelledby": "xp-catch-up-graph-heading"
-}, Xl = [
+}, od = [
 	"x1",
 	"x2",
 	"y1",
 	"y2"
-], Zl = ["x", "y"], Ql = /* @__PURE__ */ V({
+], sd = ["x", "y"], cd = /* @__PURE__ */ V({
 	__name: "XpCurveGraph",
 	props: {
 		awards: {},
@@ -4439,60 +4871,60 @@ var Yl = {
 		"update:maximumAward"
 	],
 	setup(e, { emit: t }) {
-		let { beginDrag: n, endDrag: r, maximumGap: i, points: a, recipientLegend: o, recipientPoints: s, referencePoint: c, shapePoint: l, toGraphX: u, toGraphY: d, updateDrag: f, updateReferenceWithKeyboard: p, updateShapeWithKeyboard: m } = Jl(e, t);
-		return (t, h) => (K(), q("figure", Yl, [
+		let { beginDrag: n, endDrag: r, maximumGap: i, points: a, recipientLegend: o, recipientPoints: s, referencePoint: c, shapePoint: l, toGraphX: u, toGraphY: d, updateDrag: f, updateReferenceWithKeyboard: p, updateShapeWithKeyboard: m } = id(e, t);
+		return (t, h) => (K(), q("figure", ad, [
 			h[2] ||= J("div", { class: "tw:mb-2" }, [J("h4", {
 				id: "xp-catch-up-graph-heading",
 				class: "tw:m-0 tw:text-sm tw:font-semibold"
-			}, " Initial catch-up value by XP gap "), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65" }, " Drag the diamond to set the reference gap and hard limit. Drag the round point to shape the curve. ")], -1),
-			Y(Ml, {
+			}, " Initial catch-up value by XP gap "), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65!" }, " Drag the diamond to set the reference gap and hard limit. Drag the round point to shape the curve. ")], -1),
+			Y(Uu, {
 				description: "The horizontal axis is the recipient's gap below the selected XP leader. The vertical axis is the initial catch-up value before recipient decay, companion rate, and the final hard limit. Numbered markers identify selected recipients.",
 				"description-id": "xp-catch-up-graph-description",
-				markers: L(s),
-				"maximum-x-label": `${Math.round(L(i))} XP`,
+				markers: I(s),
+				"maximum-x-label": `${Math.round(I(i))} XP`,
 				"minimum-y-label": "0",
-				points: L(a),
+				points: I(a),
 				title: "Editable catch-up XP curve",
 				"title-id": "xp-catch-up-graph-title",
-				"vertical-guide-x": L(u)(e.gapForMaximumAward),
+				"vertical-guide-x": I(u)(e.gapForMaximumAward),
 				"x-axis-label": "Gap below selected XP leader",
 				"y-axis-label": "Initial catch-up XP",
-				onPointercancel: L(r),
-				onPointermove: L(f),
-				onPointerup: L(r)
+				onPointercancel: I(r),
+				onPointermove: I(f),
+				onPointerup: I(r)
 			}, {
 				guides: Bn(() => [J("line", {
 					class: "tw:text-warning",
-					x1: L(68),
-					x2: L(68) + L(472),
-					y1: L(d)(e.maximumAward),
-					y2: L(d)(e.maximumAward),
+					x1: I(68),
+					x2: I(68) + I(472),
+					y1: I(d)(e.maximumAward),
+					y2: I(d)(e.maximumAward),
 					stroke: "currentColor",
 					"stroke-dasharray": "6 5"
-				}, null, 8, Xl)]),
-				handles: Bn(() => [Y(Gl, {
+				}, null, 8, od)]),
+				handles: Bn(() => [Y(nd, {
 					"aria-label": "Catch-up curve shape",
 					"aria-value-max": 5,
 					"aria-value-min": .1,
 					"aria-value-now": e.curveExponent,
 					"aria-value-text": `Exponent ${e.curveExponent}`,
-					x: L(l).x,
-					y: L(l).y,
-					onKeydown: L(m),
-					onPointerdown: h[0] ||= (e) => L(n)("shape", e)
+					x: I(l).x,
+					y: I(l).y,
+					onKeydown: I(m),
+					onPointerdown: h[0] ||= (e) => I(n)("shape", e)
 				}, null, 8, [
 					"aria-value-now",
 					"aria-value-text",
 					"x",
 					"y",
 					"onKeydown"
-				]), Y(Il, {
+				]), Y(qu, {
 					"aria-label": `Reference point: ${e.gapForMaximumAward} XP gap and ${e.maximumAward} XP hard limit. Use left and right arrows for the gap, up and down arrows for the hard limit.`,
 					role: "button",
-					x: L(c).x,
-					y: L(c).y,
-					onKeydown: L(p),
-					onPointerdown: h[1] ||= (e) => L(n)("reference", e)
+					x: I(c).x,
+					y: I(c).y,
+					onKeydown: I(p),
+					onPointerdown: h[1] ||= (e) => I(n)("reference", e)
 				}, null, 8, [
 					"aria-label",
 					"x",
@@ -4501,12 +4933,12 @@ var Yl = {
 				])]),
 				labels: Bn(() => [J("text", {
 					class: "tw:text-warning",
-					x: L(68) + 7,
-					y: Math.max(L(24) + 12, L(d)(e.maximumAward) - 7),
+					x: I(68) + 7,
+					y: Math.max(I(24) + 12, I(d)(e.maximumAward) - 7),
 					fill: "currentColor",
 					"font-size": "11",
 					"font-weight": "600"
-				}, " Hard limit " + k(e.maximumAward) + " XP ", 9, Zl)]),
+				}, " Hard limit " + O(e.maximumAward) + " XP ", 9, sd)]),
 				_: 1
 			}, 8, [
 				"markers",
@@ -4517,77 +4949,60 @@ var Yl = {
 				"onPointermove",
 				"onPointerup"
 			]),
-			Y(Vl, { items: L(o) }, null, 8, ["items"])
+			Y(Qu, { items: I(o) }, null, 8, ["items"])
 		]));
 	}
 });
 //#endregion
-//#region src/view/apps/xp-curve-console/curve/useDecayGraph.ts
-function $l(e, t) {
-	let n = Q(() => Math.max(1e3, e.scalePivot * 4, ...e.samples.map((e) => e.recipientXp), ...e.awards.map((e) => e.beforeXp * 1.05))), { activeDrag: r, beginDrag: i, endDrag: a, updateDrag: o } = Kl(() => ({ maximumRecipientXp: n.value }), h), s = Q(() => r.value?.snapshot.maximumRecipientXp ?? n.value), c = Q(() => e.samples.map((e) => `${p(e.recipientXp).toFixed(1)},${m(e.multiplier).toFixed(1)}`).join(" ")), l = Q(() => ({
-		x: p(e.scalePivot),
-		y: m(1)
-	})), u = Q(() => ({
-		x: p(e.scalePivot * 2),
-		y: m(.5 ** e.scaleExponent)
-	})), d = Q(() => e.awards.map((e, t) => ({
-		actorId: e.actorId,
-		index: t + 1,
-		label: `${e.actorName}: ${e.beforeXp} total XP, ${Math.round(e.decayMultiplier * 100)}% catch-up strength`,
-		x: p(e.beforeXp),
-		y: m(e.decayMultiplier)
-	}))), f = Q(() => e.awards.map((e, t) => ({
-		actorId: e.actorId,
-		index: t + 1,
-		text: `${e.actorName} — ${e.beforeXp} XP — ${Math.round(e.decayMultiplier * 100)}% multiplier`
-	})));
-	function p(e) {
-		return 68 + Math.max(0, e) / s.value * 472;
+//#region src/view/apps/xp-curve-configurator/curve/useDecayGraph.ts
+function ld(e, t) {
+	let n = Q(() => mu(e.scalePivot, e.samples, e.awards)), { activeDrag: r, beginDrag: i, endDrag: a, updateDrag: o } = rd(() => ({ ...n.value }), g), s = Q(() => r.value?.snapshot ?? n.value), c = Q(() => gu({
+		awards: e.awards,
+		bounds: s.value,
+		samples: e.samples,
+		scaleExponent: e.scaleExponent,
+		scalePivot: e.scalePivot
+	})), l = Q(() => s.value.maximumRecipientXp), u = Q(() => c.value.points), d = Q(() => c.value.pivotPoint), f = Q(() => c.value.recipientLegend), p = Q(() => c.value.recipientPoints), m = Q(() => c.value.strengthPoint);
+	function h(e) {
+		return Su(e, s.value.maximumRecipientXp);
 	}
-	function m(e) {
-		return 24 + (1 - ml(e, 0, 1)) * 192;
-	}
-	function h(e, n) {
-		let { x: r, y: i } = hl(e.svg, n);
-		if (e.kind === "pivot") {
-			let n = ml((r - 68) / 472, .001, 1);
-			t("update:scalePivot", Math.max(1, Math.round(n * e.snapshot.maximumRecipientXp)));
+	function g(e, n) {
+		let r = vu(e.kind, Du(e.svg, n), e.snapshot);
+		if (r.kind === "pivot") {
+			t("update:scalePivot", r.scalePivot);
 			return;
 		}
-		let a = ml(1 - (i - 24) / 192, .25, .99);
-		t("update:scaleExponent", gl(ml(Math.log(a) / Math.log(.5), 0, 2), .05));
-	}
-	function g(n) {
-		if (n.key !== "ArrowLeft" && n.key !== "ArrowRight") return;
-		n.preventDefault();
-		let r = Math.max(100, Math.round(e.scalePivot / 20));
-		t("update:scalePivot", Math.max(1, e.scalePivot + (n.key === "ArrowLeft" ? -r : r)));
+		t("update:scaleExponent", r.scaleExponent);
 	}
 	function _(n) {
-		let r = ql(n);
-		r !== void 0 && t("update:scaleExponent", gl(ml(e.scaleExponent + r * .05, 0, 2), .05));
+		let r = xu(n.key, e.scalePivot);
+		r !== void 0 && (n.preventDefault(), t("update:scalePivot", r));
+	}
+	function v(n) {
+		let r = bu(n.key, e.scaleExponent, 0, 2);
+		r !== void 0 && (n.preventDefault(), t("update:scaleExponent", r));
 	}
 	return {
 		beginDrag: i,
 		endDrag: a,
-		maximumRecipientXp: s,
-		pivotPoint: l,
-		points: c,
+		maximumRecipientXp: l,
+		pivotPoint: d,
+		points: u,
 		recipientLegend: f,
-		recipientPoints: d,
-		strengthPoint: u,
-		toGraphX: p,
+		recipientPoints: p,
+		strengthPoint: m,
+		toGraphX: h,
 		updateDrag: o,
-		updatePivotWithKeyboard: g,
-		updateStrengthWithKeyboard: _
+		updatePivotWithKeyboard: _,
+		updateStrengthWithKeyboard: v
 	};
 }
 //#endregion
-//#region src/view/apps/xp-curve-console/curve/XpDecayGraph.vue?vue&type=script&setup=true&lang.ts
-var eu = {
+//#region src/view/apps/xp-curve-configurator/curve/XpDecayGraph.vue?vue&type=script&setup=true&lang.ts
+var ud = {
 	class: "tw:m-0 tw:block tw:min-w-0",
 	"aria-labelledby": "xp-decay-graph-heading"
-}, tu = /* @__PURE__ */ V({
+}, dd = /* @__PURE__ */ V({
 	__name: "XpDecayGraph",
 	props: {
 		awards: {},
@@ -4597,55 +5012,55 @@ var eu = {
 	},
 	emits: ["update:scaleExponent", "update:scalePivot"],
 	setup(e, { emit: t }) {
-		let { beginDrag: n, endDrag: r, maximumRecipientXp: i, pivotPoint: a, points: o, recipientLegend: s, recipientPoints: c, strengthPoint: l, toGraphX: u, updateDrag: d, updatePivotWithKeyboard: f, updateStrengthWithKeyboard: p } = $l(e, t);
-		return (t, m) => (K(), q("figure", eu, [
+		let { beginDrag: n, endDrag: r, maximumRecipientXp: i, pivotPoint: a, points: o, recipientLegend: s, recipientPoints: c, strengthPoint: l, toGraphX: u, updateDrag: d, updatePivotWithKeyboard: f, updateStrengthWithKeyboard: p } = ld(e, t);
+		return (t, m) => (K(), q("figure", ud, [
 			m[2] ||= J("div", { class: "tw:mb-2" }, [J("h4", {
 				id: "xp-decay-graph-heading",
 				class: "tw:m-0 tw:text-sm tw:font-semibold"
-			}, " Catch-up strength by recipient total XP "), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65" }, " Drag the diamond to choose where decay begins. Drag the round point to make decay gentler or stronger. ")], -1),
-			Y(Ml, {
+			}, " Catch-up strength by recipient total XP "), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65!" }, " Drag the diamond to choose where decay begins. Drag the round point to make decay gentler or stronger. ")], -1),
+			Y(Uu, {
 				description: "The horizontal axis is each recipient's own total XP. The vertical axis is the multiplier applied to that recipient's initial catch-up value. Numbered markers identify selected recipients.",
 				"description-id": "xp-decay-graph-description",
-				markers: L(c),
-				"maximum-x-label": `${Math.round(L(i))} XP`,
+				markers: I(c),
+				"maximum-x-label": `${Math.round(I(i))} XP`,
 				"maximum-y-label": "100%",
 				"minimum-y-label": "0%",
-				points: L(o),
+				points: I(o),
 				title: "Editable recipient XP decay curve",
 				"title-id": "xp-decay-graph-title",
-				"vertical-guide-x": L(u)(e.scalePivot),
+				"vertical-guide-x": I(u)(e.scalePivot),
 				"x-axis-label": "Recipient total XP",
 				"y-axis-label": "Decay multiplier",
-				onPointercancel: L(r),
-				onPointermove: L(d),
-				onPointerup: L(r)
+				onPointercancel: I(r),
+				onPointermove: I(d),
+				onPointerup: I(r)
 			}, {
-				handles: Bn(() => [Y(Gl, {
+				handles: Bn(() => [Y(nd, {
 					"aria-label": "Recipient decay strength",
 					"aria-value-max": 2,
 					"aria-value-min": 0,
 					"aria-value-now": e.scaleExponent,
 					"aria-value-text": `Decay exponent ${e.scaleExponent}`,
-					x: L(l).x,
-					y: L(l).y,
-					onKeydown: L(p),
-					onPointerdown: m[0] ||= (e) => L(n)("strength", e)
+					x: I(l).x,
+					y: I(l).y,
+					onKeydown: I(p),
+					onPointerdown: m[0] ||= (e) => I(n)("strength", e)
 				}, null, 8, [
 					"aria-value-now",
 					"aria-value-text",
 					"x",
 					"y",
 					"onKeydown"
-				]), Y(Il, {
+				]), Y(qu, {
 					"aria-label": "Recipient total XP where decay begins",
-					"aria-value-max": Math.round(L(i)),
+					"aria-value-max": Math.round(I(i)),
 					"aria-value-min": 1,
 					"aria-value-now": e.scalePivot,
 					"aria-value-text": `${e.scalePivot} total XP`,
-					x: L(a).x,
-					y: L(a).y,
-					onKeydown: L(f),
-					onPointerdown: m[1] ||= (e) => L(n)("pivot", e)
+					x: I(a).x,
+					y: I(a).y,
+					onKeydown: I(f),
+					onPointerdown: m[1] ||= (e) => I(n)("pivot", e)
 				}, null, 8, [
 					"aria-value-max",
 					"aria-value-now",
@@ -4664,13 +5079,13 @@ var eu = {
 				"onPointermove",
 				"onPointerup"
 			]),
-			Y(Vl, { items: L(s) }, null, 8, ["items"])
+			Y(Qu, { items: I(s) }, null, 8, ["items"])
 		]));
 	}
-}), nu = {
-	class: "dui-card dui-card-border tw:min-w-0 tw:bg-base-100",
+}), fd = {
+	class: "dui-card dui-card-border tw:min-w-0 tw:border-2 tw:border-base-content/20! tw:bg-base-100! tw:text-base-content! tw:shadow-md",
 	"aria-labelledby": "curve-settings-title"
-}, ru = { class: "dui-card-body tw:min-w-0 tw:gap-4 tw:p-4" }, iu = { class: "tw:grid tw:min-w-0 tw:grid-cols-1 tw:gap-3 tw:min-[66rem]:grid-cols-2" }, au = { class: "dui-card dui-card-border tw:min-w-0 tw:bg-base-200" }, ou = { class: "dui-card-body tw:min-w-0 tw:gap-3 tw:p-3" }, su = { class: "tw:grid tw:min-w-0 tw:grid-cols-1 tw:gap-2 tw:min-[34rem]:grid-cols-3" }, cu = { class: "dui-fieldset tw:min-w-0" }, lu = { class: "dui-fieldset tw:min-w-0" }, uu = { class: "dui-fieldset tw:min-w-0" }, du = { class: "dui-card dui-card-border tw:min-w-0 tw:bg-base-200" }, fu = { class: "dui-card-body tw:min-w-0 tw:gap-3 tw:p-3" }, pu = { class: "tw:grid tw:min-w-0 tw:grid-cols-1 tw:gap-2 tw:min-[34rem]:grid-cols-3" }, mu = { class: "dui-fieldset tw:min-w-0" }, hu = { class: "dui-fieldset tw:min-w-0" }, gu = { class: "dui-fieldset tw:min-w-0" }, _u = /* @__PURE__ */ V({
+}, pd = { class: "dui-card-body tw:min-w-0 tw:gap-4 tw:p-4" }, md = { class: "tw:grid tw:min-w-0 tw:grid-cols-1 tw:gap-3 tw:min-[66rem]:grid-cols-2" }, hd = { class: "dui-card dui-card-border tw:min-w-0 tw:border tw:border-base-content/20! tw:bg-base-200! tw:text-base-content! tw:shadow-sm" }, gd = { class: "dui-card-body tw:min-w-0 tw:gap-3 tw:p-3" }, _d = { class: "tw:grid tw:min-w-0 tw:grid-cols-1 tw:gap-2 tw:min-[34rem]:grid-cols-3" }, vd = { class: "dui-fieldset tw:min-w-0" }, yd = { class: "dui-fieldset tw:min-w-0" }, bd = { class: "dui-fieldset tw:min-w-0" }, xd = { class: "dui-card dui-card-border tw:min-w-0 tw:border tw:border-base-content/20! tw:bg-base-200! tw:text-base-content! tw:shadow-sm" }, Sd = { class: "dui-card-body tw:min-w-0 tw:gap-3 tw:p-3" }, Cd = { class: "tw:grid tw:min-w-0 tw:grid-cols-1 tw:gap-2 tw:min-[34rem]:grid-cols-3" }, wd = { class: "dui-fieldset tw:min-w-0" }, Td = { class: "dui-fieldset tw:min-w-0" }, Ed = { class: "dui-fieldset tw:min-w-0" }, Dd = /* @__PURE__ */ V({
 	__name: "XpCurveConfiguration",
 	props: /*@__PURE__*/ Pr({
 		awards: {},
@@ -4700,12 +5115,15 @@ var eu = {
 	],
 	setup(e) {
 		let t = $r(e, "companionMultiplier"), n = $r(e, "curveExponent"), r = $r(e, "gapForMaximumAward"), i = $r(e, "maximumAward"), a = $r(e, "scaleExponent"), o = $r(e, "scalePivot");
-		return (s, c) => (K(), q("section", nu, [J("div", ru, [
-			c[31] ||= aa("<div><h2 id=\"curve-settings-title\" class=\"dui-card-title tw:text-base\"> How awards are calculated </h2><p class=\"tw:m-0 tw:max-w-3xl tw:text-xs tw:text-base-content/65\"> The graphs and number fields are two controls for the same settings. Drag either curve and its fields update immediately. </p></div><ol class=\"tw:m-0 tw:grid tw:[list-style:none] tw:grid-cols-1 tw:gap-2 tw:p-0 tw:min-[46rem]:grid-cols-3\"><li class=\"tw:min-w-0 tw:rounded-box tw:border tw:border-base-300 tw:bg-base-200 tw:p-3\"><div class=\"tw:flex tw:items-start tw:gap-2\"><span class=\"dui-badge dui-badge-sm tw:shrink-0\">1</span><div class=\"tw:min-w-0\"><h3 class=\"tw:m-0 tw:text-sm tw:font-semibold\">Measure the leader gap</h3><p class=\"tw:m-0 tw:text-xs tw:text-base-content/65\"> The difference between the selected XP leader and this recipient produces an initial catch-up value. </p></div></div></li><li class=\"tw:min-w-0 tw:rounded-box tw:border tw:border-base-300 tw:bg-base-200 tw:p-3\"><div class=\"tw:flex tw:items-start tw:gap-2\"><span class=\"dui-badge dui-badge-sm tw:shrink-0\">2</span><div class=\"tw:min-w-0\"><h3 class=\"tw:m-0 tw:text-sm tw:font-semibold\">Apply recipient decay</h3><p class=\"tw:m-0 tw:text-xs tw:text-base-content/65\"> The multiplier uses only that recipient’s current total XP. The leader’s total is not used here. </p></div></div></li><li class=\"tw:min-w-0 tw:rounded-box tw:border tw:border-base-300 tw:bg-base-200 tw:p-3\"><div class=\"tw:flex tw:items-start tw:gap-2\"><span class=\"dui-badge dui-badge-sm tw:shrink-0\">3</span><div class=\"tw:min-w-0\"><h3 class=\"tw:m-0 tw:text-sm tw:font-semibold\">Apply the hard limit</h3><p class=\"tw:m-0 tw:text-xs tw:text-base-content/65\"> Companion rate is applied, the result is rounded, and the final award cannot exceed the configured limit. </p></div></div></li></ol>", 2),
-			J("div", iu, [J("article", au, [J("div", ou, [
-				c[20] ||= J("div", null, [J("h3", { class: "dui-card-title tw:text-sm" }, "1. Catch-up curve"), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65" }, " This curve converts the XP gap below the selected leader into an initial XP value. ")], -1),
-				J("div", su, [
-					J("fieldset", cu, [
+		return (s, c) => (K(), q("section", fd, [J("div", pd, [
+			c[31] ||= J("div", null, [J("h2", {
+				id: "curve-settings-title",
+				class: "dui-card-title tw:font-serif tw:text-lg tw:text-base-content!"
+			}, " How awards are calculated "), J("p", { class: "tw:m-0 tw:max-w-3xl tw:text-xs tw:text-base-content/65!" }, " The graphs and number fields are two controls for the same settings. Drag either curve and its fields update immediately. ")], -1),
+			J("div", md, [J("article", hd, [J("div", gd, [
+				c[20] ||= J("div", null, [J("h3", { class: "dui-card-title tw:font-serif tw:text-base tw:text-base-content!" }, " 1. Catch-up curve "), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65!" }, " This curve converts the XP gap below the selected leader into an initial XP value. ")], -1),
+				J("div", _d, [
+					J("fieldset", vd, [
 						c[11] ||= J("legend", { class: "dui-fieldset-legend" }, "Hard limit", -1),
 						c[12] ||= J("label", {
 							class: "dui-label tw:whitespace-normal",
@@ -4714,19 +5132,19 @@ var eu = {
 						B(J("input", {
 							id: "xp-maximum-award",
 							"onUpdate:modelValue": c[0] ||= (e) => i.value = e,
-							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:tabular-nums",
+							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content! tw:tabular-nums",
 							min: "0",
 							step: "1",
 							type: "number"
 						}, null, 512), [[
-							To,
+							Co,
 							i.value,
 							void 0,
 							{ number: !0 }
 						]]),
 						c[13] ||= J("p", { class: "dui-label tw:whitespace-normal" }, " Applied last; no recipient can receive more. ", -1)
 					]),
-					J("fieldset", lu, [
+					J("fieldset", yd, [
 						c[14] ||= J("legend", { class: "dui-fieldset-legend" }, "Reference gap", -1),
 						c[15] ||= J("label", {
 							class: "dui-label tw:whitespace-normal",
@@ -4735,19 +5153,19 @@ var eu = {
 						B(J("input", {
 							id: "xp-gap-for-cap",
 							"onUpdate:modelValue": c[1] ||= (e) => r.value = e,
-							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:tabular-nums",
+							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content! tw:tabular-nums",
 							min: "1",
 							step: "1",
 							type: "number"
 						}, null, 512), [[
-							To,
+							Co,
 							r.value,
 							void 0,
 							{ number: !0 }
 						]]),
 						c[16] ||= J("p", { class: "dui-label tw:whitespace-normal" }, " At this gap, initial catch-up equals the limit before decay. ", -1)
 					]),
-					J("fieldset", uu, [
+					J("fieldset", bd, [
 						c[17] ||= J("legend", { class: "dui-fieldset-legend" }, "Curve shape", -1),
 						c[18] ||= J("label", {
 							class: "dui-label tw:whitespace-normal",
@@ -4756,13 +5174,13 @@ var eu = {
 						B(J("input", {
 							id: "xp-curve-exponent",
 							"onUpdate:modelValue": c[2] ||= (e) => n.value = e,
-							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:tabular-nums",
+							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content! tw:tabular-nums",
 							max: "5",
 							min: "0.1",
 							step: "0.05",
 							type: "number"
 						}, null, 512), [[
-							To,
+							Co,
 							n.value,
 							void 0,
 							{ number: !0 }
@@ -4770,7 +5188,7 @@ var eu = {
 						c[19] ||= J("p", { class: "dui-label tw:whitespace-normal" }, " Below 1 helps small gaps sooner; above 1 favors large gaps. ", -1)
 					])
 				]),
-				Y(Ql, {
+				Y(cd, {
 					"curve-exponent": n.value,
 					"onUpdate:curveExponent": c[3] ||= (e) => n.value = e,
 					"gap-for-maximum-award": r.value,
@@ -4786,10 +5204,10 @@ var eu = {
 					"awards",
 					"samples"
 				])
-			])]), J("article", du, [J("div", fu, [
-				c[30] ||= J("div", null, [J("h3", { class: "dui-card-title tw:text-sm" }, "2. Recipient decay curve"), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65" }, " High-XP builds depend less on raw XP differences. This multiplier is evaluated separately for every recipient. ")], -1),
-				J("div", pu, [
-					J("fieldset", mu, [
+			])]), J("article", xd, [J("div", Sd, [
+				c[30] ||= J("div", null, [J("h3", { class: "dui-card-title tw:font-serif tw:text-base tw:text-base-content!" }, " 2. Recipient decay curve "), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65!" }, " High-XP builds depend less on raw XP differences. This multiplier is evaluated separately for every recipient. ")], -1),
+				J("div", Cd, [
+					J("fieldset", wd, [
 						c[21] ||= J("legend", { class: "dui-fieldset-legend" }, "Decay start", -1),
 						c[22] ||= J("label", {
 							class: "dui-label tw:whitespace-normal",
@@ -4798,19 +5216,19 @@ var eu = {
 						B(J("input", {
 							id: "xp-scale-pivot",
 							"onUpdate:modelValue": c[6] ||= (e) => o.value = e,
-							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:tabular-nums",
+							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content! tw:tabular-nums",
 							min: "1",
 							step: "100",
 							type: "number"
 						}, null, 512), [[
-							To,
+							Co,
 							o.value,
 							void 0,
 							{ number: !0 }
 						]]),
 						c[23] ||= J("p", { class: "dui-label tw:whitespace-normal" }, " Recipients at or below this total keep 100% strength. ", -1)
 					]),
-					J("fieldset", hu, [
+					J("fieldset", Td, [
 						c[24] ||= J("legend", { class: "dui-fieldset-legend" }, "Decay strength", -1),
 						c[25] ||= J("label", {
 							class: "dui-label tw:whitespace-normal",
@@ -4819,20 +5237,20 @@ var eu = {
 						B(J("input", {
 							id: "xp-scale-exponent",
 							"onUpdate:modelValue": c[7] ||= (e) => a.value = e,
-							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:tabular-nums",
+							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content! tw:tabular-nums",
 							max: "2",
 							min: "0",
 							step: "0.05",
 							type: "number"
 						}, null, 512), [[
-							To,
+							Co,
 							a.value,
 							void 0,
 							{ number: !0 }
 						]]),
 						c[26] ||= J("p", { class: "dui-label tw:whitespace-normal" }, " Zero disables decay; higher values weaken catch-up faster. ", -1)
 					]),
-					J("fieldset", gu, [
+					J("fieldset", Ed, [
 						c[27] ||= J("legend", { class: "dui-fieldset-legend" }, "Companion rate", -1),
 						c[28] ||= J("label", {
 							class: "dui-label tw:whitespace-normal",
@@ -4841,13 +5259,13 @@ var eu = {
 						B(J("input", {
 							id: "xp-companion-rate",
 							"onUpdate:modelValue": c[8] ||= (e) => t.value = e,
-							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:tabular-nums",
+							class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content! tw:tabular-nums",
 							max: "1",
 							min: "0",
 							step: "0.05",
 							type: "number"
 						}, null, 512), [[
-							To,
+							Co,
 							t.value,
 							void 0,
 							{ number: !0 }
@@ -4855,7 +5273,7 @@ var eu = {
 						c[29] ||= J("p", { class: "dui-label tw:whitespace-normal" }, " 0.5 gives player-owned companions half the calculated XP. ", -1)
 					])
 				]),
-				Y(tu, {
+				Y(dd, {
 					"scale-exponent": a.value,
 					"onUpdate:scaleExponent": c[9] ||= (e) => a.value = e,
 					"scale-pivot": o.value,
@@ -4882,23 +5300,14 @@ var eu = {
 			])], -1)
 		])]));
 	}
-}), vu = {
-	class: "dui-card dui-card-border tw:min-w-0 tw:bg-base-100",
+}), Od = {
+	class: "dui-card dui-card-border tw:min-w-0 tw:border-2 tw:border-base-content/20! tw:bg-base-100! tw:text-base-content! tw:shadow-md",
 	"aria-labelledby": "recipient-defaults-title"
-}, yu = { class: "dui-card-body tw:min-w-0 tw:gap-3 tw:p-4" }, bu = { class: "tw:grid tw:min-w-0 tw:grid-cols-1 tw:gap-3 tw:min-[42rem]:grid-cols-2" }, xu = { class: "dui-fieldset tw:min-w-0" }, Su = { class: "dui-fieldset tw:min-w-0" }, Cu = { class: "dui-label tw:cursor-pointer tw:items-start tw:justify-start tw:gap-2 tw:whitespace-normal" }, wu = { class: "tw:flex tw:min-w-0 tw:flex-col tw:items-stretch tw:gap-2 tw:min-[32rem]:flex-row tw:min-[32rem]:items-center tw:min-[32rem]:justify-between" }, Tu = ["disabled"], Eu = {
-	key: 0,
-	class: "dui-loading dui-loading-spinner dui-loading-sm",
-	"aria-hidden": "true"
-}, Du = {
-	key: 1,
-	class: "fa-solid fa-floppy-disk",
-	"aria-hidden": "true"
-}, Ou = /* @__PURE__ */ V({
+}, kd = { class: "dui-card-body tw:min-w-0 tw:gap-4 tw:p-4" }, Ad = { class: "tw:grid tw:min-w-0 tw:grid-cols-1 tw:gap-4 tw:min-[42rem]:grid-cols-2" }, jd = { class: "dui-fieldset tw:min-w-0" }, Md = { class: "dui-fieldset tw:min-w-0" }, Nd = { class: "dui-label tw:cursor-pointer tw:items-start tw:justify-start tw:gap-3 tw:rounded-box tw:border tw:border-base-content/15! tw:bg-base-200! tw:p-3 tw:text-base-content! tw:whitespace-normal" }, Pd = { class: "dui-fieldset tw:col-span-full tw:min-w-0" }, Fd = /* @__PURE__ */ V({
 	__name: "XpRecipientDefaults",
-	props: /*@__PURE__*/ Pr({
-		disabled: { type: Boolean },
-		isSaving: { type: Boolean }
-	}, {
+	props: {
+		defaultReason: { required: !0 },
+		defaultReasonModifiers: {},
 		defaultSelection: { required: !0 },
 		defaultSelectionModifiers: {},
 		useGmToolkitDefaults: {
@@ -4906,343 +5315,261 @@ var eu = {
 			required: !0
 		},
 		useGmToolkitDefaultsModifiers: {}
-	}),
-	emits: /*@__PURE__*/ Pr(["save"], ["update:defaultSelection", "update:useGmToolkitDefaults"]),
-	setup(e, { emit: t }) {
-		let n = $r(e, "defaultSelection"), r = $r(e, "useGmToolkitDefaults"), i = t;
-		return (t, a) => (K(), q("section", vu, [J("div", yu, [
-			a[12] ||= J("div", null, [J("h2", {
-				id: "recipient-defaults-title",
-				class: "dui-card-title tw:text-base"
-			}, " Recipient and integration defaults "), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65" }, " These values are used the next time the console opens and no tokens are targeted. They are also available in Foundry’s Module Settings. ")], -1),
-			J("div", bu, [J("fieldset", xu, [
-				a[4] ||= J("legend", { class: "dui-fieldset-legend" }, "Default recipients", -1),
-				a[5] ||= J("label", {
+	},
+	emits: [
+		"update:defaultReason",
+		"update:defaultSelection",
+		"update:useGmToolkitDefaults"
+	],
+	setup(e) {
+		let t = $r(e, "defaultReason"), n = $r(e, "defaultSelection"), r = $r(e, "useGmToolkitDefaults");
+		return (e, i) => (K(), q("section", Od, [J("div", kd, [i[13] ||= J("div", null, [J("h2", {
+			id: "recipient-defaults-title",
+			class: "dui-card-title tw:font-serif tw:text-lg tw:text-base-content!"
+		}, " Recipient and journal defaults "), J("p", { class: "tw:m-0 tw:text-sm tw:text-base-content/70!" }, " These values seed a newly opened console when no eligible tokens are targeted. ")], -1), J("div", Ad, [
+			J("fieldset", jd, [
+				i[4] ||= J("legend", { class: "dui-fieldset-legend tw:text-base-content!" }, "Default recipients", -1),
+				i[5] ||= J("label", {
 					class: "dui-label tw:whitespace-normal",
 					for: "xp-default-selection"
 				}, " When no tokens are targeted ", -1),
 				B(J("select", {
 					id: "xp-default-selection",
-					"onUpdate:modelValue": a[0] ||= (e) => n.value = e,
-					class: "dui-select dui-select-sm tw:w-full tw:min-w-0 tw:max-w-full"
-				}, [...a[3] ||= [
+					"onUpdate:modelValue": i[0] ||= (e) => n.value = e,
+					class: "dui-select dui-select-sm tw:w-full tw:min-w-0 tw:max-w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content!"
+				}, [...i[3] ||= [
 					J("option", { value: "party" }, "Party (assigned player characters)", -1),
 					J("option", { value: "company" }, "Company (party plus companions)", -1),
 					J("option", { value: "world" }, "World (every character actor)", -1)
-				]], 512), [[Oo, n.value]]),
-				a[6] ||= J("p", { class: "dui-label tw:whitespace-normal" }, " Explicit token targets always replace this default for that opening. ", -1)
-			]), J("fieldset", Su, [
-				a[8] ||= J("legend", { class: "dui-fieldset-legend" }, "GM Toolkit compatibility", -1),
-				J("label", Cu, [B(J("input", {
-					"onUpdate:modelValue": a[1] ||= (e) => r.value = e,
-					class: "dui-toggle dui-toggle-sm tw:mt-0.5 tw:shrink-0",
+				]], 512), [[Eo, n.value]]),
+				i[6] ||= J("p", { class: "dui-label tw:whitespace-normal" }, " Explicit targets replace this choice. Selecting a local group disables GM Toolkit recipient defaults. ", -1)
+			]),
+			J("fieldset", Md, [
+				i[8] ||= J("legend", { class: "dui-fieldset-legend tw:text-base-content!" }, " GM Toolkit compatibility ", -1),
+				J("label", Nd, [B(J("input", {
+					"onUpdate:modelValue": i[1] ||= (e) => r.value = e,
+					class: "dui-toggle dui-toggle-primary dui-toggle-sm tw:mt-0.5 tw:shrink-0 tw:checked:border-primary! tw:checked:bg-primary! tw:checked:text-primary-content!",
 					type: "checkbox"
-				}, null, 512), [[Eo, r.value]]), a[7] ||= J("span", { class: "tw:min-w-0 tw:break-words" }, " Prefer compatible GM Toolkit session, reason, and recipient-group defaults ", -1)]),
-				a[9] ||= J("p", { class: "dui-label tw:whitespace-normal" }, " Disable this to use the recipient choice and reason saved by Drowsy’s Toolkit. ", -1)
-			])]),
-			J("div", wu, [a[11] ||= J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65" }, " Saving defaults does not award XP or close the console. ", -1), J("button", {
-				class: "dui-btn dui-btn-sm tw:w-full tw:min-[32rem]:w-auto",
-				disabled: e.disabled,
-				type: "button",
-				onClick: a[2] ||= (e) => i("save")
-			}, [e.isSaving ? (K(), q("span", Eu)) : (K(), q("i", Du)), a[10] ||= X(" Save curve & recipient defaults ", -1)], 8, Tu)])
-		])]));
+				}, null, 512), [[wo, r.value]]), i[7] ||= J("span", { class: "tw:min-w-0 tw:break-words" }, " Prefer compatible GM Toolkit session, reason, and recipient-group defaults ", -1)]),
+				i[9] ||= J("p", { class: "dui-label tw:whitespace-normal" }, " Disable this to use the recipient choice and reason stored by Drowsy’s Toolkit. ", -1)
+			]),
+			J("fieldset", Pd, [
+				i[10] ||= J("legend", { class: "dui-fieldset-legend tw:text-base-content!" }, "Experience journal", -1),
+				i[11] ||= J("label", {
+					class: "dui-label tw:whitespace-normal",
+					for: "xp-config-default-reason"
+				}, " Default award reason ", -1),
+				B(J("input", {
+					id: "xp-config-default-reason",
+					"onUpdate:modelValue": i[2] ||= (e) => t.value = e,
+					class: "dui-input dui-input-sm tw:w-full tw:min-w-0 tw:max-w-full tw:border-base-content/25! tw:bg-base-100! tw:text-base-content!",
+					type: "text"
+				}, null, 512), [[Co, t.value]]),
+				i[12] ||= J("p", { class: "dui-label tw:whitespace-normal" }, [
+					X(" Supports the compatible "),
+					J("code", null, "%session%"),
+					X(" and "),
+					J("code", null, "%date%"),
+					X(" tokens. The award console can still edit the reason for one batch. ")
+				], -1)
+			])
+		])])]));
 	}
-}), ku = { class: "dui-navbar tw:min-h-0 tw:min-w-0 tw:flex-wrap tw:items-start tw:gap-2 tw:border-b tw:border-base-300 tw:bg-base-100 tw:px-4 tw:py-3" }, Au = { class: "dui-navbar-end tw:w-auto tw:max-w-full tw:shrink tw:items-start" }, ju = ["title"], Mu = { class: "tw:grid tw:grid-cols-2 tw:gap-px tw:bg-base-300 tw:min-[38rem]:grid-cols-4" }, Nu = { class: "tw:contents" }, Pu = { class: "tw:min-w-0 tw:bg-base-100 tw:px-4 tw:py-2" }, Fu = { class: "tw:m-0 tw:text-lg tw:font-bold tw:tabular-nums" }, Iu = { class: "tw:min-w-0 tw:bg-base-100 tw:px-4 tw:py-2" }, Lu = { class: "tw:m-0 tw:text-lg tw:font-bold tw:tabular-nums" }, Ru = { class: "tw:min-w-0 tw:bg-base-100 tw:px-4 tw:py-2" }, zu = { class: "tw:m-0 tw:text-lg tw:font-bold tw:tabular-nums" }, Bu = { class: "tw:min-w-0 tw:bg-base-100 tw:px-4 tw:py-2" }, Vu = { class: "tw:m-0 tw:text-lg tw:font-bold tw:tabular-nums" }, Hu = ["aria-selected", "tabindex"], Uu = ["aria-selected", "tabindex"], Wu = /* @__PURE__ */ V({
-	__name: "XpConsoleHeader",
-	props: /*@__PURE__*/ Pr({
-		highestXp: {},
-		positiveAwardCount: {},
-		selectedCount: {},
-		selectionLabel: {},
-		selectionSource: {},
-		totalAward: {}
-	}, {
-		activeTab: { required: !0 },
-		activeTabModifiers: {}
-	}),
-	emits: ["update:activeTab"],
-	setup(e) {
-		let t = $r(e, "activeTab");
-		function n(e) {
-			let n;
-			e.key === "ArrowLeft" || e.key === "Home" ? n = "award" : (e.key === "ArrowRight" || e.key === "End") && (n = "curves"), n && (e.preventDefault(), t.value = n, kn(() => {
-				document.querySelector(`#xp-console-${n}-tab`)?.focus();
-			}));
-		}
-		return (r, i) => (K(), q(W, null, [
-			J("header", ku, [i[3] ||= aa("<div class=\"dui-navbar-start tw:min-w-0 tw:flex-1 tw:items-start\"><div class=\"tw:min-w-0\"><div class=\"dui-breadcrumbs tw:mb-1 tw:max-w-full tw:text-xs tw:text-secondary\"><ul><li>WFRP4e</li><li>Drowsy’s Toolkit</li></ul></div><h1 class=\"tw:m-0 tw:font-serif tw:text-2xl tw:font-bold tw:leading-tight\"><i class=\"fa-solid fa-chart-line tw:mr-1 tw:text-secondary\" aria-hidden=\"true\"></i> XP Curve Console </h1><p class=\"tw:mt-1 tw:max-w-2xl tw:text-sm tw:text-base-content/70\"> Compare recipients, tune catch-up and decay, then preview every award before applying it. </p></div></div>", 1), J("div", Au, [J("span", {
-				class: "dui-badge dui-badge-outline dui-badge-sm tw:h-auto tw:max-w-full tw:whitespace-normal tw:py-1 tw:text-center",
-				title: e.selectionSource === "targets" ? "Eligible targeted character tokens were selected when the console opened." : "No tokens were targeted, so the configured recipient default was used."
-			}, [i[2] ||= J("span", {
-				class: "dui-status dui-status-secondary dui-status-sm tw:shrink-0",
-				"aria-hidden": "true"
-			}, null, -1), X(" " + k(e.selectionLabel), 1)], 8, ju)])]),
-			J("div", Mu, [J("dl", Nu, [
-				J("div", Pu, [i[4] ||= J("dt", { class: "tw:text-xs tw:text-base-content/60" }, "Selected recipients", -1), J("dd", Fu, k(e.selectedCount), 1)]),
-				J("div", Iu, [i[5] ||= J("dt", { class: "tw:text-xs tw:text-base-content/60" }, "XP leader total", -1), J("dd", Lu, k(e.highestXp), 1)]),
-				J("div", Ru, [i[6] ||= J("dt", { class: "tw:text-xs tw:text-base-content/60" }, "Recipients gaining XP", -1), J("dd", zu, k(e.positiveAwardCount), 1)]),
-				J("div", Bu, [i[7] ||= J("dt", { class: "tw:text-xs tw:text-base-content/60" }, "Total award", -1), J("dd", Vu, k(e.totalAward) + " XP", 1)])
-			])]),
-			J("nav", {
-				class: "dui-tabs dui-tabs-border dui-tabs-sm tw:mx-4 tw:mt-3 tw:min-w-0",
-				role: "tablist",
-				"aria-label": "XP Curve Console views",
-				onKeydown: n
-			}, [J("button", {
-				id: "xp-console-award-tab",
-				class: O(["dui-tab tw:h-auto tw:min-h-10 tw:min-w-0 tw:flex-1 tw:whitespace-normal tw:bg-base-100 tw:px-3", { "dui-tab-active": t.value === "award" }]),
-				role: "tab",
-				"aria-selected": t.value === "award",
-				"aria-controls": "xp-console-award-panel",
-				tabindex: t.value === "award" ? 0 : -1,
-				type: "button",
-				onClick: i[0] ||= (e) => t.value = "award"
-			}, [...i[8] ||= [J("i", {
-				class: "fa-solid fa-users tw:mr-2",
-				"aria-hidden": "true"
-			}, null, -1), X(" Recipients & award ", -1)]], 10, Hu), J("button", {
-				id: "xp-console-curves-tab",
-				class: O(["dui-tab tw:h-auto tw:min-h-10 tw:min-w-0 tw:flex-1 tw:whitespace-normal tw:bg-base-100 tw:px-3", { "dui-tab-active": t.value === "curves" }]),
-				role: "tab",
-				"aria-selected": t.value === "curves",
-				"aria-controls": "xp-console-curves-panel",
-				tabindex: t.value === "curves" ? 0 : -1,
-				type: "button",
-				onClick: i[1] ||= (e) => t.value = "curves"
-			}, [...i[9] ||= [J("i", {
-				class: "fa-solid fa-chart-line tw:mr-2",
-				"aria-hidden": "true"
-			}, null, -1), X(" Curves & defaults ", -1)]], 10, Uu)], 32)
-		], 64));
-	}
-}), Gu = { class: "tw:flex tw:h-full tw:max-h-full tw:min-h-0 tw:min-w-0 tw:flex-col tw:overflow-hidden tw:bg-base-200 tw:text-base-content" }, Ku = {
+}), Id = { class: "tw:flex tw:h-full tw:max-h-full tw:min-h-0 tw:min-w-0 tw:flex-col tw:overflow-hidden tw:bg-base-200! tw:text-base-content!" }, Ld = { class: "tw:min-h-0 tw:min-w-0 tw:flex-1 tw:overflow-auto tw:p-4" }, Rd = {
 	key: 0,
-	class: "dui-alert dui-alert-error tw:m-4 tw:mb-0",
+	class: "dui-alert dui-alert-error tw:mb-3",
 	role: "alert"
-}, qu = { class: "tw:min-w-0 tw:break-words" }, Ju = {
+}, zd = { class: "tw:min-w-0 tw:break-words" }, Bd = {
 	key: 1,
-	class: "dui-alert tw:m-4 tw:mb-0",
+	class: "dui-alert dui-alert-success tw:mb-3",
 	role: "status",
 	"aria-live": "polite"
-}, Yu = { class: "tw:min-h-0 tw:min-w-0 tw:flex-1 tw:overflow-auto tw:p-4" }, Xu = {
-	id: "xp-console-award-panel",
-	class: "tw:min-w-0",
-	role: "tabpanel",
-	"aria-labelledby": "xp-console-award-tab"
-}, Zu = {
-	id: "xp-console-curves-panel",
-	class: "tw:min-w-0",
-	role: "tabpanel",
-	"aria-labelledby": "xp-console-curves-tab"
-}, Qu = { class: "tw:flex tw:min-w-0 tw:flex-col tw:gap-3" }, $u = { class: "tw:flex tw:min-w-0 tw:shrink-0 tw:flex-col tw:items-stretch tw:gap-3 tw:border-t tw:border-base-300 tw:bg-base-100 tw:p-4 tw:min-[32rem]:flex-row tw:min-[32rem]:items-center tw:min-[32rem]:justify-between" }, ed = ["disabled"], td = {
+}, Vd = { class: "tw:grid tw:min-w-0 tw:grid-cols-1 tw:gap-3 tw:min-[54rem]:grid-cols-[minmax(15rem,0.72fr)_minmax(0,2fr)]" }, Hd = {
+	class: "dui-card dui-card-border tw:min-w-0 tw:border-2 tw:border-base-content/20! tw:bg-base-100! tw:text-base-content! tw:shadow-md",
+	"aria-labelledby": "xp-launcher-settings"
+}, Ud = { class: "dui-card-body tw:min-w-0 tw:gap-3 tw:p-4" }, Wd = { class: "dui-fieldset tw:gap-2" }, Gd = { class: "dui-label tw:cursor-pointer tw:items-start tw:gap-3 tw:rounded-box tw:border tw:border-base-content/15! tw:bg-base-200! tw:p-3 tw:text-base-content! tw:whitespace-normal" }, Kd = { class: "tw:mt-3 tw:min-w-0" }, qd = { class: "tw:flex tw:min-w-0 tw:shrink-0 tw:flex-col tw:items-stretch tw:gap-2 tw:border-t-4 tw:border-double tw:border-base-content/25! tw:bg-base-100! tw:p-4 tw:min-[34rem]:flex-row tw:min-[34rem]:items-center tw:min-[34rem]:justify-between" }, Jd = ["disabled"], Yd = {
 	key: 0,
 	class: "dui-loading dui-loading-spinner dui-loading-sm",
 	"aria-hidden": "true"
-}, nd = {
+}, Xd = {
 	key: 1,
-	class: "fa-solid fa-award",
+	class: "fa-solid fa-stamp",
 	"aria-hidden": "true"
-}, rd = /* @__PURE__ */ V({
-	__name: "XpCurveConsoleApp",
+}, Zd = /* @__PURE__ */ V({
+	__name: "XpCurveConfiguratorApp",
 	props: {
 		actions: {},
 		initialization: {}
 	},
 	setup(e) {
-		let t = e, n = Fc();
+		let t = e, n = fu();
 		n.initialize(t.initialization, t.actions);
-		let { actors: r, canApply: i, curveSamples: a, decaySamples: o, defaultReason: s, defaultSelection: c, errorMessage: l, isSavingSettings: u, isWorking: d, parameters: f, plan: p, positiveAwardCount: m, resolvedReason: h, selectedActors: g, selectionSource: _, settingsStatusMessage: v, useGmToolkitDefaults: y } = bs(n), b = /* @__PURE__ */ I("award"), x = Q(() => _.value === "targets" ? "Recipients: targeted tokens" : `Recipients: ${{
-			company: "company default",
-			party: "party default",
-			world: "world default"
-		}[c.value]}`);
-		return (e, t) => (K(), q("main", Gu, [
-			Y(Wu, {
-				"active-tab": b.value,
-				"onUpdate:activeTab": t[0] ||= (e) => b.value = e,
-				"highest-xp": L(p).highestXp,
-				"positive-award-count": L(m),
-				"selected-count": L(g).length,
-				"selection-label": x.value,
-				"selection-source": L(_),
-				"total-award": L(p).totalAward
-			}, null, 8, [
-				"active-tab",
-				"highest-xp",
-				"positive-award-count",
-				"selected-count",
-				"selection-label",
-				"selection-source",
-				"total-award"
+		let { curveSamples: r, decaySamples: i, defaultReason: a, defaultSelection: o, errorMessage: s, isSaving: c, launchers: l, parameters: u, plan: d, statusMessage: f, useGmToolkitDefaults: p } = vs(n);
+		return (e, t) => (K(), q("main", Id, [
+			Y(Ns, {
+				description: "Set launchers, recipient defaults, and the catch-up and decay curves used by new award consoles.",
+				icon: "fa-solid fa-sliders",
+				title: "XP Curve Configurator"
+			}),
+			J("div", Ld, [
+				I(s) ? (K(), q("div", Rd, [t[10] ||= J("i", {
+					class: "fa-solid fa-triangle-exclamation",
+					"aria-hidden": "true"
+				}, null, -1), J("span", zd, O(I(s)), 1)])) : oa("", !0),
+				I(f) ? (K(), q("div", Bd, [t[11] ||= J("i", {
+					class: "fa-solid fa-circle-check",
+					"aria-hidden": "true"
+				}, null, -1), J("span", null, O(I(f)), 1)])) : oa("", !0),
+				J("div", Vd, [J("section", Hd, [J("div", Ud, [
+					t[14] ||= J("div", null, [J("h2", {
+						id: "xp-launcher-settings",
+						class: "dui-card-title tw:font-serif tw:text-lg tw:text-base-content!"
+					}, " Console launchers "), J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65!" }, " Client preferences for this browser and user. ")], -1),
+					J("fieldset", Wd, [t[13] ||= J("legend", { class: "dui-fieldset-legend tw:text-base-content!" }, "Available locations", -1), J("label", Gd, [B(J("input", {
+						"onUpdate:modelValue": t[0] ||= (e) => I(l).tokenControls = e,
+						class: "dui-toggle dui-toggle-primary dui-toggle-sm tw:mt-0.5 tw:shrink-0 tw:checked:border-primary! tw:checked:bg-primary! tw:checked:text-primary-content!",
+						type: "checkbox"
+					}, null, 512), [[wo, I(l).tokenControls]]), t[12] ||= J("span", { class: "tw:min-w-0" }, [J("strong", { class: "tw:block" }, "Token Controls"), J("span", { class: "tw:text-xs tw:text-base-content/65!" }, " Show the chart launcher in Token Controls. ")], -1)])]),
+					t[15] ||= J("p", { class: "tw:m-0 tw:text-xs tw:text-base-content/65!" }, " Launcher changes apply after a reload. Macros and the module API stay available. ", -1)
+				])]), Y(Fd, {
+					"default-reason": I(a),
+					"onUpdate:defaultReason": t[1] ||= (e) => /* @__PURE__ */ P(a) ? a.value = e : null,
+					"use-gm-toolkit-defaults": I(p),
+					"onUpdate:useGmToolkitDefaults": t[2] ||= (e) => /* @__PURE__ */ P(p) ? p.value = e : null,
+					"default-selection": I(o),
+					"onUpdate:defaultSelection": I(n).setDefaultSelection
+				}, null, 8, [
+					"default-reason",
+					"use-gm-toolkit-defaults",
+					"default-selection",
+					"onUpdate:defaultSelection"
+				])]),
+				J("div", Kd, [Y(Dd, {
+					"companion-multiplier": I(u).companionMultiplier,
+					"onUpdate:companionMultiplier": t[3] ||= (e) => I(u).companionMultiplier = e,
+					"curve-exponent": I(u).curveExponent,
+					"onUpdate:curveExponent": t[4] ||= (e) => I(u).curveExponent = e,
+					"gap-for-maximum-award": I(u).gapForMaximumAward,
+					"onUpdate:gapForMaximumAward": t[5] ||= (e) => I(u).gapForMaximumAward = e,
+					"maximum-award": I(u).maximumAward,
+					"onUpdate:maximumAward": t[6] ||= (e) => I(u).maximumAward = e,
+					"scale-exponent": I(u).scaleExponent,
+					"onUpdate:scaleExponent": t[7] ||= (e) => I(u).scaleExponent = e,
+					"scale-pivot": I(u).scalePivot,
+					"onUpdate:scalePivot": t[8] ||= (e) => I(u).scalePivot = e,
+					awards: I(d).awards,
+					"decay-samples": I(i),
+					samples: I(r)
+				}, null, 8, [
+					"companion-multiplier",
+					"curve-exponent",
+					"gap-for-maximum-award",
+					"maximum-award",
+					"scale-exponent",
+					"scale-pivot",
+					"awards",
+					"decay-samples",
+					"samples"
+				])])
 			]),
-			L(l) ? (K(), q("div", Ku, [t[11] ||= J("i", {
-				class: "fa-solid fa-triangle-exclamation",
-				"aria-hidden": "true"
-			}, null, -1), J("span", qu, k(L(l)), 1)])) : oa("", !0),
-			L(v) ? (K(), q("div", Ju, [t[12] ||= J("i", {
-				class: "fa-solid fa-floppy-disk",
-				"aria-hidden": "true"
-			}, null, -1), J("span", null, k(L(v)), 1)])) : oa("", !0),
-			J("div", Yu, [B(J("section", Xu, [Y(pl, {
-				"default-reason": L(s),
-				"onUpdate:defaultReason": t[1] ||= (e) => /* @__PURE__ */ F(s) ? s.value = e : null,
-				actors: L(r),
-				disabled: L(d) || L(u),
-				plan: L(p),
-				"resolved-reason": L(h),
-				"selection-source": L(_),
-				onReset: L(n).resetSelection,
-				onSelectAll: L(n).setAllActorsSelected,
-				"onUpdate:selected": L(n).setActorSelected
-			}, null, 8, [
-				"default-reason",
-				"actors",
-				"disabled",
-				"plan",
-				"resolved-reason",
-				"selection-source",
-				"onReset",
-				"onSelectAll",
-				"onUpdate:selected"
-			])], 512), [[Ga, b.value === "award"]]), B(J("section", Zu, [J("div", Qu, [Y(_u, {
-				"companion-multiplier": L(f).companionMultiplier,
-				"onUpdate:companionMultiplier": t[2] ||= (e) => L(f).companionMultiplier = e,
-				"curve-exponent": L(f).curveExponent,
-				"onUpdate:curveExponent": t[3] ||= (e) => L(f).curveExponent = e,
-				"gap-for-maximum-award": L(f).gapForMaximumAward,
-				"onUpdate:gapForMaximumAward": t[4] ||= (e) => L(f).gapForMaximumAward = e,
-				"maximum-award": L(f).maximumAward,
-				"onUpdate:maximumAward": t[5] ||= (e) => L(f).maximumAward = e,
-				"scale-exponent": L(f).scaleExponent,
-				"onUpdate:scaleExponent": t[6] ||= (e) => L(f).scaleExponent = e,
-				"scale-pivot": L(f).scalePivot,
-				"onUpdate:scalePivot": t[7] ||= (e) => L(f).scalePivot = e,
-				awards: L(p).awards,
-				"decay-samples": L(o),
-				samples: L(a)
-			}, null, 8, [
-				"companion-multiplier",
-				"curve-exponent",
-				"gap-for-maximum-award",
-				"maximum-award",
-				"scale-exponent",
-				"scale-pivot",
-				"awards",
-				"decay-samples",
-				"samples"
-			]), Y(Ou, {
-				"default-selection": L(c),
-				"onUpdate:defaultSelection": t[8] ||= (e) => /* @__PURE__ */ F(c) ? c.value = e : null,
-				"use-gm-toolkit-defaults": L(y),
-				"onUpdate:useGmToolkitDefaults": t[9] ||= (e) => /* @__PURE__ */ F(y) ? y.value = e : null,
-				disabled: L(u) || L(d),
-				"is-saving": L(u),
-				onSave: L(n).saveDefaults
-			}, null, 8, [
-				"default-selection",
-				"use-gm-toolkit-defaults",
-				"disabled",
-				"is-saving",
-				"onSave"
-			])])], 512), [[Ga, b.value === "curves"]])]),
-			J("footer", $u, [t[13] ||= J("p", { class: "tw:m-0 tw:min-w-0 tw:text-xs tw:text-base-content/65" }, " Awards use WFRP4e’s experience log and cannot be undone as one batch. ", -1), J("button", {
-				class: "dui-btn dui-btn-primary tw:w-full tw:min-w-0 tw:min-[32rem]:w-auto tw:min-[32rem]:min-w-52",
-				disabled: !L(i) || L(u),
+			J("footer", qd, [t[17] ||= J("p", { class: "tw:m-0 tw:min-w-0 tw:text-xs tw:text-base-content/65!" }, " Saving configuration never awards XP. World defaults apply to the next console opening. ", -1), J("button", {
+				class: "dui-btn dui-btn-primary tw:min-w-48 tw:rounded-full tw:border-2 tw:border-base-100/40! tw:shadow-md",
+				disabled: I(c),
 				type: "button",
-				onClick: t[10] ||= (...e) => L(n).applyAwards && L(n).applyAwards(...e)
-			}, [L(d) ? (K(), q("span", td)) : (K(), q("i", nd)), X(" Award " + k(L(p).totalAward) + " XP ", 1)], 8, ed)])
+				onClick: t[9] ||= (...e) => I(n).saveConfiguration && I(n).saveConfiguration(...e)
+			}, [I(c) ? (K(), q("span", Yd)) : (K(), q("i", Xd)), t[16] ||= X(" Save configuration ", -1)], 8, Jd)])
 		]));
 	}
 });
 //#endregion
 //#region src/functions/xp-curve/selection.ts
-function id(e) {
+function Qd(e) {
 	let { assignedActorIds: t, candidates: n, defaultSelection: r, targetedActorIds: i } = e;
 	return n.map((e) => {
-		let n = ad(e, t);
+		let n = $d(e, t);
 		return {
 			category: n,
 			id: e.id,
 			name: e.name,
-			selected: i?.has(e.id) ?? od(e.id, n, r, t),
+			selected: i?.has(e.id) ?? ef(e.id, n, r, t),
 			totalXp: e.totalXp
 		};
-	}).sort(sd);
+	}).sort(tf);
 }
-function ad(e, t) {
+function $d(e, t) {
 	return e.hasPlayerOwner && !t.has(e.id) ? "companion" : "standard";
 }
-function od(e, t, n, r) {
+function ef(e, t, n, r) {
 	return n === "world" ? !0 : n === "company" ? r.has(e) || t === "companion" : r.has(e);
 }
-function sd(e, t) {
+function tf(e, t) {
 	return e.selected === t.selected ? e.name.localeCompare(t.name) : e.selected ? -1 : 1;
 }
 //#endregion
 //#region src/module/xp-curve/actors.ts
-function cd(e) {
-	let t = pd(), n = md(), r = n === void 0 ? "default" : "targets";
+function nf(e) {
+	let t = cf(), n = lf(), r = n === void 0 ? "default" : "targets";
 	return {
-		actors: id({
+		actors: Qd({
 			assignedActorIds: t,
-			candidates: Array.from(game.actors).filter((e) => e.type === "character").map(ud),
+			candidates: Array.from(game.actors).filter((e) => e.type === "character").map(af),
 			defaultSelection: e,
 			targetedActorIds: n
 		}),
 		selectionSource: r
 	};
 }
-function ld(e) {
-	let t = pd();
+function rf(e) {
+	let t = cf();
 	return e.map((e) => {
 		let n = game.actors.get(e);
 		if (!n || n.type !== "character") throw Error(`XP recipient ${e} is no longer an available character actor.`);
-		return dd(n, ad(n, t), !0);
+		return of(n, $d(n, t), !0);
 	});
 }
-function ud(e) {
-	let t = fd(e);
+function af(e) {
+	let t = sf(e);
 	return {
 		hasPlayerOwner: e.hasPlayerOwner,
 		id: e.id,
 		name: e.name,
-		totalXp: t.details.experience.total
+		totalXp: t.totalXp
 	};
 }
-function dd(e, t, n) {
-	let r = fd(e);
+function of(e, t, n) {
+	let r = sf(e);
 	return {
-		awardExperience: async (e, t) => {
-			await r.awardExp.call(r, e, t, null, !0);
-		},
+		awardExperience: r.awardExperience,
 		choice: {
 			category: t,
 			id: e.id,
 			name: e.name,
 			selected: n,
-			totalXp: r.details.experience.total
+			totalXp: r.totalXp
 		}
 	};
 }
-function fd(e) {
-	if (!hd(e.system)) throw Error(`WFRP4e actor "${e.name}" does not expose readable system data.`);
-	let t = e.system.details, n = e.system.awardExp;
-	if (!hd(t) || typeof n != "function") throw Error(`WFRP4e actor "${e.name}" does not expose XP award operations.`);
-	let r = t.experience;
-	if (!hd(r) || !Number.isFinite(Number(r.total))) throw Error(`WFRP4e actor "${e.name}" does not expose a numeric total XP value.`);
+function sf(e) {
+	let t = e.system;
+	if (!uf(t)) throw Error(`WFRP4e actor "${e.name}" does not expose readable system data.`);
+	let n = t.details, r = t.awardExp;
+	if (!uf(n) || typeof r != "function") throw Error(`WFRP4e actor "${e.name}" does not expose XP award operations.`);
+	let i = n.experience;
+	if (!uf(i) || !Number.isFinite(Number(i.total))) throw Error(`WFRP4e actor "${e.name}" does not expose a numeric total XP value.`);
 	return {
-		awardExp: n,
-		details: { experience: { total: Math.max(0, Math.round(Number(r.total))) } }
+		awardExperience: async (e, n) => {
+			await r.call(t, e, n, null, !0);
+		},
+		totalXp: Math.max(0, Math.round(Number(i.total)))
 	};
 }
-function pd() {
+function cf() {
 	return new Set(Array.from(game.users).map((e) => e.character?.id).filter((e) => typeof e == "string"));
 }
-function md() {
+function lf() {
 	if (!(!game.user.targets || game.user.targets.size === 0)) return new Set(Array.from(game.user.targets).map((e) => e.actor).filter((e) => e?.type === "character").map((e) => e.id));
 }
-function hd(e) {
+function uf(e) {
 	return typeof e == "object" && !!e;
 }
 //#endregion
@@ -5256,38 +5583,37 @@ var $ = {
 	maximumAward: "xpCurveMaximumAward",
 	scaleExponent: "xpCurveScaleExponent",
 	scalePivot: "xpCurveScalePivot",
-	showModuleSettingsLauncher: "showXpCurveModuleSettingsLauncher",
 	showTokenControlsLauncher: "showXpCurveTokenControlsLauncher",
 	useGmToolkitDefaults: "xpCurveUseGmToolkitDefaults"
-}, gd = {
+}, df = {
 	defaultReason: "addXPDefaultReason",
 	defaultSelection: "defaultPartySessionTurnover",
 	session: "sessionID"
 };
-function _d() {
-	let e = Sd($.useGmToolkitDefaults), t = {
-		defaultReason: wd($.defaultReason),
-		defaultSelection: Td($.defaultSelection),
+function ff() {
+	let e = yf($.useGmToolkitDefaults), t = {
+		defaultReason: xf($.defaultReason),
+		defaultSelection: Sf($.defaultSelection),
 		parameters: {
-			companionMultiplier: Cd($.companionMultiplier),
-			curveExponent: Cd($.curveExponent),
-			gapForMaximumAward: Cd($.gapForMaximumAward),
-			maximumAward: Cd($.maximumAward),
-			scaleExponent: Cd($.scaleExponent),
-			scalePivot: Cd($.scalePivot)
+			companionMultiplier: bf($.companionMultiplier),
+			curveExponent: bf($.curveExponent),
+			gapForMaximumAward: bf($.gapForMaximumAward),
+			maximumAward: bf($.maximumAward),
+			scaleExponent: bf($.scaleExponent),
+			scalePivot: bf($.scalePivot)
 		},
 		useGmToolkitDefaults: e
 	};
-	return !e || !xd() ? t : {
+	return !e || !_f() ? t : {
 		...t,
-		defaultReason: Ed(gd.defaultReason),
-		defaultSelection: Dd()
+		defaultReason: Cf(df.defaultReason),
+		defaultSelection: wf()
 	};
 }
-function vd(e) {
-	return !e || !xd() ? "" : Ed(gd.session);
+function pf(e) {
+	return !e || !gf() || !vf(df.session) ? "" : Cf(df.session);
 }
-async function yd(e) {
+async function mf(e) {
 	let n = [
 		[$.companionMultiplier, e.parameters.companionMultiplier],
 		[$.curveExponent, e.parameters.curveExponent],
@@ -5301,65 +5627,134 @@ async function yd(e) {
 	];
 	for (let [e, r] of n) await game.settings.set(t, e, r);
 }
-function bd(e) {
-	return Sd(e);
+function hf(e) {
+	return yf(e);
 }
-function xd() {
+function gf() {
 	return game.modules.get(r)?.active === !0;
 }
-function Sd(e) {
+function _f() {
+	return gf() && vf(df.defaultReason) && vf(df.defaultSelection);
+}
+function vf(e) {
+	return game.settings.settings.has(`${r}.${e}`);
+}
+function yf(e) {
 	return game.settings.get(t, e) === !0;
 }
-function Cd(e) {
+function bf(e) {
 	return Number(game.settings.get(t, e));
 }
-function wd(e) {
+function xf(e) {
 	let n = game.settings.get(t, e);
 	return typeof n == "string" ? n : "";
 }
-function Td(e) {
-	return Od(wd(e));
+function Sf(e) {
+	return Tf(xf(e));
 }
-function Ed(e) {
+function Cf(e) {
 	let t = game.settings.get(r, e);
 	return typeof t == "string" && t !== "null" ? t : "";
 }
-function Dd() {
-	return Od(Ed(gd.defaultSelection));
+function wf() {
+	return Tf(Cf(df.defaultSelection));
 }
-function Od(e) {
+function Tf(e) {
 	return e === "company" || e === "world" ? e : "party";
 }
 //#endregion
+//#region src/module/xp-curve/configuration.ts
+function Ef() {
+	let e = ff();
+	return {
+		...e,
+		actors: nf(e.defaultSelection).actors,
+		launchers: { tokenControls: hf($.showTokenControlsLauncher) }
+	};
+}
+async function Df(e) {
+	if (!game.user.isGM) throw Error("Only a GM can change the XP Curve Console configuration.");
+	await mf({
+		defaultReason: e.defaultReason,
+		defaultSelection: e.defaultSelection,
+		parameters: Qc(e.parameters),
+		useGmToolkitDefaults: e.useGmToolkitDefaults
+	}), await game.settings.set(t, $.showTokenControlsLauncher, e.launchers.tokenControls), ui.notifications.info("XP Curve Console configuration saved.");
+}
+//#endregion
+//#region src/module/apps/xp-curve-configurator/XpCurveConfiguratorApplication.ts
+var Of = class extends Ac {
+	static DEFAULT_OPTIONS = {
+		...super.DEFAULT_OPTIONS,
+		classes: [t, `${t}-xp-curve-configurator`],
+		id: `${t}-xp-curve-configurator`,
+		position: {
+			height: 760,
+			width: 920
+		},
+		window: {
+			icon: "fa-solid fa-chart-line",
+			resizable: !0,
+			title: `${n} — XP Curve Configurator`
+		}
+	};
+	#e;
+	constructor(e = {}) {
+		super(), this.#e = e;
+	}
+	getVueComponent() {
+		return Zd;
+	}
+	getVueProps() {
+		return {
+			actions: { saveConfiguration: async (e) => {
+				await Df(e), await this.#e.onSaved?.();
+			} },
+			initialization: Ef()
+		};
+	}
+};
+//#endregion
+//#region src/module/apps/xp-curve-configurator/open.ts
+async function kf(e = {}) {
+	let t = new Of(e);
+	return await t.render(!0), t;
+}
+function Af(e = {}) {
+	kf(e).catch((e) => {
+		console.error(`${t} | Failed to open the XP Curve Configurator.`, e), ui.notifications.error("Drowsy’s Toolkit could not open the XP Curve Configurator. See the browser console for details.");
+	});
+}
+//#endregion
 //#region src/module/xp-curve/initialization.ts
-function kd() {
-	let e = _d(), t = cd(e.defaultSelection);
+function jf() {
+	let e = ff(), t = nf(e.defaultSelection);
 	return {
 		...e,
 		...t,
-		reasonContext: Ad(!0)
+		reasonContext: Mf(!0)
 	};
 }
-function Ad(e) {
+function Mf(e) {
 	return {
 		date: game.world.nextSession?.slice(0, 10) || (/* @__PURE__ */ new Date()).toISOString().slice(0, 10),
-		session: vd(e)
+		session: pf(e)
 	};
 }
 //#endregion
 //#region src/module/xp-curve/service.ts
-async function jd(e) {
+async function Nf(e) {
 	if (!game.user.isGM) throw Error("Only a GM can award experience.");
-	let t = ld(Array.from(new Set(e.actorIds))), n = wc(e.parameters), r = Tc(t.map((e) => e.choice), n);
+	let t = rf(Array.from(new Set(e.actorIds))), n = Qc(e.parameters), r = $c(t.map((e) => e.choice), n);
 	if (r.awards.length < 2) throw Error("Select at least two character actors to calculate catch-up XP.");
 	if (r.totalAward < 1) throw Error("This curve produces no XP awards for the selected actors.");
-	await yd({
+	await mf({
 		defaultReason: e.defaultReason,
 		defaultSelection: e.defaultSelection,
 		parameters: n,
 		useGmToolkitDefaults: e.useGmToolkitDefaults
 	});
-	let i = Mc(e.defaultReason, Ad(e.useGmToolkitDefaults)), a = [];
+	let i = ol(e.defaultReason, Mf(e.useGmToolkitDefaults)), a = [];
 	for (let [e, n] of t.entries()) {
 		let t = r.awards[e];
 		if (t.award !== 0) try {
@@ -5373,22 +5768,15 @@ async function jd(e) {
 		...r,
 		reason: i
 	};
-	return await Nd(o), ui.notifications.info(`Awarded ${o.totalAward} total XP across ${a.length} actors.`), o;
+	return await Pf(o), ui.notifications.info(`Awarded ${o.totalAward} total XP across ${a.length} actors.`), o;
 }
-async function Md(e) {
-	if (!game.user.isGM) throw Error("Only a GM can change XP Curve Console defaults.");
-	await yd({
-		...e,
-		parameters: wc(e.parameters)
-	}), ui.notifications.info("XP Curve Console defaults saved.");
-}
-async function Nd(e) {
-	let t = e.awards.filter((e) => e.award > 0).map((e) => `<li><strong>${Nc(e.actorName)}</strong>: +${e.award} XP (${e.beforeXp} → ${e.afterXp})</li>`).join(""), n = `<h2>XP Curve Award</h2><p>${Nc(e.reason)}</p><ul>${t}</ul><p><strong>${e.totalAward} XP awarded in total.</strong></p>`, r = game.wfrp4e.utility.chatDataSetup(n, "gmroll", !1, { alias: "Drowsy’s Toolkit" });
+async function Pf(e) {
+	let t = e.awards.filter((e) => e.award > 0).map((e) => `<li><strong>${sl(e.actorName)}</strong>: +${e.award} XP (${e.beforeXp} → ${e.afterXp})</li>`).join(""), n = `<h2>XP Curve Award</h2><p>${sl(e.reason)}</p><ul>${t}</ul><p><strong>${e.totalAward} XP awarded in total.</strong></p>`, r = game.wfrp4e.utility.chatDataSetup(n, "gmroll", !1, { alias: "Drowsy’s Toolkit" });
 	await ChatMessage.create(r);
 }
 //#endregion
 //#region src/module/apps/xp-curve-console/XpCurveConsoleApplication.ts
-var Pd = class extends vc {
+var Ff = class extends Ac {
 	static DEFAULT_OPTIONS = {
 		...super.DEFAULT_OPTIONS,
 		classes: [t, `${t}-xp-curve-console`],
@@ -5404,74 +5792,66 @@ var Pd = class extends vc {
 		}
 	};
 	getVueComponent() {
-		return rd;
+		return du;
 	}
 	getVueProps() {
 		return {
 			actions: {
-				applyAwards: jd,
+				applyAwards: Nf,
 				onActionComplete: () => {
 					this.close().catch((e) => {
 						console.error(`${t} | Failed to close the XP Curve Console.`, e), ui.notifications.error("XP awards completed, but Drowsy’s Toolkit could not close the console.");
 					});
 				},
-				saveSettings: Md
+				openConfigurator: () => {
+					Af({ onSaved: () => this.render(!0) });
+				}
 			},
-			initialization: kd()
+			initialization: jf()
 		};
 	}
 };
 //#endregion
 //#region src/module/apps/xp-curve-console/open.ts
-async function Fd() {
-	let e = new Pd();
+async function If() {
+	let e = new Ff();
 	return await e.render(!0), e;
 }
-function Id() {
-	Fd().catch((e) => {
+function Lf() {
+	If().catch((e) => {
 		console.error(`${t} | Failed to open the XP Curve Console.`, e), ui.notifications.error("Drowsy’s Toolkit could not open the XP Curve Console. See the browser console for details.");
 	});
 }
 //#endregion
 //#region src/module/api/create-module-api.ts
-function Ld() {
+function Rf() {
 	return {
-		applyToSelectedActors: pc,
-		awardXpCurve: jd,
-		openFearConsole: bc,
-		openXpCurveConsole: Fd,
-		openWorkbench: bc,
-		postPrompt: mc,
-		postSummaryPrompt: hc
+		applyToSelectedActors: Hc,
+		awardXpCurve: Nf,
+		openFearConsole: Jc,
+		openXpCurveConsole: If,
+		openWorkbench: Jc,
+		postPrompt: Uc,
+		postSummaryPrompt: Wc
 	};
 }
 //#endregion
 //#region src/module/api/register-module-api.ts
-function Rd() {
+function zf() {
 	let e = game.modules.get(t);
 	if (!e) throw Error(`Foundry module registry entry was not found for ${t}.`);
-	e.api = Ld();
-}
-//#endregion
-//#region src/module/fear-terror/settings/launchers.ts
-var zd = {
-	actorSheet: "showActorSheetLauncher",
-	moduleSettings: "showModuleSettingsLauncher",
-	tokenControls: "showTokenControlsLauncher"
-};
-function Bd(e) {
-	return game.settings.get(t, e) === !0;
+	e.api = Rf();
 }
 //#endregion
 //#region src/module/fear-terror/actor-sheet/register.ts
-var Vd = "openFearConsole", Hd = "wfrp4e-enhanced-fear-terror-actor-header", Ud = [
+var Bf = "openFearConsole", Vf = "wfrp4e-enhanced-fear-terror-actor-header", Hf = [
 	"getHeaderControlsActorSheetWFRP4eCharacter",
 	"getHeaderControlsActorSheetWFRP4eNPC",
 	"getHeaderControlsActorSheetWFRP4eCreature",
 	"getHeaderControlsStandardWFRP4eActorSheet",
 	"getHeaderControlsBaseWFRP4eActorSheet",
 	"getHeaderControlsWarhammerActorSheetV2"
-], Wd = [
+], Uf = [
 	"renderActorSheetWFRP4eCharacter",
 	"renderActorSheetWFRP4eNPC",
 	"renderActorSheetWFRP4eCreature",
@@ -5479,71 +5859,79 @@ var Vd = "openFearConsole", Hd = "wfrp4e-enhanced-fear-terror-actor-header", Ud 
 	"renderBaseWFRP4eActorSheet",
 	"renderWarhammerActorSheetV2"
 ];
-function Gd() {
-	if (Bd(zd.actorSheet)) {
-		for (let e of Ud) Hooks.on(e, (e, t) => {
-			Kd(e, t);
+function Wf() {
+	if (Dc(Ec.actorSheet)) {
+		for (let e of Hf) Hooks.on(e, (e, t) => {
+			Gf(e, t);
 		});
-		for (let e of Wd) Hooks.on(e, (e) => {
-			qd(e);
+		for (let e of Uf) Hooks.on(e, (e) => {
+			Kf(e);
 		});
 	}
 }
-function Kd(e, t) {
-	e.document.documentName === "Actor" && (t.some((e) => e.action === Vd) || (t.push({
-		action: Vd,
+function Gf(e, t) {
+	e.document.documentName === "Actor" && (t.some((e) => e.action === Bf) || (t.push({
+		action: Bf,
 		icon: "fa-solid fa-skull",
 		label: "Fear Console"
-	}), e.options.actions ??= {}, e.options.actions[Vd] = function() {
-		Jd(this.document);
+	}), e.options.actions ??= {}, e.options.actions[Bf] = function() {
+		qf(this.document);
 	}));
 }
-function qd(e) {
+function Kf(e) {
 	let t = e.document, n = e.element;
 	if (t.documentName !== "Actor" || !(n instanceof HTMLElement)) return;
 	let r = n.querySelector(".window-header");
-	if (!r || r.querySelector(`.${Hd}`)) return;
+	if (!r || r.querySelector(`.${Vf}`)) return;
 	let i = document.createElement("button");
-	i.type = "button", i.classList.add(Hd, "header-control", "icon", "fa-solid", "fa-skull"), i.dataset.action = Vd, i.dataset.tooltip = "Fear Console", i.ariaLabel = "Open Drowsy’s Toolkit Fear Console", i.addEventListener("click", (e) => {
-		e.preventDefault(), e.stopPropagation(), Jd(t);
+	i.type = "button", i.classList.add(Vf, "header-control", "icon", "fa-solid", "fa-skull"), i.dataset.action = Bf, i.dataset.tooltip = "Fear Console", i.ariaLabel = "Open Drowsy’s Toolkit Fear Console", i.addEventListener("click", (e) => {
+		e.preventDefault(), e.stopPropagation(), qf(t);
 	});
 	let a = r.querySelector("[data-action=\"toggleControls\"]") ?? r.querySelector("[data-action=\"close\"]");
 	r.insertBefore(i, a);
 }
-function Jd(e) {
+function qf(e) {
 	try {
-		xc({ initialPayload: sc(e) });
+		Yc({ initialPayload: Ic(e) });
 	} catch (e) {
 		console.error("wfrp4e-enhanced-fear-terror | Could not infer Fear or Terror from the actor.", e), ui.notifications.error("Drowsy’s Toolkit could not read this actor. See the browser console for details.");
 	}
 }
 //#endregion
+//#region src/functions/scene-controls/toolclip.ts
+function Jf(e, t) {
+	return {
+		heading: e,
+		items: [{ paragraph: t }]
+	};
+}
+//#endregion
 //#region src/module/fear-terror/scene-controls/register.ts
-var Yd = "openFearConsole";
-function Xd() {
-	Bd(zd.tokenControls) && Hooks.on("getSceneControlButtons", (e) => {
-		Zd(e);
+var Yf = "openFearConsole";
+function Xf() {
+	Dc(Ec.tokenControls) && Hooks.on("getSceneControlButtons", (e) => {
+		Zf(e);
 	});
 }
-function Zd(t) {
+function Zf(t) {
 	let n = t.tokens;
-	n && (n.tools[Yd] = {
+	n && (n.tools[Yf] = {
 		button: !0,
 		icon: "fa-solid fa-skull",
-		name: Yd,
+		name: Yf,
 		onChange: () => {
-			xc();
+			Yc();
 		},
 		order: 99,
 		title: "Fear Console",
-		toolclip: { content: `${e}.SceneControls.OpenFearConsole` }
+		toolclip: Jf("Fear Console", `${e}.SceneControls.OpenFearConsole`)
 	});
 }
 //#endregion
 //#region src/module/settings/register.ts
-function Qd(n, r) {
+function Qf(n, r) {
 	game.settings.register(t, n, {
-		config: !0,
+		config: !1,
 		default: !0,
 		hint: `${e}.Settings.${r}.Hint`,
 		name: `${e}.Settings.${r}.Name`,
@@ -5554,77 +5942,77 @@ function Qd(n, r) {
 }
 //#endregion
 //#region src/module/fear-terror/settings/register.ts
-function $d() {
-	Qd(zd.moduleSettings, "ModuleSettingsLauncher"), Qd(zd.tokenControls, "TokenControlsLauncher"), Qd(zd.actorSheet, "ActorSheetLauncher"), Bd(zd.moduleSettings) && game.settings.registerMenu(t, "fearConsole", {
-		hint: `${e}.Menu.FearConsole.Hint`,
-		icon: "fa-solid fa-skull",
-		label: `${e}.Menu.FearConsole.Label`,
-		name: `${e}.Menu.FearConsole.Name`,
+function $f() {
+	Qf(Ec.tokenControls, "TokenControlsLauncher"), Qf(Ec.actorSheet, "ActorSheetLauncher"), game.settings.registerMenu(t, "fearConsole", {
+		hint: `${e}.Menu.FearConsoleConfigurator.Hint`,
+		icon: "fa-solid fa-gears",
+		label: `${e}.Menu.FearConsoleConfigurator.Label`,
+		name: `${e}.Menu.FearConsoleConfigurator.Name`,
 		restricted: !0,
-		type: yc
+		type: jc
 	});
 }
 //#endregion
 //#region src/module/xp-curve/scene-controls/register.ts
-var ef = "openXpCurveConsole";
-function tf() {
-	bd($.showTokenControlsLauncher) && Hooks.on("getSceneControlButtons", (t) => {
+var ep = "openXpCurveConsole";
+function tp() {
+	hf($.showTokenControlsLauncher) && Hooks.on("getSceneControlButtons", (t) => {
 		let n = t.tokens;
-		n && (n.tools[ef] = {
+		n && (n.tools[ep] = {
 			button: !0,
 			icon: "fa-solid fa-chart-line",
-			name: ef,
-			onChange: Id,
+			name: ep,
+			onChange: Lf,
 			order: 98,
 			title: "XP Curve Console",
-			toolclip: { content: `${e}.SceneControls.OpenXpCurveConsole` }
+			toolclip: Jf("XP Curve Console", `${e}.SceneControls.OpenXpCurveConsole`)
 		});
 	});
 }
 //#endregion
 //#region src/module/xp-curve/settings/register.ts
-function nf() {
-	Qd($.showModuleSettingsLauncher, "XpCurveModuleSettingsLauncher"), Qd($.showTokenControlsLauncher, "XpCurveTokenControlsLauncher"), rf($.maximumAward, 500, Number, "MaximumAward", { range: {
+function np() {
+	Qf($.showTokenControlsLauncher, "XpCurveTokenControlsLauncher"), rp($.maximumAward, 500, Number, "MaximumAward", { range: {
 		max: 1e5,
 		min: 0,
 		step: 1
-	} }), rf($.gapForMaximumAward, 1e3, Number, "GapForMaximumAward", { range: {
+	} }), rp($.gapForMaximumAward, 1e3, Number, "GapForMaximumAward", { range: {
 		max: 1e6,
 		min: 1,
 		step: 100
-	} }), rf($.curveExponent, .75, Number, "CurveExponent", { range: {
+	} }), rp($.curveExponent, .75, Number, "CurveExponent", { range: {
 		max: 5,
 		min: .1,
 		step: .05
-	} }), rf($.scalePivot, 5e3, Number, "ScalePivot", { range: {
+	} }), rp($.scalePivot, 5e3, Number, "ScalePivot", { range: {
 		max: 1e6,
 		min: 1,
 		step: 100
-	} }), rf($.scaleExponent, .5, Number, "ScaleExponent", { range: {
+	} }), rp($.scaleExponent, .5, Number, "ScaleExponent", { range: {
 		max: 2,
 		min: 0,
 		step: .05
-	} }), rf($.companionMultiplier, .5, Number, "CompanionMultiplier", { range: {
+	} }), rp($.companionMultiplier, .5, Number, "CompanionMultiplier", { range: {
 		max: 1,
 		min: 0,
 		step: .05
-	} }), rf($.defaultReason, "XP curve catch-up (%date%)", String, "DefaultReason"), rf($.defaultSelection, "party", String, "DefaultSelection", { choices: {
+	} }), rp($.defaultReason, "XP curve catch-up (%date%)", String, "DefaultReason"), rp($.defaultSelection, "party", String, "DefaultSelection", { choices: {
 		company: `${e}.Settings.XpCurve.DefaultSelection.Company`,
 		party: `${e}.Settings.XpCurve.DefaultSelection.Party`,
 		world: `${e}.Settings.XpCurve.DefaultSelection.World`
-	} }), rf($.useGmToolkitDefaults, !0, Boolean, "UseGmToolkitDefaults"), bd($.showModuleSettingsLauncher) && game.settings.registerMenu(t, "xpCurveConsole", {
-		hint: `${e}.Menu.XpCurveConsole.Hint`,
-		icon: "fa-solid fa-chart-line",
-		label: `${e}.Menu.XpCurveConsole.Label`,
-		name: `${e}.Menu.XpCurveConsole.Name`,
+	} }), rp($.useGmToolkitDefaults, !0, Boolean, "UseGmToolkitDefaults"), game.settings.registerMenu(t, "xpCurveConsole", {
+		hint: `${e}.Menu.XpCurveConfigurator.Hint`,
+		icon: "fa-solid fa-sliders",
+		label: `${e}.Menu.XpCurveConfigurator.Label`,
+		name: `${e}.Menu.XpCurveConfigurator.Name`,
 		restricted: !0,
-		type: Pd
+		type: Of
 	});
 }
-function rf(n, r, i, a, o = {}) {
+function rp(n, r, i, a, o = {}) {
 	game.settings.register(t, n, {
 		...o,
-		config: !0,
+		config: !1,
 		default: r,
 		hint: `${e}.Settings.XpCurve.${a}.Hint`,
 		name: `${e}.Settings.XpCurve.${a}.Name`,
@@ -5633,84 +6021,21 @@ function rf(n, r, i, a, o = {}) {
 	});
 }
 //#endregion
-//#region src/module/settings/sections.ts
-var af = [{
-	descriptionKey: `${e}.Settings.Sections.Fear.Description`,
-	keys: [
-		"fearConsole",
-		zd.moduleSettings,
-		zd.tokenControls,
-		zd.actorSheet
-	],
-	titleKey: `${e}.Settings.Sections.Fear.Title`
-}, {
-	descriptionKey: `${e}.Settings.Sections.XpCurve.Description`,
-	keys: [
-		"xpCurveConsole",
-		$.showModuleSettingsLauncher,
-		$.showTokenControlsLauncher,
-		$.defaultSelection,
-		$.useGmToolkitDefaults,
-		$.defaultReason,
-		$.maximumAward,
-		$.gapForMaximumAward,
-		$.curveExponent,
-		$.scalePivot,
-		$.scaleExponent,
-		$.companionMultiplier
-	],
-	titleKey: `${e}.Settings.Sections.XpCurve.Title`
-}];
-function of() {
-	Hooks.on("renderSettingsConfig", (...e) => {
-		let t = e.map(lf).find((e) => e !== void 0);
-		t && sf(t);
-	});
-}
-function sf(e) {
-	let n = e.matches("[data-category=\"wfrp4e-enhanced-fear-terror\"]") || e.matches("[data-tab=\"wfrp4e-enhanced-fear-terror\"]") ? e : e.querySelector(`[data-category="${t}"], [data-tab="${t}"]`);
-	if (!n) return;
-	for (let e of n.querySelectorAll("[data-drowsys-settings-heading]")) e.remove();
-	let r = Array.from(n.children).filter((e) => e instanceof HTMLElement && e.classList.contains("form-group")), i = /* @__PURE__ */ new Set();
-	for (let e of af) {
-		let t = e.keys.map((e) => cf(r, e)).filter((e) => e !== void 0);
-		if (t.length === 0) continue;
-		let a = document.createElement("h3");
-		a.classList.add("divider"), a.dataset.drowsysSettingsHeading = "true", a.textContent = game.i18n.localize(e.titleKey);
-		let o = document.createElement("p");
-		o.classList.add("hint"), o.dataset.drowsysSettingsHeading = "true", o.textContent = game.i18n.localize(e.descriptionKey), n.append(a, o, ...t), t.forEach((e) => i.add(e));
-	}
-	for (let e of r) i.has(e) || n.append(e);
-}
-function cf(e, n) {
-	let r = new Set([n, `${t}.${n}`]);
-	return e.find((e) => Array.from(e.querySelectorAll("[data-key], [name]")).some((e) => {
-		let t = e.dataset.key ?? e.getAttribute("name");
-		return t ? r.has(t) : !1;
-	}));
-}
-function lf(e) {
-	if (e instanceof HTMLElement) return e;
-	if (typeof e != "object" || !e || !("0" in e)) return;
-	let t = e[0];
-	return t instanceof HTMLElement ? t : void 0;
-}
-//#endregion
 //#region src/module/hooks/register-module-hooks.ts
-function uf() {
+function ip() {
 	Hooks.once("init", () => {
-		console.info(`${t} | Initializing`), $d(), nf(), of(), Gd(), Xd(), tf();
+		console.info(`${t} | Initializing`), $f(), np(), Wf(), Xf(), tp();
 	}), Hooks.once("ready", () => {
 		if (game.system.id !== "wfrp4e") {
 			console.warn(`${t} | Loaded outside ${i}; skipping module API registration.`);
 			return;
 		}
-		Rd(), console.info(`${t} | Ready`);
+		zf(), console.info(`${t} | Ready`);
 	});
 }
 //#endregion
 //#region src/main.ts
-uf();
+ip();
 //#endregion
 
 //# sourceMappingURL=wfrp4e-enhanced-fear-terror.mjs.map
