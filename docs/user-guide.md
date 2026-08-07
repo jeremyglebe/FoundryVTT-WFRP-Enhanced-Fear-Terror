@@ -12,8 +12,11 @@ changing one requires a reload.
 1. Open the console.
 2. Choose `Fear` or `Terror`.
 3. Set the rating and source name.
-4. Review the targeted recipients.
-5. Choose `Post Card`, `Post Link`, or `Apply`.
+4. Review the affected actors.
+5. Use `Post Card`, or open its adjacent menu to choose `Copy Link` or `Apply`.
+
+Posted cards list the currently targeted actors when any are present. `Copy Link` puts the WFRP4e
+inline `@Fear[...]` or `@Terror[...]` command on the clipboard without posting a chat message.
 
 Only targeted token actors receive direct application. Controlled tokens and the current user's
 assigned character are not added implicitly. WFRP4e tracks Fear sources by name, so use a shared
